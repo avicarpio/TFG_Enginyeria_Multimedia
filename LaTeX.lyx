@@ -1,0 +1,1215 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\documentclass[english]{article}
+
+\usepackage{listings}
+
+\usepackage{xcolor}
+
+\usepackage[english]{babel}
+
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
+\begin{document}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language catalan
+\language_package none
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+CREACIÓ D'UNA APLICACIÓ 
+\begin_inset Newline newline
+\end_inset
+
+DE LIVE VIDEO MIXING AL NÚVOL,
+\begin_inset Newline newline
+\end_inset
+
+UTILITZANT TECNOLOGIA DE VIDEOJOCS
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/alex/Imágenes/LogoLaSalle
+	lyxscale 20
+	width 10cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Treball Final de Grau Universitat la Salle URL Barcelona
+\begin_inset Newline newline
+\end_inset
+
+Enginyeria Multimèdia - Menció en Videojocs
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+realitzat per
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Àlex Vicente Carpio
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Departament d'Enginyeria Multimèdia
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Tutor
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.4cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Gabriel Fernández Ubiergo
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Introducció
+\end_layout
+
+\begin_layout Enumerate
+Part Teòrica
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Explicació del projecte
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Projecte actual
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Arquitectura global
+\end_layout
+
+\begin_layout Enumerate
+Parts a substituïr o afegir
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Requeriments del nou Mixer
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Eines Gràfiques
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Headless Chrome
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Vanilla
+\end_layout
+
+\begin_layout Enumerate
+Puppeteer
+\end_layout
+
+\begin_layout Enumerate
+Selenium
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+WebGL Headless
+\end_layout
+
+\begin_layout Enumerate
+Unreal Engine 4
+\end_layout
+
+\begin_layout Enumerate
+Unity Engine
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Tractament dels fluxes de video
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Formats compatibles
+\end_layout
+
+\begin_layout Enumerate
+Protocols de streaming
+\end_layout
+
+\begin_layout Enumerate
+Llibreries de processament
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+FFmpeg
+\end_layout
+
+\begin_layout Enumerate
+LibVLC
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Proposició
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Comparació: Ventatges i desventatges de cada eina
+\end_layout
+
+\begin_layout Enumerate
+Elecció de l'eina i justificació
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Proves de Chrome Headless
+\end_layout
+
+\begin_layout Enumerate
+Proves de Unity
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Elecció de les llibreries a utilitzar
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Entrada de fluxos
+\end_layout
+
+\begin_layout Enumerate
+Sortida del frame
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Elecció del hardware i sistema
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Plataforma Virtual AWS
+\end_layout
+
+\begin_layout Enumerate
+Sistema Operatiu
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Part Pràctica
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Arquitectura del sistema
+\end_layout
+
+\begin_layout Enumerate
+Possibilitats
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Resolució
+\end_layout
+
+\begin_layout Enumerate
+Compatibilitat fluxes entrada
+\end_layout
+
+\begin_layout Enumerate
+Compatibilitat audio
+\end_layout
+
+\begin_layout Enumerate
+Transicions
+\end_layout
+
+\begin_layout Enumerate
+Transformacions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Posicions i Escala
+\end_layout
+
+\begin_layout Enumerate
+Colors & Transparències
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Layer Sorting
+\end_layout
+
+\begin_layout Enumerate
+Cropping
+\end_layout
+
+\begin_layout Enumerate
+Outline & Shadows
+\end_layout
+
+\begin_layout Enumerate
+Textos
+\end_layout
+
+\begin_layout Enumerate
+Imatges
+\end_layout
+
+\begin_layout Enumerate
+Scenes Management
+\end_layout
+
+\begin_layout Enumerate
+Debugging
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Sortida Aplicació
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Video
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+FFmpeg Pipeline
+\end_layout
+
+\begin_layout Enumerate
+Xorg & VirtualGL
+\end_layout
+
+\begin_layout Enumerate
+XVFB
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Audio
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pulseaudio
+\end_layout
+
+\begin_layout Enumerate
+ALSA
+\end_layout
+
+\begin_layout Enumerate
+VB-Audio VoiceMeeter
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Control de l'aplicació
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Interna
+\end_layout
+
+\begin_layout Enumerate
+Remote inputs plugins
+\end_layout
+
+\begin_layout Enumerate
+cURL Requests
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Configuració flux sortida
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Resultats
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Captures
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Funcionalitats
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Rendiments màxims i tests
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Conclusions
+\end_layout
+
+\begin_layout Enumerate
+Linies de futur
+\end_layout
+
+\begin_layout Enumerate
+Referències
+\end_layout
+
+\begin_layout Enumerate
+Annexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Introducció}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'objectiu d'aquest projecte és crear una aplicació de live video mixing
+ usant tecnologies emprades en el món dels videojocs.
+ Ha estat realitzat a l'empresa Watchity S.L., on he estat treballant com
+ a becari, i a la vegada ho he combinat amb el meu projecte de fi de grau.
+ Ja que es tracta d'una idea molt interessant i innovadora, que em va cridar
+ molt l'atenció desde el primer moment.
+ En aquesta empresa ja tenien una primera aplicació, basada en una eina
+ anomenada Snowmix que tenia les seves limitacions.
+ Aquesta és una de les raons per la qual es van plantejar contractar un
+ becari que refés el sistema desde un altre punt de vista totalment diferent.
+ 
+\end_layout
+
+\begin_layout Standard
+En el mercat existeixen algunes altres propostes que fan la competència,
+ però, el que es busca és tenir molta més potencia i possibilitats que aquestes
+ eines, i a la vegada ha de ser fàcil d'utilitzar.
+\end_layout
+
+\begin_layout Standard
+Aquest projecte es vol enfocar en un públic professional, i no tant en casos
+ individuals, encara que també seria possible.
+ 
+\end_layout
+
+\begin_layout Standard
+Alguns exemples de les empreses/entitats que ja han treballat anteriorment
+ amb Watchity són: 
+\emph on
+el Correo Gallego
+\emph default
+, 
+\emph on
+l'Oréal
+\emph default
+, 
+\emph on
+Generalitat de Catalunya
+\emph default
+, 
+\emph on
+Honda
+\emph default
+, etc.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Part Pràctica}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Explicació del projecte}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Projecte Actual}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Arquitectura Global
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El primer que s'ha d'explicar, és la arquitectura del sistema actual de
+ l'empresa Watchity, abans de començar amb el nou.
+ Tenen a disposició dels clients, diferents eines de video, les més importants
+ són: 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Control Room
+\series default
+, és una eina que serveix per controlar fluxos de vídeo i distribuir-los
+ a diferents xarxes socials.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ControlRoom"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cut & Share
+\series default
+, serveix per crear petits videos fàcilment, a partir d'altres més llargs,
+ i poder-los compartir d'una manera senzilla i còmode.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ControlRoom"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Per últim tenim el 
+\series bold
+Mixer
+\series default
+ que és en el que ens centrarem al transcurs d'aquest projecte.
+ Aquest disposa d'un sistema de 
+\shape italic
+Live Video Mixing 
+\emph on
+que es composa del frontend, i el backend.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mixer"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\emph on
+En el frontend trobem una aplicació controlada per navegador que té totes
+ les opcions bàsiques per fer una edició en viu dels videos.
+ Però, té algunes limitacions, com poden ser: un màxim de 15 capes de videos
+ o imatges, no té cap tipus de compatibilitat amb elements 3D, una resolució
+ de 720p al output, no disposa de control per guardar/carregar, limitació
+ de potència per fluxos d'streaming simultanis, poques possibilitats de
+ transicions, no disposa de cap eina per afegir efectes ni de video, ni
+ de so (per exemple, chroma key o reverb, respectivament), impossibilitat
+ per treballar a resolucions de 4K o més.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/FrontendMixer.png
+	width 10cm
+	height 10cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Frontend Mixer
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frontend-Mixer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir d'això, es treu un streaming de output en WebRTC RTP, que es pot
+ emetre automàticament a tots els llocs que el client desitji (Facebook,
+ Youtube, Instagram, etc.)
+\end_layout
+
+\begin_layout Standard
+En quant al backend, s'ocupa de realitzar les tasques demanades desde el
+ frontend explicat anteriorment.
+ A més de controlar les diferents configuracions com poden ser la transcodificac
+ió dels videos, configuració dels videos...
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parts a substituïr
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Encara que hi han alguns elements que primera vista poden semblar que es
+ poden reutilitzar, no és així, ja que la idea es canviar totalment el sistema
+ desde la base, utilitzant un altre tipus de software totalment diferent,
+ veient que l'actual està molt limitat.
+ Per tant, s'ha decidit no utilitzar res de l'anterior projecte i crear-ho
+ tot desde zero.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Requeriments del nou Mixer}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per crear el nou Mixer s'han definit una sèrie de requisits que ha de tenir,
+ per tal de que compleixi amb les expectatives i sigui útil per duur a terme
+ aquesta 
+\begin_inset Quotes eld
+\end_inset
+
+evolució
+\begin_inset Quotes erd
+\end_inset
+
+.
+ És possible que el producte final acabi tenint més funcionalitats de les
+ que s'esmenten a continuació, però sí que reflexa les més bàsiques que
+ ha de tenir.
+\end_layout
+
+\begin_layout Itemize
+Serà necessari que es puguin definir 
+\series bold
+escenes
+\series default
+, les quals també puguin emmagatzemar les posicions dels elements dins de
+ cada una i totes les seves propietats.
+\end_layout
+
+\begin_layout Itemize
+Poder injectar un 
+\series bold
+flux d'streaming
+\end_layout
+
+\begin_layout Itemize
+Poder injectar un video 
+\series bold
+pre-enregistrat (local)
+\end_layout
+
+\begin_layout Itemize
+Tot tipus d'elements s'han de poder insertar amb 
+\series bold
+posicions i paràmtetres inicials
+\end_layout
+
+\begin_layout Itemize
+Injecció d'
+\series bold
+imatges
+\series default
+ amb transparència, a més de permetre el canal 
+\series bold
+alpha
+\end_layout
+
+\begin_layout Itemize
+Possibiltat de tenir fins a 
+\series bold
+6 fonts 
+\series default
+d'streaming 
+\series bold
+simultàniament
+\end_layout
+
+\begin_layout Itemize
+Els flux d'entrada poden tenir 
+\series bold
+diferents resolucions
+\end_layout
+
+\begin_layout Itemize
+Extreure el render final via streaming (
+\series bold
+rtp
+\series default
+ o similar)
+\end_layout
+
+\begin_layout Itemize
+Poder definir la resolució i framerate del render final (720p/25fps, 720p/30fps,
+ 1080p/30fps, etc.)
+\end_layout
+
+\begin_layout Itemize
+Poder canviar d'un element a un altre tant per 
+\series bold
+tall
+\series default
+ com per 
+\series bold
+dissolve
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mute
+\series default
+/unmute de cada font d'entrada
+\end_layout
+
+\begin_layout Itemize
+Control de volum de cada font d'entrada
+\end_layout
+
+\begin_layout Itemize
+Mixing de les fonts no mutejades
+\end_layout
+
+\begin_layout Itemize
+Control de volum de la sortida mesclada
+\end_layout
+
+\begin_layout Itemize
+Mute/unmute de la sortida mesclada
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chroma-keying
+\series default
+ a les fonts de video (streams o local)
+\end_layout
+
+\begin_layout Itemize
+Possibilitat de treballar fins a 
+\series bold
+4K
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Eines Gràfiques}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Headless Chrome}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La primera opció que es va proposar va ser utilitzar Headless Chrome.
+ A partir de la versió 59 de Chrome, és possible executar-lo de manera 
+\shape italic
+headless
+\shape default
+, el que significa que es pot utilitzar desde terminal, o millor dit, desde
+ un servidor.
+ Es va crear pensant en que podria ser molt útil, per fer testos automatitzats
+ de webs o aplicacions online, que no requereixen de una UI com a tal.
+\begin_inset Newline newline
+\end_inset
+
+Per executar-lo és molt fàcil, només cal afegir uns quants paràmetres d'inici
+ al Chrome.
+ Els paràmetres d'exemple són:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash,basicstyle={\normalsize},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+chrome 
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+--headless 
+\backslash
+                   # Runs Chrome in headless mode.
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+--disable-gpu 
+\backslash
+                # Temporarily needed if running on Windows.
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+--remote-debugging-port=9222 
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+https://www.chromestatus.com   # URL to open.
+ Defaults to about:blank.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ControlRoom"
+literal "false"
+
+\end_inset
+
+Watchity.
+ (2019b, September 13).
+ ¿Qué es el Control Room (Live Distribution)? Watchity - Help Center.
+ https://help.watchity.com/hc/es/articles/360017584293--Qu%C3%A9-es-el-Control-Roo
+m-Live-Distribution-
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Cut&Share"
+literal "false"
+
+\end_inset
+
+Watchity.
+ (2020, July 8).
+ Share cuts on Social Networks.
+ Watchity - Help Center.
+ https://help.watchity.com/hc/en-us/articles/360023619094-Share-cuts-on-Social-Net
+works
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Mixer"
+literal "false"
+
+\end_inset
+
+Watchity.
+ (2019, September 9).
+ ¿Qué es el Mixer? Watchity - Help Center.
+ https://help.watchity.com/hc/es/articles/360018866273--Qu%C3%A9-es-el-Mixer-
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Annexes}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{document}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

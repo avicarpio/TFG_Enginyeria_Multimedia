@@ -1,0 +1,224 @@
+%% LyX 2.3.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{graphicx}
+\usepackage{babel}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\textbf{CRACIÓ D'UNA APLICACIÓ }\\
+\textbf{DE LIVE VIDEO MIXING AL NÚVOL,}\\
+\textbf{UTILITZANT TECNOLOGIA DE VIDEOJOCS}
+\par\end{center}
+
+\begin{center}
+\vspace{1cm}
+\par\end{center}
+
+\begin{center}
+\includegraphics[width=10cm]{/home/alex/Imágenes/LogoLaSalle}
+\par\end{center}
+
+\begin{center}
+\vspace{1cm}
+\par\end{center}
+
+\begin{center}
+Treball Final de Grau Universitat la Salle URL Barcelona\\
+Enginyeria Multimèdia - Menció en Videojocs
+\par\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+realitzat per
+\par\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{Àlex Vicente Carpio}\\
+Departament d'Enginyeria Multimèdia
+\par\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+Tutor
+\par\end{center}
+
+\vspace{0.4cm}
+
+\begin{center}
+Gabriel Fernández Ubiergo
+\par\end{center}
+
+\end{titlepage}
+
+\begin{document}
+\begin{enumerate}
+\item Introducció
+\item Part Teòrica
+\begin{enumerate}
+\item Explicació del projecte
+\begin{enumerate}
+\item Projecte actual
+\begin{enumerate}
+\item Arquitectura global
+\item Parts a substituïr o afegir
+\end{enumerate}
+\item Requeriments del nou Mixer
+\end{enumerate}
+\item Eines Gràfiques
+\begin{enumerate}
+\item Headless Chrome
+\begin{enumerate}
+\item Vanilla
+\item Puppeteer
+\item Selenium
+\end{enumerate}
+\item WebGL Headless
+\item Unreal Engine 4
+\item Unity Engine
+\end{enumerate}
+\item Tractament dels fluxes de video
+\begin{enumerate}
+\item Formats compatibles
+\item Protocols de streaming
+\item Llibreries de processament
+\begin{enumerate}
+\item FFmpeg
+\item LibVLC
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\item Proposició
+\begin{enumerate}
+\item Comparació: Ventatges i desventatges de cada eina
+\item Elecció de l'eina i justificació
+\begin{enumerate}
+\item Proves de Chrome Headless
+\item Proves de Unity
+\end{enumerate}
+\item Elecció de les llibreries a utilitzar
+\begin{enumerate}
+\item Entrada de fluxos
+\item Sortida del frame
+\end{enumerate}
+\item Elecció del hardware i sistema
+\begin{enumerate}
+\item Plataforma Virtual AWS
+\item Sistema Operatiu
+\end{enumerate}
+\end{enumerate}
+\item Part Pràctica
+\begin{enumerate}
+\item Arquitectura del sistema
+\item Possibilitats
+\begin{enumerate}
+\item Resolució
+\item Compatibilitat fluxes entrada
+\item Compatibilitat audio
+\item Transicions
+\item Transformacions
+\begin{enumerate}
+\item Posicions i Escala
+\item Colors \& Transparències
+\end{enumerate}
+\item Layer Sorting
+\item Cropping
+\item Outline \& Shadows
+\item Textos
+\item Imatges
+\item Scenes Management
+\item Debugging
+\end{enumerate}
+\item Sortida Aplicació
+\begin{enumerate}
+\item Video
+\begin{enumerate}
+\item FFmpeg Pipeline
+\item Xorg \& VirtualGL
+\item XVFB
+\end{enumerate}
+\item Audio
+\begin{enumerate}
+\item Pulseaudio
+\item ALSA
+\item VB-Audio VoiceMeeter
+\end{enumerate}
+\end{enumerate}
+\item Control de l'aplicació
+\begin{enumerate}
+\item Interna
+\item Remote inputs plugins
+\item cURL Requests
+\end{enumerate}
+\item Configuració flux sortida
+\end{enumerate}
+\item Resultats
+\begin{enumerate}
+\item Captures
+\begin{enumerate}
+\item Funcionalitats
+\end{enumerate}
+\item Rendiments màxims i tests
+\end{enumerate}
+\item Conclusions
+\item Linies de futur
+\item Referències
+\item Annexes
+\end{enumerate}
+\tableofcontents 
+
+\section{Introducció}
+
+L'objectiu d'aquest projecte és crear una aplicació de live video
+mixing usant tecnologies emprades en el món dels videojocs. Ha estat
+realitzat a l'empresa Watchity S.L., on he estat treballant com a
+becari, i a la vegada ho he combinat amb el meu projecte de fi de
+grau. Ja que es tracta d'una idea molt interessant i innovadora, que
+em va cridar molt l'atenció desde el primer moment. En aquesta empresa
+ja tenien una primera aplicació, basada en una eina anomenada Snowmix
+que tenia les seves limitacions. Aquesta és una de les raons per la
+qual es van plantejar contractar un becari que refés el sistema desde
+un altre punt de vista totalment diferent. 
+
+En el mercat existeixen algunes altres propostes que fan la competència,
+però, el que es busca és tenir molta més potencia i possibilitats
+que aquestes eines, i a la vegada ha de ser fàcil d'utilitzar.
+
+Aquest projecte es vol enfocar en un públic professional, i no tant
+en casos individuals, encara que també seria possible. 
+
+Alguns exemples de les empreses/entitats que ja han treballat anteriorment
+amb Watchity són: \emph{el Correo Gallego}, \emph{l'Oréal}, \emph{Generalitat
+de Catalunya}, \emph{Honda}, etc.
+
+\section{Part Pràctica}
+
+\subsection{Explicació del projecte}
+
+\subsubsection{Projecte Actual}
+
+\subsubsubsection{Arquitectura Global}
+
+El primer que s'ha d'explicar, és la arquitectura del sistema actual
+de l'empresa Watchity, abans de començar amb el nou. Disposen d'un
+sistema de \textit{Live Video Mixing }\textit{\emph{que es composa
+del frontend, i el backend. }}\\
+\textit{\emph{En el frontend trobem el Mixer, una aplicació controlada
+per navegador que té totes les opcions bàsiques per fer una edició
+en viu dels videos. Però, té algunes limitacions, com poden ser: un
+màxim de 15 capes de videos o imatges, no té cap tipus de compatibilitat
+amb elements 3D, una resolució de 720p al output, no disposa de control
+per guardar/carregar, limitació de potència per fluxos d'streaming
+simultanis, poques possibilitats de transicions, no disposa de cap
+eina per afegir efectes ni de video, ni de so (per exemple, chroma
+key o reverb, respectivament), impossibilitat per treballar a resolucions
+de 4K o més.}}
+
+\end{document}
+\end{document}
