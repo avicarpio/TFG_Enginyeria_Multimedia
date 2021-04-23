@@ -244,6 +244,330 @@ end{titlepage}
 
 \end_layout
 
+\begin_layout Enumerate
+Introducció
+\end_layout
+
+\begin_layout Enumerate
+Part Teòrica
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Explicació del projecte
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Projecte actual
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Arquitectura global
+\end_layout
+
+\begin_layout Enumerate
+Parts a substituïr o afegir
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Requeriments del nou Mixer
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Eines Gràfiques
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Headless Chrome
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Vanilla
+\end_layout
+
+\begin_layout Enumerate
+Puppeteer
+\end_layout
+
+\begin_layout Enumerate
+Selenium
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+WebGL Headless
+\end_layout
+
+\begin_layout Enumerate
+Unreal Engine 4
+\end_layout
+
+\begin_layout Enumerate
+Unity Engine
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Tractament dels fluxes de video
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Formats compatibles
+\end_layout
+
+\begin_layout Enumerate
+Protocols de streaming
+\end_layout
+
+\begin_layout Enumerate
+Llibreries de processament
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+FFmpeg
+\end_layout
+
+\begin_layout Enumerate
+LibVLC
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Proposició
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Comparació: Ventatges i desventatges de cada eina
+\end_layout
+
+\begin_layout Enumerate
+Elecció de l'eina i justificació
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Proves de Chrome Headless
+\end_layout
+
+\begin_layout Enumerate
+Proves de Unity
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Elecció de les llibreries a utilitzar
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Entrada de fluxos
+\end_layout
+
+\begin_layout Enumerate
+Sortida del frame
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Elecció del hardware i sistema
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Plataforma Virtual AWS
+\end_layout
+
+\begin_layout Enumerate
+Sistema Operatiu
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Part Pràctica
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Arquitectura del sistema
+\end_layout
+
+\begin_layout Enumerate
+Possibilitats
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Resolució
+\end_layout
+
+\begin_layout Enumerate
+Compatibilitat fluxes entrada
+\end_layout
+
+\begin_layout Enumerate
+Compatibilitat audio
+\end_layout
+
+\begin_layout Enumerate
+Transicions
+\end_layout
+
+\begin_layout Enumerate
+Transformacions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Posicions i Escala
+\end_layout
+
+\begin_layout Enumerate
+Colors & Transparències
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Layer Sorting
+\end_layout
+
+\begin_layout Enumerate
+Cropping
+\end_layout
+
+\begin_layout Enumerate
+Outline & Shadows
+\end_layout
+
+\begin_layout Enumerate
+Textos
+\end_layout
+
+\begin_layout Enumerate
+Imatges
+\end_layout
+
+\begin_layout Enumerate
+Scenes Management
+\end_layout
+
+\begin_layout Enumerate
+Debugging
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Sortida Aplicació
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Video
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+FFmpeg Pipeline
+\end_layout
+
+\begin_layout Enumerate
+Xorg & VirtualGL
+\end_layout
+
+\begin_layout Enumerate
+XVFB
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Audio
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pulseaudio
+\end_layout
+
+\begin_layout Enumerate
+ALSA
+\end_layout
+
+\begin_layout Enumerate
+VB-Audio VoiceMeeter
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Control de l'aplicació
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Interna
+\end_layout
+
+\begin_layout Enumerate
+Remote inputs plugins
+\end_layout
+
+\begin_layout Enumerate
+cURL Requests
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Configuració flux sortida
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Resultats
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Captures
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Funcionalitats
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Rendiments màxims i tests
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Conclusions
+\end_layout
+
+\begin_layout Enumerate
+Linies de futur
+\end_layout
+
+\begin_layout Enumerate
+Referències
+\end_layout
+
+\begin_layout Enumerate
+Annexes
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -744,24 +1068,13 @@ subsubsection{Headless Chrome}
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-Vanilla
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 La primera opció que es va proposar va ser utilitzar Headless Chrome.
- A partir de la versió 59 de Chrome (actualment està per la versió 90),
- és possible executar-lo de manera 
+ A partir de la versió 59 de Chrome, és possible executar-lo de manera 
 \shape italic
 headless
 \shape default
 , el que significa que es pot utilitzar desde terminal, o millor dit, desde
- un servidor sense cap tipus de UI.
+ un servidor.
  Es va crear pensant en que podria ser molt útil, per fer testos automatitzats
  de webs o aplicacions online, que no requereixen de una UI com a tal.
 \begin_inset Newline newline
@@ -820,45 +1133,6 @@ https://www.chromestatus.com   # URL to open.
 \end_layout
 
 \begin_layout Standard
-Encara que està pensat per fer automatitzacions com he comentat abans, es
- pot aprofitar la potència de Chrome per altres tasques, com poden ser la
- reproducció de videos, crides a APIs, entre altres.
-\end_layout
-
-\begin_layout Standard
-Buscant algun exemple per internet que aprofités Headless Chrome per la
- reproducció de video, ens vam trobar amb uns quants que havien pensat el
- mateix.
-\end_layout
-
-\begin_layout Standard
-En un article 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "HeadlessChromeExp1"
-literal "false"
-
-\end_inset
-
- trobem que van aconseguir fer streaming a Facebook i Youtube Live amb uns
- resultats bastant satisfactoris.
- A partir d'una web (video + àudio), ho convertien a un flux de sortida
- RTMP.
- Comenta que lo més complicat va ser aconseguir que el video i l'àudio estiguess
-in sincronitzats.
- Però finalment ho va aconseguir gràcies al controlador d'àudio anomenat
- PulseAudio 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PulseAudio"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -908,36 +1182,6 @@ Watchity.
  (2019, September 9).
  ¿Qué es el Mixer? Watchity - Help Center.
  https://help.watchity.com/hc/es/articles/360018866273--Qu%C3%A9-es-el-Mixer-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "HeadlessChromeExp1"
-literal "false"
-
-\end_inset
-
-Pereyro, S.
- (2018, February 09).
- Live streaming with headless chrome - Empirical.
- Empirical.
- https://blog.goempirical.com/how-to-use-headless-chrome-to-screencast-audio-and-v
-ideo-to-an-rtmp-endpoint-216ccfdde4db
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "PulseAudio"
-literal "false"
-
-\end_inset
-
-FreeDesktop.
- (2021, January 16).
- PulseAudio.
- https://www.freedesktop.org/wiki/Software/PulseAudio/
 \end_layout
 
 \begin_layout Standard
