@@ -283,6 +283,15 @@ section{Introducció}
 \begin_layout Standard
 L'objectiu d'aquest projecte és crear una aplicació de live video mixing
  usant tecnologies emprades en el món dels videojocs.
+ És a dir, una aplicació multimedia amb la que poder gestionar fluxos de
+ video d'entrada i de sortida, convinant-los i gestionant-los d'una manera
+ senzilla, eficaç i ràpida.
+ Tot això creat amb una eina utilitzada als videojocs com és un motor gràfic.
+ En un primer moment pot sorprendre una mica la idea i es pot arribar a
+ pensar que no és viable ja que no està pensada per això.
+ Però anireu veient que tot cobra sentit i els videojocs, o les eines per
+ crear-los, són més potents del que creiem i s'utilitzen a molts llocs que
+ mai hauriem imaginat.
  Ha estat realitzat a l'empresa Watchity S.L., on he estat treballant com
  a becari, i a la vegada ho he combinat amb el meu projecte de fi de grau.
  Ja que es tracta d'una idea molt interessant i innovadora, que em va cridar
@@ -324,7 +333,7 @@ Generalitat de Catalunya
 \emph on
 Honda
 \emph default
-, etc.
+...
 \end_layout
 
 \begin_layout Standard
@@ -770,49 +779,17 @@ headless
 Per executar-lo és molt fàcil, només cal afegir uns quants paràmetres d'inici
  al Chrome.
  Els paràmetres d'exemple són:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-lstparams "language=bash,basicstyle={\normalsize},breaklines=true"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-chrome 
-\backslash
-   
-\end_layout
-
-\begin_layout Plain Layout
-
---headless 
-\backslash
-                   # Runs Chrome in headless mode.
-   
-\end_layout
-
-\begin_layout Plain Layout
-
---disable-gpu 
-\backslash
-                # Temporarily needed if running on Windows.
-   
-\end_layout
-
-\begin_layout Plain Layout
-
---remote-debugging-port=9222 
-\backslash
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-https://www.chromestatus.com   # URL to open.
- Defaults to about:blank.
-\end_layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/hchromeconf_1.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Config Headless Chrome},label={chrome}"
 
 \end_inset
 
@@ -844,7 +821,7 @@ literal "false"
  resultats bastant satisfactoris.
  A partir d'una web (video + àudio), ho convertien a un flux de sortida
  RTMP.
- Comenta que lo més complicat va ser aconseguir que el video i l'àudio estiguess
+ Comenta que el més complicat va ser aconseguir que el video i l'àudio estiguess
 in sincronitzats.
  Però finalment ho va aconseguir gràcies al controlador d'àudio anomenat
  PulseAudio 
@@ -853,6 +830,167 @@ LatexCommand cite
 key "PulseAudio"
 literal "false"
 
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Headless Chrome està pensat per ser utilitzat amb alguna eina d'automatització,
+ i així ho recomanen desde el propi blog oficial de Google Developers 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HeadlessChromeDevel"
+literal "false"
+
+\end_inset
+
+.
+ Degut a que no disposem de cap tipus de UI per debugar o interactuar, utilitzar
+em una eina externa.
+ Al blog de Google ens parlen de Puppeteer, Selenium, WebDriver i ChromeDriver.
+ Totes elles tenen el mateix objectiu, automatitzar tasques al navegador.
+ Podriem dir que la més desenvolupada i consolidada, és Selenium, però Pupeteer
+ també s'ha guanyat molt de renom en els últims temps, per tant, haurem
+ de fer un estudi per veure els pros i contres de cada una i decidir amb
+ quina d'aquestes ens quedarem.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Selenium
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Selenium és una eina gratuïta i open-source 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Selenium"
+literal "false"
+
+\end_inset
+
+, que serveix per crear tasques automatitzades en un navegador o aplicació
+ per validar funcionalitats.
+ Es poden utilitzar scripts tant de C#, Python, JavaScript, PHP, Scala...
+ Realment Selenium com a tal és una Suite que es composa d'un grup d'eines,
+ el seu propi IDE, Grid i WebDriver.
+ Nosaltres estem interessats en l'últim, per tant és el que estudiarem.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Selenium WebDriver pot controlar un navegador tal i com ho faria un usuari,
+ ja sigui de manera local o remota en un servidor.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/SeleniumGraph.png
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Selenium Driver Graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Selenium-Graph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com podem veure a la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Selenium-Graph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, WebDriver es comunica amb el navegador a través d'un driver.
+ Aquest driver és específic de cada navegador.
+ El que ens interessa és el de Chrome, per tant sabem que utilitzarem el
+ ChromeDriver.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Els navegadors que suporta són: Chrome, Chromium, Firefox, Internet Explorer,
+ Opera i Safari.
+ A la seva documentació 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SeleniumDriverDocumentation"
+literal "false"
+
+\end_inset
+
+ no comenten en cap lloc compatibilitat amb Headless Chrome, però degut
+ a que està basat en el propi navegador, i no fa cap canvi brusc en el seu
+ funcionament, podem assegurar que també serà compatible.
+ Ho podem corroborar amb un article on ho experimenta 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SeleniumHeadlessChrome"
+literal "false"
+
+\end_inset
+
+, en el que expliquen que només hem d'indicar el driver corresponent a Chrome,
+ i escriure a les opcions, el flag 
+\begin_inset Quotes fld
+\end_inset
+
+–headless
+\begin_inset Quotes frd
 \end_inset
 
 .
@@ -938,6 +1076,121 @@ FreeDesktop.
  (2021, January 16).
  PulseAudio.
  https://www.freedesktop.org/wiki/Software/PulseAudio/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HeadlessChromeDevel"
+literal "false"
+
+\end_inset
+
+Google.
+ (2021, February 25).
+ Getting Started with Headless Chrome | Web |.
+ Google Developers.
+ https://developers.google.com/web/updates/2017/04/headless-chrome
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Selenium"
+literal "false"
+
+\end_inset
+
+SeleniumHQ.
+ (2018, December 19).
+ SeleniumHQ Browser Automation.
+ Selenium.
+ https://www.selenium.dev/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "SeleniumDriverDocumentation"
+literal "false"
+
+\end_inset
+
+SeleniumHQ.
+ (2021a, July 7).
+ Driver requirements :: Documentation for Selenium.
+ Documentació Selenium.
+ https://www.selenium.dev/documentation/en/webdriver/driver_requirements/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "SeleniumHeadlessChrome"
+literal "false"
+
+\end_inset
+
+Smirnov, A.
+ (2020, November 18).
+ How to run a headless Chrome browser in Selenium WebDriver.
+ Medium.
+ https://itnext.io/how-to-run-a-headless-chrome-browser-in-selenium-webdriver-c55
+21bc12bf0
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Images References}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frontend-Mixer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Watchity.
+ (2019, September 9).
+ Frontend Mixer [Graph].
+ Frontend Mixer.
+ https://help.watchity.com/hc/article_attachments/360027399494/Tipo_Production.png
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Selenium-Graph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ SeleniumHQ.
+ (2021, July 7).
+ Selenium Driver Graph [Graph].
+ Selenium Driver Graph.
+ https://www.selenium.dev/documentation/images/basic_comms.png?width=400px
 \end_layout
 
 \begin_layout Standard

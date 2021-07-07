@@ -244,330 +244,6 @@ end{titlepage}
 
 \end_layout
 
-\begin_layout Enumerate
-Introducció
-\end_layout
-
-\begin_layout Enumerate
-Part Teòrica
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Explicació del projecte
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Projecte actual
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Arquitectura global
-\end_layout
-
-\begin_layout Enumerate
-Parts a substituïr o afegir
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Requeriments del nou Mixer
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Eines Gràfiques
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Headless Chrome
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Vanilla
-\end_layout
-
-\begin_layout Enumerate
-Puppeteer
-\end_layout
-
-\begin_layout Enumerate
-Selenium
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-WebGL Headless
-\end_layout
-
-\begin_layout Enumerate
-Unreal Engine 4
-\end_layout
-
-\begin_layout Enumerate
-Unity Engine
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Tractament dels fluxes de video
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Formats compatibles
-\end_layout
-
-\begin_layout Enumerate
-Protocols de streaming
-\end_layout
-
-\begin_layout Enumerate
-Llibreries de processament
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-FFmpeg
-\end_layout
-
-\begin_layout Enumerate
-LibVLC
-\end_layout
-
-\end_deeper
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Proposició
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Comparació: Ventatges i desventatges de cada eina
-\end_layout
-
-\begin_layout Enumerate
-Elecció de l'eina i justificació
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Proves de Chrome Headless
-\end_layout
-
-\begin_layout Enumerate
-Proves de Unity
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Elecció de les llibreries a utilitzar
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Entrada de fluxos
-\end_layout
-
-\begin_layout Enumerate
-Sortida del frame
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Elecció del hardware i sistema
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Plataforma Virtual AWS
-\end_layout
-
-\begin_layout Enumerate
-Sistema Operatiu
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Part Pràctica
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Arquitectura del sistema
-\end_layout
-
-\begin_layout Enumerate
-Possibilitats
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Resolució
-\end_layout
-
-\begin_layout Enumerate
-Compatibilitat fluxes entrada
-\end_layout
-
-\begin_layout Enumerate
-Compatibilitat audio
-\end_layout
-
-\begin_layout Enumerate
-Transicions
-\end_layout
-
-\begin_layout Enumerate
-Transformacions
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Posicions i Escala
-\end_layout
-
-\begin_layout Enumerate
-Colors & Transparències
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Layer Sorting
-\end_layout
-
-\begin_layout Enumerate
-Cropping
-\end_layout
-
-\begin_layout Enumerate
-Outline & Shadows
-\end_layout
-
-\begin_layout Enumerate
-Textos
-\end_layout
-
-\begin_layout Enumerate
-Imatges
-\end_layout
-
-\begin_layout Enumerate
-Scenes Management
-\end_layout
-
-\begin_layout Enumerate
-Debugging
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Sortida Aplicació
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Video
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-FFmpeg Pipeline
-\end_layout
-
-\begin_layout Enumerate
-Xorg & VirtualGL
-\end_layout
-
-\begin_layout Enumerate
-XVFB
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Audio
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Pulseaudio
-\end_layout
-
-\begin_layout Enumerate
-ALSA
-\end_layout
-
-\begin_layout Enumerate
-VB-Audio VoiceMeeter
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Control de l'aplicació
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Interna
-\end_layout
-
-\begin_layout Enumerate
-Remote inputs plugins
-\end_layout
-
-\begin_layout Enumerate
-cURL Requests
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Configuració flux sortida
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Resultats
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Captures
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Funcionalitats
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Rendiments màxims i tests
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Conclusions
-\end_layout
-
-\begin_layout Enumerate
-Linies de futur
-\end_layout
-
-\begin_layout Enumerate
-Referències
-\end_layout
-
-\begin_layout Enumerate
-Annexes
-\end_layout
-
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -607,6 +283,15 @@ section{Introducció}
 \begin_layout Standard
 L'objectiu d'aquest projecte és crear una aplicació de live video mixing
  usant tecnologies emprades en el món dels videojocs.
+ És a dir, una aplicació multimedia amb la que poder gestionar fluxos de
+ video d'entrada i de sortida, convinant-los i gestionant-los d'una manera
+ senzilla, eficaç i ràpida.
+ Tot això creat amb una eina utilitzada als videojocs com és un motor gràfic.
+ En un primer moment pot sorprendre una mica la idea i es pot arribar a
+ pensar que no és viable ja que no està pensada per això.
+ Però anireu veient que tot cobra sentit i els videojocs, o les eines per
+ crear-los, són més potents del que creiem i s'utilitzen a molts llocs que
+ mai hauriem imaginat.
  Ha estat realitzat a l'empresa Watchity S.L., on he estat treballant com
  a becari, i a la vegada ho he combinat amb el meu projecte de fi de grau.
  Ja que es tracta d'una idea molt interessant i innovadora, que em va cridar
@@ -648,7 +333,7 @@ Generalitat de Catalunya
 \emph on
 Honda
 \emph default
-, etc.
+...
 \end_layout
 
 \begin_layout Standard
@@ -1068,13 +753,24 @@ subsubsection{Headless Chrome}
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+Vanilla
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 La primera opció que es va proposar va ser utilitzar Headless Chrome.
- A partir de la versió 59 de Chrome, és possible executar-lo de manera 
+ A partir de la versió 59 de Chrome (actualment està per la versió 90),
+ és possible executar-lo de manera 
 \shape italic
 headless
 \shape default
 , el que significa que es pot utilitzar desde terminal, o millor dit, desde
- un servidor.
+ un servidor sense cap tipus de UI.
  Es va crear pensant en que podria ser molt útil, per fer testos automatitzats
  de webs o aplicacions online, que no requereixen de una UI com a tal.
 \begin_inset Newline newline
@@ -1083,53 +779,221 @@ headless
 Per executar-lo és molt fàcil, només cal afegir uns quants paràmetres d'inici
  al Chrome.
  Els paràmetres d'exemple són:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-lstparams "language=bash,basicstyle={\normalsize},breaklines=true"
-inline false
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/hchromeconf_1.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Config Headless Chrome},label={chrome}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Encara que està pensat per fer automatitzacions com he comentat abans, es
+ pot aprofitar la potència de Chrome per altres tasques, com poden ser la
+ reproducció de videos, crides a APIs, entre altres.
+\end_layout
+
+\begin_layout Standard
+Buscant algun exemple per internet que aprofités Headless Chrome per la
+ reproducció de video, ens vam trobar amb uns quants que havien pensat el
+ mateix.
+\end_layout
+
+\begin_layout Standard
+En un article 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HeadlessChromeExp1"
+literal "false"
+
+\end_inset
+
+ trobem que van aconseguir fer streaming a Facebook i Youtube Live amb uns
+ resultats bastant satisfactoris.
+ A partir d'una web (video + àudio), ho convertien a un flux de sortida
+ RTMP.
+ Comenta que el més complicat va ser aconseguir que el video i l'àudio estiguess
+in sincronitzats.
+ Però finalment ho va aconseguir gràcies al controlador d'àudio anomenat
+ PulseAudio 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PulseAudio"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Headless Chrome està pensat per ser utilitzat amb alguna eina d'automatització,
+ i així ho recomanen desde el propi blog oficial de Google Developers 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HeadlessChromeDevel"
+literal "false"
+
+\end_inset
+
+.
+ Degut a que no disposem de cap tipus de UI per debugar o interactuar, utilitzar
+em una eina externa.
+ Al blog de Google ens parlen de Puppeteer, Selenium, WebDriver i ChromeDriver.
+ Totes elles tenen el mateix objectiu, automatitzar tasques al navegador.
+ Podriem dir que la més desenvolupada i consolidada, és Selenium, però Pupeteer
+ també s'ha guanyat molt de renom en els últims temps, per tant, haurem
+ de fer un estudi per veure els pros i contres de cada una i decidir amb
+ quina d'aquestes ens quedarem.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Selenium
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Selenium és una eina gratuïta i open-source 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Selenium"
+literal "false"
+
+\end_inset
+
+, que serveix per crear tasques automatitzades en un navegador o aplicació
+ per validar funcionalitats.
+ Es poden utilitzar scripts tant de C#, Python, JavaScript, PHP, Scala...
+ Realment Selenium com a tal és una Suite que es composa d'un grup d'eines,
+ el seu propi IDE, Grid i WebDriver.
+ Nosaltres estem interessats en l'últim, per tant és el que estudiarem.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Selenium WebDriver pot controlar un navegador tal i com ho faria un usuari,
+ ja sigui de manera local o remota en un servidor.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/SeleniumGraph.png
+	lyxscale 30
+	height 5cm
 
-chrome 
-\backslash
-   
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-
---headless 
-\backslash
-                   # Runs Chrome in headless mode.
-   
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
+Selenium Driver Graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Selenium-Graph"
 
---disable-gpu 
-\backslash
-                # Temporarily needed if running on Windows.
-   
-\end_layout
+\end_inset
 
-\begin_layout Plain Layout
 
---remote-debugging-port=9222 
-\backslash
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-https://www.chromestatus.com   # URL to open.
- Defaults to about:blank.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com podem veure a la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Selenium-Graph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, WebDriver es comunica amb el navegador a través d'un driver.
+ Aquest driver és específic de cada navegador.
+ El que ens interessa és el de Chrome, per tant sabem que utilitzarem el
+ ChromeDriver.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Els navegadors que suporta són: Chrome, Chromium, Firefox, Internet Explorer,
+ Opera i Safari.
+ A la seva documentació 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SeleniumDriverDocumentation"
+literal "false"
+
+\end_inset
+
+ no comenten en cap lloc compatibilitat amb Headless Chrome, però degut
+ a que està basat en el propi navegador, i no fa cap canvi brusc en el seu
+ funcionament, podem assegurar que també serà compatible.
+ Ho podem corroborar per exemple amb un article on ho experimenta 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SeleniumHeadlessChrome"
+literal "false"
+
+\end_inset
+
+, en el que expliquen que només hem d'indicar el driver corresponent a Chrome,
+ i escriure a les opcions, el flag 
+\begin_inset Quotes fld
+\end_inset
+
+–headless
+\begin_inset Quotes frd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1182,6 +1046,147 @@ Watchity.
  (2019, September 9).
  ¿Qué es el Mixer? Watchity - Help Center.
  https://help.watchity.com/hc/es/articles/360018866273--Qu%C3%A9-es-el-Mixer-
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HeadlessChromeExp1"
+literal "false"
+
+\end_inset
+
+Pereyro, S.
+ (2018, February 09).
+ Live streaming with headless chrome - Empirical.
+ Empirical.
+ https://blog.goempirical.com/how-to-use-headless-chrome-to-screencast-audio-and-v
+ideo-to-an-rtmp-endpoint-216ccfdde4db
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "PulseAudio"
+literal "false"
+
+\end_inset
+
+FreeDesktop.
+ (2021, January 16).
+ PulseAudio.
+ https://www.freedesktop.org/wiki/Software/PulseAudio/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HeadlessChromeDevel"
+literal "false"
+
+\end_inset
+
+Google.
+ (2021, February 25).
+ Getting Started with Headless Chrome | Web |.
+ Google Developers.
+ https://developers.google.com/web/updates/2017/04/headless-chrome
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Selenium"
+literal "false"
+
+\end_inset
+
+SeleniumHQ.
+ (2018, December 19).
+ SeleniumHQ Browser Automation.
+ Selenium.
+ https://www.selenium.dev/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "SeleniumDriverDocumentation"
+literal "false"
+
+\end_inset
+
+SeleniumHQ.
+ (2021a, July 7).
+ Driver requirements :: Documentation for Selenium.
+ Documentació Selenium.
+ https://www.selenium.dev/documentation/en/webdriver/driver_requirements/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "SeleniumHeadlessChrome"
+literal "false"
+
+\end_inset
+
+Smirnov, A.
+ (2020, November 18).
+ How to run a headless Chrome browser in Selenium WebDriver.
+ Medium.
+ https://itnext.io/how-to-run-a-headless-chrome-browser-in-selenium-webdriver-c55
+21bc12bf0
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Images References}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frontend-Mixer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Watchity.
+ (2019, September 9).
+ Frontend Mixer [Graph].
+ Frontend Mixer.
+ https://help.watchity.com/hc/article_attachments/360027399494/Tipo_Production.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Selenium-Graph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ SeleniumHQ.
+ (2021, July 7).
+ Selenium Driver Graph [Graph].
+ Selenium Driver Graph.
+ https://www.selenium.dev/documentation/images/basic_comms.png?width=400px
 \end_layout
 
 \begin_layout Standard
