@@ -351,7 +351,7 @@ status open
 
 
 \backslash
-section{Part Pràctica}
+section{Part Teòrica}
 \end_layout
 
 \end_inset
@@ -769,10 +769,10 @@ La primera opció que es va proposar va ser utilitzar Headless Chrome.
 \shape italic
 headless
 \shape default
-, el que significa que es pot utilitzar desde terminal, o millor dit, desde
- un servidor sense cap tipus de UI.
+, el que significa que es pot utilitzar desde terminal, o més interesant,
+ desde un servidor sense cap tipus de UI.
  Es va crear pensant en que podria ser molt útil, per fer testos automatitzats
- de webs o aplicacions online, que no requereixen de una UI com a tal.
+ de webs o aplicacions online.
 \begin_inset Newline newline
 \end_inset
 
@@ -884,7 +884,7 @@ literal "false"
 , que serveix per crear tasques automatitzades en un navegador o aplicació
  per validar funcionalitats.
  Es poden utilitzar scripts tant de C#, Python, JavaScript, PHP, Scala...
- Realment Selenium com a tal és una Suite que es composa d'un grup d'eines,
+ Realment Selenium com a tal és una Suite que es composa d'un grup d'eines;
  el seu propi IDE, Grid i WebDriver.
  Nosaltres estem interessats en l'últim, per tant és el que estudiarem.
 \begin_inset Newline newline
@@ -994,6 +994,3841 @@ literal "false"
 \end_inset
 
 .
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Puppeteer
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per altre banda tenim un altre eina bastant més nova, anomenada Puppeteer
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Puppeteer"
+literal "false"
+
+\end_inset
+
+.
+ Les funcionalitats principals venen a ser molt semblants a Selenium, controlar
+ totes aquelles coses que podries fer manualment al navegador, fer-ho de
+ manera automàtica.
+ A més de funcionalitats molt útils com fer captures de pantalla i crear
+ PDFs.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/pupeteer.png
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pupeteer Logo
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PupeteerLogo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+És open source i està sota la llicència d'Apache 2.0 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ApacheLicense"
+literal "false"
+
+\end_inset
+
+ pel que es pot utilitzar i comercialitzar de manera totalment lliure tot
+ aquell contingut que tingui les seves eines.
+\end_layout
+
+\begin_layout Standard
+És molt fàcil d'instalar, ja que només cal instalar un paquet npm i per
+ utilitzar-lo es fa tot amb javascript mitjançant les comandes que disposen
+ a la seva documentació.
+ A més de tot això, la major ventatja que té és que està pensat per ser
+ utilitzat amb Headless Chrome, dóna moltes facilitats per realitzar totes
+ les tasques sense estar veient cap tipus de UI, i a la vegada poder debuggar
+ de manera còmode i senzilla.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un petit codi d'exemple que ens mostren a la seva documentació per comprovar
+ com de fàcil és utilitzar-lo.
+ El que fem és afegir puppeteer al nostre script de js amb require, iniciem
+ el navegador en mode headless, obrim el link 
+\begin_inset Quotes fld
+\end_inset
+
+https://example.com
+\begin_inset Quotes frd
+\end_inset
+
+, fem una captura i tanquem el navegador.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/puppeteerExample_1.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=Java,caption={Puppeteer Get Started Example},label={puppeteer}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{WebGL Headless}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+WebGL és una API escrita en Javascript utilitzada per la renderització de
+ gràfics en 3D al navegador.
+ Està basat en la Open Graphics Library (OpenGL), pel que només necessitarem
+ que sigui compatible amb aquest 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebGLBrowserSupport"
+literal "false"
+
+\end_inset
+
+, sense cap altre dependència que podria dificultar la compatibilitat.
+ Hem de tenir en compte que encara que el navegador sigui compatible, per
+ tota la renderització 3D, per molt mínima que sigui, necessitarem una targeta
+ gràfica, Això pot ser un problema ja que es vol executar tot en un model
+ cloud, al donar estabilitat i professionalitat.
+ La majoria de gent que utilitza servidors té unes idees bastant diferents
+ al que es vol fer aquí, i potser necessiten potència de CPU o molta RAM,
+ però no GPU, pel que potser és complicat trobar una màquina remota amb
+ la potència suficient que es necessita.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/WebGLAquarium.png
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemple WebGL
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:WebGLExample"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per una banda aquesta solució és molt atractiva ja que es faria tot el sistema
+ desde 0 sense utilitzar cap tipus de dependència, però a la vegada també
+ depens de les polítiques o limitacions de potència del navegador.
+ Mai serà capaç d'utilitzar el 100% de la màquina i no és comparable amb
+ una aplicació standalone.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Unreal Engine 4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un dels motors gràfics més utilitzats dels últims temps és Unreal Engine.
+ Està creat per Epic Games, programat en C++ i amb una potència sorprenent
+ que fa que sigui el més utilitzats en projectes fotorrealistes, o inclús,
+ en projectes d'arquitectura.
+ Sobretot a partir de 2019, on van juntar-se amb l'empresa Quixel, dedicada
+ entre d'altres coses, a crear 
+\begin_inset Quotes fld
+\end_inset
+
+megascans
+\begin_inset Quotes frd
+\end_inset
+
+.
+ És una tecnologia que diposa textures amb grans resolucions i qualitats
+ sorprenents, però a la vegada molt eficients pel desenvolupament de videojocs.
+ Així aconseguint un renderitzat molt realista a temps real, i destacant
+ entre els altres motors competidors.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Quixel.jpg
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Captura Quixel Demo Megascan a UE4 (Youtube)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QuixelMegascans"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durant el transcurs del 2021 es llençarà la versió d'Unreal Engine 5, on
+ han demostrat que poden inclús superar-se i crear uns entorns sorprenents
+ juntant la tecnologia que ja havien estat desenvolupant de Quixel, amb
+ una nova anomenada Lumen, que controlarà totes les llums i farà ús del
+ Ray-Tracing a temps real, també dit RTX a les targetes gràfiques de Nvidia.
+ Amb totes aquestes novetats i evolucions tecnològiques que han anat fent
+ en els últims anys, és lògic que s'hagin guanyat entre la comunitat el
+ nom a millor motor gràfic en quant a qualitat visual 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UE4BestPhotoEngine"
+literal "false"
+
+\end_inset
+
+.
+ Però com bé sabem, això no és l'únic que importa.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'Unreal disposa d'un sistema de programació anomenat Blueprints, és una
+ metodologia de programació totalment visual i basada en nodes.
+ Bàsicament són petites capces que internament tenen trossos de codi en
+ C++, els quals juntem entrades i sortides.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/BlueprintRotate.png
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rotació Programada en Blueprint UE4
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BlueprintRotate"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Això pot ser molt còmode i és un punt a favor per la gent que comença a
+ desenvolupar videojocs, si estàs acostumat a utilitzar-ho o no es tenen
+ els coneixements necessaris de programació i vols fer scripts amb una complexit
+at baixa-mitjana.
+ Però pel contrari si es volen fer scripts més complexes pot ser que ens
+ trobem amb certs inconvenients i poden quedar scripts amb milers de nodes
+ i que sigui molt difícil d'interpretar o debugar.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/BlueprintChaos.jpg
+	lyxscale 30
+	height 5cm
+	BoundingBox 0cm 9mm 1200bp 675bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemple Blueprint Caòtic UE4
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BlueprintChaos"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Altres inconvenients poden ser que les idees que es tenen surtin fora de
+ la norma, que els nodes estiguin massa limitats o que simplement no t'agradi,
+ per això també et donen la opció a crear un script buit i fer-ho tot amb
+ C++.
+ I llavors veiem que la documentació que es pot trobar és molt inferior
+ a la dels blueprints, i possiblement sigui més complicat i més llarg de
+ fer que els seus competidors, com poden ser Unity o Godot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Unity}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El motor de videojocs més famós i més utilitzat desde els seus origens és
+ sense dubte Unity 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PopularUnity"
+literal "false"
+
+\end_inset
+
+.
+ Va ser creat al 2005 a Copenhaguen per 3 amics, David Helgason, Joachim
+ Ante i Nicholas Francis.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+És el motor que suporta més plataformes actualment 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UnityMultiplatform"
+literal "false"
+
+\end_inset
+
+, com Windows, Mac OS, Linux, iOS, Android, WebGL, Playstation, Xbox, Nintendo
+ Switch, Stadia i moltes altres més.
+ Això és un punt molt a favor, ja que necessitem desenvolupar l'aplicació
+ per un servidor Linux, i Unity és el motor més professional dels que donen
+ suport.
+ Altres motors com Unreal Engine, Game Maker o Cry Engine no accepten el
+ sistema operatiu Linux com a opció de compilació, o funcionen amb bastants
+ problemes.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La programació dels scripts es fa amb llenguatge C# el qual forma part de
+ la plataforma .NET propietaria de Microsoft.
+ És un llenguatge derivat de C/C++ i és dels més utilitzats juntament amb
+ Java.
+ Si ens fixem en el rànking de plataforma TIOBE 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TIOBE"
+literal "false"
+
+\end_inset
+
+, que és una web que s'encarrega d'ordenar els llenguatges de programació
+ de més utilitzat a menys, podem veure que en el top 5, tenim els 3 llenguatges
+ de C, els quals tenen una base molt semblant.
+ Després tindriem Java i Python, tots dos són llenguatges d'alt nivell molt
+ senzills i que faciliten molt el flux de programació.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/RankingLanguages.png
+	lyxscale 30
+	height 5cm
+	BoundingBox 0cm 9mm 1200bp 675bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Llenguatges de programació més utilitzats al 2020
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TiobeRanking"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A més de que Unity utilitzi C# que ja és un llenguatge d'alt nivell de per
+ si, s'utilitza la API MonoBehaviour 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MonoBehaviour"
+literal "false"
+
+\end_inset
+
+, que estalvia molta feina i permet fer tasques que a priori són complicades
+ o llargues, en pocs minuts i en poques linies.
+\end_layout
+
+\begin_layout Standard
+MonoBehaviour és la classe base d'on parteixen tots els scripts de Unity.
+ Només cal indicar que el nou script s'extén de la API.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/UnityCode.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Unity Code Basic Template},label={unitytemplate}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En les últimes versions de Unity, han apostat molt per competir directament
+ amb Unreal Engine, en un dels punts que tenien més diferenciats, l'atractiu
+ visual hiperrealista.
+\end_layout
+
+\begin_layout Standard
+Quan Unity va començar, com que era relativament fàcil d'utilitzar i gratis,
+ van aparèixer una quantitat immensa de jocs de mòbil creats amb aquest
+ motor, pel que es va guanyar una fama errònea, de que aquest motor només
+ servia per jocs petits, amb uns gràfics tirant a simples i sense molts
+ efectes.
+ 
+\end_layout
+
+\begin_layout Standard
+Per tant, al 2019 van llençar amb la seva última actualització, una nova
+ funció anomenada HDRP (High Definition Render Pipeline) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HDRP"
+literal "false"
+
+\end_inset
+
+, la qual millorava tot el sistema del render del motor, aconseguint uns
+ resultats que van sorprendre a tota la comunitat, i que no tenien res a
+ envejar amb Unreal Engine.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/UnityPhotorealism.jpg
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Captura Book of the Dead Unity Demo HDRP (Youtube)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BookOfDead"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A més, podem trobar que el videojoc més realista que s'ha creat mai en quant
+ al gènere de FPS (First Person Shooter), van decidir crear-lo amb el motor
+ Unity, enlloc d'Unreal, i van aconseguir uns resultats molt bons, fins
+ al punt que està considerat el joc amb millors gràfics, creat amb aquest
+ motor.
+ Es tracta del videojoc 
+\shape italic
+Escape from Tarkov
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/eft.jpg
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Captura Escape from Tarkov Pre-Alpha
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:EFTCaptura"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Tractament dels fluxes de video}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Formats Compatibles}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'aplicació haurà de rebre tot tipus de videos, de tots els formats possibles,
+ entenent formats el conjunt de códecs i contenidors.
+ Primer s'ha de fer un anàlisi dels formats que existeixen i com de populars
+ són
+\series bold
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Códecs
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hi ha molts tipus de códecs, però és cert que alguns s'utilitzen molt poc,
+ o ja s'han quedat antiquats.
+\end_layout
+
+\begin_layout Itemize
+H.261: Aquest códec va ser el primer que es va tornar popular, degut a que
+ era el que donava millors resultats en el seu moment.
+ Però evidentment, ha passat molt temps i la tecnologia ha evolucionat suficient
+ com per deixar aquest códec antiquat.
+\end_layout
+
+\begin_layout Itemize
+H.263: Va ser el primer que códec realment eficient, però a la vegada demanava
+ molts recursos de l'ordinador per codificar un video, i a la vegada, per
+ reproduir-lo necessitarem una potencia relativament alta.
+\end_layout
+
+\begin_layout Itemize
+H.264: És el més popular a l'actualitat de manera professional, també conegut
+ com MPEG-4 AVC, compta amb una compressió molt alta amb una pèrdua de qualitat
+ imperceptible.
+ A més de ser molt polivalent al acceptar molts tipus de bitrate d'entrada.
+\end_layout
+
+\begin_layout Itemize
+H.265: També anomenat HEVC, és el successor del H.264.
+ A vegades pot donar uns resultats pitjors al seu predecessor, però sobretot
+ pels videos en 4K obtenim uns molts millors resultats ja que comprimeix
+ molt més obtenint uns resultats de qualitat molt semblants.
+ En els videos 4K es pot obtenir fins a un 64% de reducció de bitrate en
+ comparació amb H.264.
+\end_layout
+
+\begin_layout Itemize
+MPEG-1: És un códec bastant antic que ja no s'utilitza, però va ser molt
+ utilitzat per discs de dades CD-ROM i inclou compressió tant de video com
+ d'àudio.
+\end_layout
+
+\begin_layout Itemize
+MPEG-2: Dona bons resultats amb el DVD, però requereix pagar llicència per
+ poder-lo utilitzar.
+\end_layout
+
+\begin_layout Itemize
+MPEG-4: S'utilitza molt per contigut de videos a la xarxa, ja que té una
+ gran compressió de vídeo i àudio, però la qualitat pot baixar al utilitzar
+ baixos nivells de bitrate.
+\end_layout
+
+\begin_layout Itemize
+X264: Molt similar al H.264 amb la gran diferència de ser open-source, el
+ que fa que sigui el més utilitzat de manera gratuita, amb els millors resultats.
+\end_layout
+
+\begin_layout Itemize
+DivX: Comunament utilitzat per comprimir películes DVD i famós per impulsar
+ la pirateria al voltant de l'any 2000 al permetre comprimir fins a 7 pelicules
+ en un sol disc DVD 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DivX"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Contenidors
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+AVI: Cada cop és menys utilitzat, però a l'anterioritat va ser molt popular
+ per la gran compatibilitat de la que disposava en diferents sistemes operatius.
+\end_layout
+
+\begin_layout Itemize
+MOV: A diferència de l'AVI, aquest códec creat per Apple, era molt poc o
+ gens compatible amb altres sistemes operatius, pel que només s'utilitzava
+ amb els seus dispositius.
+\end_layout
+
+\begin_layout Itemize
+MPG: Són un conjunt de formats, i alguns d'ells han arribat a ser els més
+ famosos, sobretot el MPG-4, també anomenat MP4.
+ Que té molta qualitat, comparable al MOV, i actualment és pràcticament
+ impossible trobar algun ordinador que no sigui capaç de reproduir-lo.
+\end_layout
+
+\begin_layout Itemize
+WMV: Windows Media Video és un format propietari de Windows, i necessitarem
+ reproduir-lo amb el Windows Media Player per aconseguir els millors resultats
+ d'aquest.
+\end_layout
+
+\begin_layout Itemize
+MKV: Acrònim de Matroska, és un format molt utilitzat per emmagatzemar més
+ d'un arxiu en un sol.
+ Per exemple podem trobar un arxiu MKV que contingui més d'una pista d'àudio
+ (per diferents idiomes), alguns arxius de subtítols o inclús diferents
+ arxius de video en un sol.
+\end_layout
+
+\begin_layout Itemize
+FLV: El format de video de Flash Player, que és molt compatible amb tots
+ els ordinadors, però cada cop s'està quedant més antiquat.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Els reproductors més famosos, com són VLC, MPV, o MPlayer, accepten tots
+ els tipus de códecs i contenidors, pel que serà necessari i pràcticament
+ requisit que l'aplicació també els accepti tots per a que no es quedi enrera.
+ Ja sigui creant un reproductor propi, o un basat en llibreries de tercers.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Imatges
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En quant a les imatges, també trobem molts formats diferents i s'haurà de
+ tenir en compte per decidir si es podrà donar suport a tots ells, o pel
+ contrari s'haurà de prescindir d'algun.
+ Com a mínim hauria d'acceptar els més famosos, que són:
+\end_layout
+
+\begin_layout Itemize
+BMP: Creat per l'empresa Microsoft, és l'estàndard del sistema operatiu
+ Windows.
+\end_layout
+
+\begin_layout Itemize
+JPEG: Un dels formats més utilitzat degut a la seva gran compressió, mantenint
+ una qualitat molt acceptable.
+\end_layout
+
+\begin_layout Itemize
+GIF: El GIF és un format diferent a la resta, ja que consta d'un conjunt
+ d'imatges que es reprodueixen de manera continua, formant un petit video.
+ Això si, la seva qualitat queda molt limitada.
+\end_layout
+
+\begin_layout Itemize
+PNG: Disposa d'una gran compressió mantenint la qualitat, com podria ser
+ la del JPEG, però, amb la gran ventatja de que disposem de l'atribut alpha,
+ el que permet tenir imatges amb transparències.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Àudio
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Els videos tindràn el seu propi àudio, i encara que no està pensat com a
+ requisit que es pugui reproduir àudio de manera independent, com podria
+ ser una música de fons o una veu en off.
+ Els formats que s'haurien de suportar per poder tenir un mínim de compatibilita
+t són:
+\end_layout
+
+\begin_layout Itemize
+WAV: Desenvolupat per Microsoft i un dels més utilitzats, és compatible
+ amb pràcticament tots els códecs.
+ Accepten arxius d'un tamany gran fins a 4GB, i poden estar molt comprimits
+ o poc.
+\end_layout
+
+\begin_layout Itemize
+MPEG: Un dels formats més famosos per ser un estàndard en àudio i sobretot,
+ en la música, podem trobar per exemple els códecs MP2 (més utilitzat per
+ aplicacions de broadcast) o el MP3.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Protocols de Streaming}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En quant a la sortida del video/àudio resultant, s'haurà de decidir quin
+ protocol s'utilitza, ja que es voldrà una sortida en streaming.
+ El video en streaming, o retransmisió en directe, és la emisió d'un flux
+ de dades a temps real, o amb el menor retard possible, a un destí.
+ Per exemple, quan mirem la televisió, tenint en compte que és per internet
+ i no per antena, estem rebent un flux de dades que arriba desde uns servidors
+ centrals de la cadena en particular.
+ Es van començar a fer experiments de televisió fa molts anys, però la majoria
+ van ser un fracàs degut al gran ample de banda que demanaven els videos.
+ Per tant el que va sorgir primer van ser els serveis de VOD (Video on Demand).
+ No s'ha de confondre el VOD amb el Streaming ja que son dos conceptes totalment
+ diferents i que no utilitzen les mateixes tecnologies.
+ Un exemple de servei VOD que va triunfar és la plataforma Youtube.
+ Aquesta tecnologia va anar avançant fins que van millorar les conexions
+ a internet i això va provocar que per fi el Streaming fos possible.
+ L'objectiu del directe, és tenir un retard mínim, amb una qualitat bona.
+ Actualment el mínim de qualitat per una plataforma professional és la resolució
+ 1920x1080.
+ La resolució 4K dona molt bona qualitat, però requereix una quantitat molt
+ alta d'ample de banda i actualment grans plataformes de streaming com Youtube
+ o Twitch no ho permeten com a opció.
+ Encara i això serà un repte a tenir en compte i seria un gran punt a favor
+ respecte a la competència.
+\end_layout
+
+\begin_layout Standard
+Els protocols de streaming són els encarregats de posar les 
+\begin_inset Quotes fld
+\end_inset
+
+normes
+\begin_inset Quotes frd
+\end_inset
+
+ en com es transmetrà el flux de dades, a més de contemplar els errors i
+ minimitzar-los en tot lo possible.
+\end_layout
+
+\begin_layout Standard
+Un protocol no té res a veure amb un códec o un format, sinó que és complementar
+i a aquests i només s'ocupa de la transmisió.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/DiagramaProtocol.png
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama Protocol-Format-Códec
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DiagramaProtocol"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tots els protocols hauràn d'utilitzar un dels dos mètodes de transmissió
+ que existeixen, que són TCP (Transmission Control Protocol) o bé, UDP (User
+ Datagram Protocol).
+ La diferencia més important i notòria entre aquests, és que el TCP, requereix
+ d'una resposta del client, forçant a que tots els paquets arribin, el que
+ fa una connexió més segura, però més lenta.
+ Quan TCP no aconsegueix enviar un paquet correctament, repeteix el procés
+ fins a aconseguir-ho.
+ Per altre banda, UDP ignora això, simplement envia els paquets, i el receptor
+ ja s'ocuparà de rebre-ho correctament.
+ Això provoca que a vegades es puguin percebre fragments en el video i pèrdua
+ de qualitat, però és molt més ràpid i té menys retard.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/TCPvsUDP.png
+	lyxscale 30
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparació TCP-UDP
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TCPvsUDP"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tornant als protocols de live streaming, hi ha molts per escollir, pel que
+ es comentaran els més importants.
+\end_layout
+
+\begin_layout Itemize
+RTMP (Real Time Messaging Protocol): Protocol TCP.
+ És propietat d'Adobe, pel que era molt utilitzat a les webs que disposaven
+ d'Adobe Flash Player.
+ No obstant, s'ha quedat bastant obsolet i presenta problemes de compatibilitat
+ amb códecs moderns i la seguritat és baixa.
+ Per altre banda, els resultats que dona són de bona qualitat i té molt
+ suport amb les diferents plataformes i software.
+ Els codecs més recomanats per aquest protocol són H.264 pel video, i AAC
+ per l'àudio.
+\end_layout
+
+\begin_layout Itemize
+WebRTC: Protocol TCP i UDP.
+ Utilitzat per la gran majoria de desenvolupadors web, degut a la seva gran
+ compatibilitat amb tots els navegadors moderns: Chrome, Firefox, Opera,
+ Safari, Edge...
+ És de gran qualitat i soporta els códecs VP8 i VP9, clarament superiors
+ al H.264 en quant a streaming de video.
+ Per l'àudio, tenim que WebRTC suporta el códec Opus, gairebé el més utilitzat
+ per videos en directe.
+ A més, amb la ventatja de ser open source, el projecte està en una constant
+ evolució, i pròximament suportarà el códec H.265, i més important encara
+ el AV1, que promet una gran millora en tots els aspectes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AV1Codec"
+literal "false"
+
+\end_inset
+
+.
+ Té el millor resultat de latència, podent arribar a valors menors a 1 segon.
+\end_layout
+
+\begin_layout Itemize
+FTL (Faster Than Light): Protocol UDP.
+ Creat per l'empresa Microsoft, dedicat a la plataforma ja extinta Mixer
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MixerFTL"
+literal "false"
+
+\end_inset
+
+.
+ Una proposta que no va sortir del tot bé, i que pretenia competir directament
+ amb Twitch 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MixerCierre"
+literal "false"
+
+\end_inset
+
+.
+ Aquest protocol té com a objectiu ser el més ràpid, com indica el seu nom,
+ per poder comunicar-te amb els visualitzadors del directe d'una manera
+ pràcticament instantània.
+ Tenint en compte que Twitch utilitza RTMP, i ho converteix a HLS 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TwtichRTMP"
+literal "false"
+
+\end_inset
+
+ (molt més lent que la proposta de Mixer), no era una mala idea.
+ Encara i això, Twitch ja era massa gran i estàndard com per poder competir.
+\end_layout
+
+\begin_layout Itemize
+SRT (Secure Realiable Transport): Protocol UDP.
+ També es un protocol open-source, al igual que WebRTC, i és considerat
+ com a l'evolució de RTMP.
+ És de molta qualitat i bastant més estable als anteriors.
+ Els objectius d'aquest projecte són crear un protocol que transmeti videos
+ sense soroll al senyal (jitter) i que eviti la pèrdua de paquets.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latencyGraph.png
+	lyxscale 50
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gràfic Latències Protocols de Streaming
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:LatencyGraph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Resumint, no hi ha protocols més bons o més dolents, depenent el projecte
+ que es vulgui fer, serà més adequat un o altre.
+ Pel projecte que s'ha proposat en aquest treball, es necessitarà sobretot
+ un protocol amb poc retard.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="2cm">
+<column alignment="center" valignment="middle" width="2cm">
+<column alignment="center" valignment="middle" width="2cm">
+<column alignment="center" valignment="middle" width="2cm">
+<column alignment="center" valignment="middle" width="2cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RTMP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+WebRTC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FTL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+SRT
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Pros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Estabilitat, gran compatibilitat i qualitat
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Open-source, códecs actuals i molt baixa latència
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Qualitat adaptativa i molt ràpid
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Molta qualitat, estabilitat i compatibilitat de codecs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Contres
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Molta latència, més insegur que altres opcions, códecs antics
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Constantment en desenvolupament i pot ser inestable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Qualitat inferior a la resta i poca compatibilitat
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Està en desenvolupament, no hi ha gaire documentació
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Video Códecs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H.264
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VP8, VP9, H.264 (H.265 i AV1 futur proper)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H.264
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Àudio Códecs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AAC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Opus
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Opus
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Latència
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3-30 segons
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 segon o menys
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 segon o menys (menor a WebRTC)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 segon o menys
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Taula resum dels protocols esmentats
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Llibreries de processament}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La gran majoria d'aplicacions que utilitzem a diari que disposen de reproductors
+ multimedia, o qualsevol tipus de processament de video/àudio, utilitzen
+ llibreries externes per fer aquest procés més senzill.
+ Hi ha varies opcions de llibreries de processament de contingut multimèdia.
+ Totes elles tenen un desenvolupament complex, és per això que hi ha poca
+ rivalitat, i totes disposen d'una API per utilitzar-les.
+ Les més utilitzades i conegudes, són dues que es comentaran a continuació:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+FFMPEG
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+És la llibreria de processament de video/àudio més gran que existeix, i
+ és utilitzada per la gran majoria de desenvolupadors.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/FFmpegLogo.png
+	lyxscale 30
+	height 2cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logo FFmpeg
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FFmpeg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Concretament, el que defineix FFmpeg, és un conjunt de software lliure (framewor
+k), que tal i com diu a la seva documentació 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FFmpeg About"
+literal "false"
+
+\end_inset
+
+, les funcionalitats que permet són: 
+\end_layout
+
+\begin_layout Itemize
+Decodificar: és l'acció de convertir un flux de dades en un contingut multimedia
+ visible i amb sentit per a un receptor.
+\end_layout
+
+\begin_layout Itemize
+Codificar: és l'acció contraria a decodificar, convertir un contingut multimedia
+ a un flux de dades, ja sigui per una transmissió més còmode, comprimir,
+ o el que es desitji.
+\end_layout
+
+\begin_layout Itemize
+Transcodificar: significa convertir un contingut multimèdia d'un códec a
+ un altre.
+ Per exemple, ens podem trobar amb un contingut en H.265, que el volem reproduir
+ en un ordinador relativament antic, que no accepta aquest códec, pel que
+ haurem de transcodificar-lo a un altre que l'ordinador si que 
+\begin_inset Quotes fld
+\end_inset
+
+entengui
+\begin_inset Quotes frd
+\end_inset
+
+ com podria ser el H.264.
+\end_layout
+
+\begin_layout Itemize
+Multiplexar: si tenim video i àudio per separat i ho volem juntar, el que
+ haurem de fer es un mux, és a dir, juntar dos o més fluxes d'entrada, en
+ un de sortida.
+\end_layout
+
+\begin_layout Itemize
+Demultiplexar: és el contrari de multiplexar, tenint un sol flux d'entrada,
+ extreiem dos o més.
+\end_layout
+
+\begin_layout Itemize
+Stream: si enlloc de voler generar un fitxer de sortida, el que volem és
+ directament crear un streaming, utilitzant el protocol més apropiat, ho
+ podem fer tot desde ffmpeg i sense utilitzar cap eina externa.
+\end_layout
+
+\begin_layout Itemize
+Filtres: per si totes les funcionalitats anteriors fóssin poques, també
+ permeten aplicar filtres als àudios o als videos, el que ho fà molt còmode
+ per poder automatitzar tasques desde terminal, sense haver d'utilitzar
+ editors de video o àudio.
+ En quant a filtres d'àudio disposem de 105 efectes, entre ells els més
+ senzills com el volum, compressors...
+ I en quant al video, disposem de 264 efectes, com per exemple, fer un crop,
+ escalar, rotar...
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FFmpeg Filters"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Reproduir: FFmpeg també inclou una eina anomenada FFplay, que permet reproduir
+ tot tipus d'arxius sense problemes.
+ Normalment s'utilitza com a eina de test.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es va desenvolupar principalment per GNU/Linux, però està disponible per
+ tot tipus de plataformes com Windows i MacOS.
+ S'utilitza a través d'un terminal, però també es pot integrar en tot tipus
+ d'aplicacions per utilitzar-lo internament, com fa Audacity, Youtube, Chrome,
+ OBS Studio, i molts altres grans projectes.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/ffmpegTranscode.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Exemple Transcodificació Arxiu H.265 a H.264},label={ffmpegTranscode}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La instalació d'aquesta eina és molt senzilla, sobretot si s'utilitza Linux,
+ o concretament Ubuntu, es pot aconseguir introduint un parell de línies
+ al terminal.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/ffmpegInstall.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Instalació FFmpeg Ubuntu},label={ffmpegInstall}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+També és molt utilitzat per la compressió de videos de manera automàtica,
+ per exemple, si pujem un video a 
+\begin_inset Quotes fld
+\end_inset
+
+Twitter
+\begin_inset Quotes frd
+\end_inset
+
+, no es pujarà el video original, ja que el pes de l'arxiu seria excessiu
+ per emmagatzemar-ho al seus servidors, sinó que es fa una copia reduida
+ del video, i aquest és el que es guarda.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+LibVLC
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per altre banda trobem un altre gran framework, l'únic capaç de competir
+ amb FFmpeg, i és LibVLC.
+ Està desenvolupat per la organització VideoLAN, on tenen com a objectiu,
+ desde la seva fundació, desenvolupar aplicacions open-source gratuites.
+ Van començar el projecte a una universitat de França l'any 1996, i va començar
+ a ser open-source a partir de l'any 2001, però, a l'any 2009 van decidir
+ seguir amb el projecte de manera independent i trencar tots els vincles
+ amb l'escola 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "VideoLAN"
+literal "false"
+
+\end_inset
+
+.
+ Ara mateix tenen desenvolupadors per 40 països diferents, i animen a la
+ comunitat a contribuir i recolzar el projecte ja sigui programant, traduint,
+ donant components i material, o amb alguna aportació econòmica 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "VideoLAN Contribution"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El major projecte creat per aquesta organització és el mundialment conegut
+ VLC, un reproductor multimèdia basat en les seves pròpies llibreries LibVLC.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/vlc1stVersion.jpg
+	lyxscale 50
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Captura de la primera versió de VLC
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:VLC1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+LibVLC no està tant pensat per utilitzar-lo desde terminal com podria ser
+ FFmpeg, i encara que també es pot integrar a qualsevol projecte, és més
+ complicat de instalar i utilitzar 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "libVLCSampleCode"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/vlcExemple.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=C,caption={Codi base d'exemple de libVLC},label={libVLCSample}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Proposició}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Comparació: Ventatges i desventatges de cada eina}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Està clar que cada eina té les seves ventatges i desventatges, tampoc hi
+ ha una que sigui millor que l'altre, sinó que depèn del projecte que es
+ vulgui fer les solucions seran molt diferents.
+ A continuació s'analitzaran els pros i contres de cada eina, desde un punt
+ de vista subjectiu pel projecte que es vol fer:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="2.5cm">
+<column alignment="center" valignment="middle" width="2.5cm">
+<column alignment="center" valignment="middle" width="2.5cm">
+<column alignment="center" valignment="middle" width="2.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Chrome Headless
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unreal Engine 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Pros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simplicitat, alta compatibilitat, no requereix utilitzar plugins
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+És professional, millor qualitat d'iluminació
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Molta documentació, molts plugins open-source, optimitzat per escenes senzilles,
+ alta compatibilitat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Contres
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pot quedar limitat en quant a potència; efectes de video
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Relativament poca documentació, no tants plugins i comunitat com la competència,
+ poca compatibilitat amb Linux
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Menys potent que Unreal, eines externes no professionals creades per la
+ comunitat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparativa subjectiva de les possibles eines
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Elecció de l'eina i justificació}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per poder decidir amb criteri i assegurar-se de que es prèn la decisió correcte
+ sobre quina és l'eina que s'ha de utilitzar, es farà una prova amb cada
+ una de les eines esmentades (Chrome Headless, Unreal Engine 4 i Unity).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Chrome Headless}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+És molt útil per tasques automatitzades, no es necessita cap tipus de software
+ extra, com a molt es poden necessitar llibreries de nodejs pels scripts
+ de javascripts, però en tot cas, quedaria tot empaquetat en un sol projecte.
+ Al utilitzar el navegador de Chrome, això ens dona moltes ventatges en
+ quant a simplicitat de les tasques, però també ens limita la potència,
+ compatibilitat de códecs i formats, pel que mai serà exactament igual que
+ si executéssim les mateixes tasques de manera nativa al ordinador.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si busquem projectes creats amb aquesta eina que s'assemblin a l'objectiu
+ que volem aconseguir, trobem una aplicació creada per 
+\begin_inset Quotes fld
+\end_inset
+
+Sebastian Pereyro
+\begin_inset Quotes frd
+\end_inset
+
+, de la web Empirical 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HeadlessChromeProject"
+literal "false"
+
+\end_inset
+
+.
+ Headless Chrome està disponible a partir de la versió 59, acutalment van
+ per la 91, pel que no seria cap problema utilitzar aquesta eina.
+ Es poden carregar pàgines web i executar tests o tasques, a més de generar
+ PDFs i fer captures de pantalla repetidament.
+ A més comenta que es pot compartir de manera directa el contingut 
+\begin_inset Quotes fld
+\end_inset
+
+Screencast content
+\begin_inset Quotes frd
+\end_inset
+
+, això si, fent múltiples captures de pantalla.
+ L'experiment que es va proposar va ser de capturar àudio i video de manera
+ automàtica, tant d'una web pròpia com d'una web externa i transmetre el
+ contingut a Facebook, Youtube, Twitch...
+\end_layout
+
+\begin_layout Standard
+El que utilitza com a eines, són Node.js, el navegador Headless Chrome en
+ qüestió, Pulseaudio que és el motor de video que utilitzarà per la captura,
+ i FFmpeg que farà la transmisió final del flux de Headless Chrome cap a
+ les destinacions pertinents.
+ Tot això ho vol fer utilitzant un servidor que s'ocupi de totes les tasques.
+ Tenint una aplicació client, en aquest cas farà ús de Postman 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Postman"
+literal "false"
+
+\end_inset
+
+, es comunica amb el servidor central que tindrà tota la programació, agafa
+ el contingut multimèdia d'un altre web, i l'envia als servidors multimedia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/GraphHeadlessChromeEmpirical.png
+	lyxscale 20
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gràfic Experiment Headless Chrome
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ExperimentHCEmpirical"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/ExperimentHCEmpirical.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=Java,caption={Experiment Headless Chrome Empirical},label={ExperimentEmpirical}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el codi que ens proporciona 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "ExperimentEmpirical"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, podem comprovar com fa la captura de la pantalla.
+ Es tracta de una captura total de la finestra del navegador.
+ Per a fer-ho, utilitza una funció integrada al Chrome, anomenada startScreencas
+t.
+ Pels paràmetres de configuració que necessita i veient la documentació
+ de Chrome DevTools 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ChromeDevTools"
+literal "false"
+
+\end_inset
+
+, podem deduir que es tracta un petit script que envia la comanda de fer
+ captura de pantalla, en el format que desitjem (en el cas d'exemple és
+ en jpeg), i junta aquests frames per aconseguir tenir un video.
+ En quant a l'àudio, ens comenta que encara que era un dels seus reptes,
+ no està suportat per Chrome, pel que no es podrà capturar de manera nativa.
+ La opció més vàlida serà capturar-lo per separat, i més tard juntar-ho,
+ el que farà que hi hagi problemes de sincronització d'àudio/video, un problema
+ molt comú en aquest tipus de projectes.
+ La qualitat dels videos tampoc podrà ser molt alta, ja que headless chrome
+ no suporta acceleració per hardware amb GPU, ho veiem a l'exemple 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chrome"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ amb el flag –disable-gpu extret directament de la documentació de Google
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HeadlessChromeDevel"
+literal "false"
+
+\end_inset
+
+.
+ Un altre cosa que comenta és que el framerate serà variable, nosaltres
+ podem enviar 30 comandes per segon de que faci la captura de pantalla,
+ però és pràcticament impossible que vagi totalment sincronitzat i faci
+ exactament les 30 captures cada segon, un dels problemes que comporta això,
+ és que s'anirà desincronitzant poc a poc, cada cop més, l'àudio.
+\end_layout
+
+\begin_layout Standard
+Després de fer totes les captures, o mentres s'estan fent, es pot utilitzar
+ FFmpeg per juntar les imatges en una seqüència de video, juntar-li l'àudio,
+ i transmetre-ho a on es desitji, ja sigui en directe o a un fitxer local.
+\end_layout
+
+\begin_layout Standard
+En aquest projecte, no s'ha utilitzat cap eina d'automatització de navegador,
+ sinó que s'ha fet tot amb Headless Chrome Vanilla.
+ Pel que es farà una prova utilitzant totes les eines del projecte, i a
+ més, amb Puppeteer per poder-ho automatitzar tot.
+\end_layout
+
+\begin_layout Standard
+Per la primera prova, es programarà tot en HTML i Javascript.
+ Per una banda tindrem el index.html, un arxiu molt senzillet que contindrà
+ un o dos videos locals que es reproduiràn automàticament a dins un canvas,
+ al obrir l'arxiu.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/tests/headlessChrome/index.html"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=HTML,caption={Test Chrome Headless | index.html},label={TestCHindex}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'aspecte de la web és correcte, tenim un video, concretament, el tràiler
+ de la película Nightcrawler 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nightcrawler"
+literal "false"
+
+\end_inset
+
+ ocupant tota la pantalla en el fons, i a la cantonada superior esquerra,
+ ocupant un quart de la pantalla tenim el tràiler de la película Stalker
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stalker"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tests/CHindexhtml.jpg
+	lyxscale 20
+	height 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultat index.html
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:HCTestindexhtml"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un dels primers problemes que han sorgit, ha sigut amb la reproducció dels
+ videos, degut a que un navegador no està pensat exclusivament per aquestes
+ funcions, les seves polítiques d'ús poden canviar dràsticament d'un dia
+ per l'altre i destrossar un projecte d'aquest estil.
+ Tant és així que a l'any 2017, van introduir una nova política a la versió
+ 71, en la que no estava permès auto reproduir els videos automàticament
+ al obrir una web, sinó que el usuari havia de clicar manualment al video.
+ Això si, permetia reproduir-los si estaven sense so.
+ Una política probablement introduida per evitar el ús de publicitat molesta,
+ però que hauria canviat per complet aquest projecte i hauria fet que deixés
+ de funcionar.
+ Per tant, les opcions que es tenen, és reproduir els videos sense àudio
+ (inviable ja que l'àudio és un dels requisits), o utilitzar una eina externa
+ com Puppeteer per fer 
+\begin_inset Quotes fld
+\end_inset
+
+trampes
+\begin_inset Quotes frd
+\end_inset
+
+ i clicar allà on volguem fent creure al navegador que ho està fent un usuari
+ qualsevol.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/tests/headlessChrome/videoPlayback.js"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=Java,caption={Test Reproducció Videos | videoPlayback.js},label={TestCHvideoPlayback}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Amb aquest codi ja tindrem uns scripts que guardaran 30 captures per segon
+ a una carpeta local.
+ A la vegada, podem executar una comanda FFmpeg, per convertir aquestes
+ captures en una seqüència de video, i guardar-ho a un arxiu local.
+ Això ho podrem aconseguir amb aquesta sèrie de comandes a la terminal.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/tests/headlessChrome/ffmpegCommands.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Comandes FFmpeg},label={TestCHffmpeg}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pel FFmpeg s'utilitzen els flags:
+\end_layout
+
+\begin_layout Itemize
+-r 24: indica el número de frames per segon que tindra el video resultant.
+\end_layout
+
+\begin_layout Itemize
+-pattern_type glob 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FFmpegPatternType"
+literal "false"
+
+\end_inset
+
+: indiquem el patró del nom dels arxius per una lectura correcte, en aquest
+ cas ens ajudavem d'un txt que contenia tots els noms dels arxius, generat
+ automàticament pel javascript.
+\end_layout
+
+\begin_layout Itemize
+-re: indica que el processament s'ha de fer amb una velocitat de 1x, per
+ evitar que processi les imatges més ràpid de 24 FPS i es vegi més ràpid
+ del que hauria.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquesta solució no ha donat uns resultats gaire atractius, sobretot pel
+ fet d'estar capturant la pantalla amb screenshots, i sense poder transmetre
+ el àudio.
+ Pel que s'ha provat un altre alternativa, basada en un altre projecte creat
+ per l'usuari de Github FBSamples 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FBSamplesRepo"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En aquesta altre proposta, trobem algunes variants interessants, el més
+ diferent és que utilitza un servidor de websockets com a intermediari.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tests/architectureFacebookCanvas.png
+	lyxscale 20
+	height 8cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Arquitectura Projecte Canvas Streaming
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:HCCanvasStreaming"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Això sí, per capturar el canvas, utilitza MediaRecorder, que és el mateix
+ plugin que s'utilitzava en la primera prova.
+ Fent algunes modificacions al projecte de github de prova obtenim resultats
+ amb el html creat anteriorment.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/tests/headlessChrome/server.js"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=Java,caption={Servidor Websockets | server.js},label={TestCHserver}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Les ventatges amb aquest canvi és que aconseguim molta més qualitat de imatge,
+ i es captura automàticament el so.
+ Per altre banda, es segueix utilitzant Pulseaudio de manera autònoma, pel
+ que seguirà havent un retard variant de video/àudio.
+\end_layout
+
+\begin_layout Standard
+Les conclusions que es treuen d'aquest experiment és que aquesta eina és
+ interessant per fer algun petit projecte o que no requereixi de so, però
+ no acaba d'encaixar en els requisits que es proposaven.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Unreal Engine 4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per la prova amb Unreal Engine, s'ha utilitzat una tecnologia molt utilitzada
+ de manera professional a la televisió, i que recentment ha estat integrada
+ a Unreal com a plugin extern.
+ Es tracta del software NDI (Network Device Interface) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NewTekNDI"
+literal "false"
+
+\end_inset
+
+.
+ Creat per la empresa NewTek i amb una llicència privativa, permet una gran
+ qualitat d'imatge, amb poc retard i una estructura molt estable.
+ Dóna un grau important de professionalitat i compta amb un suport per part
+ de NewTek i un fòrum de comunitat.
+ Les desventatges són, que al ser una empresa que recolza el software privatiu
+ i tancat, no té cap mena de suport per Linux, només per Windows i MacOS.
+ Sumant això a que la compatibilitat d'Unreal Engine tampoc és extraordinària,
+ és bastant inabastable aconseguir bons resultats amb Unreal en una màquina
+ Linux.
+ Per tant, les proves que es faràn seran desde una màquina Windows per comprovar
+ la potència d'aquesta tecnologia.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per començar, crearem un streaming de NDI desde VLC, per poder comprovar
+ que funciona correctament tant entrada com sortida de fluxos.
+ Un cop instalem les Tools de NDI, el plugin de VLC per poder treballar
+ amb aquest software, s'instalarà automàticament.
+ Només cal entrar a les opcions de VLC i marcar com a motor de sortida 
+\begin_inset Quotes fld
+\end_inset
+
+NewTek NDI Video Output
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tests/NDIVLC.jpg
+	lyxscale 20
+	height 9cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Configuració Sortida NDI a VLC
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:NDIVLC"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Encara que per aquesta prova s'hagi fet la sortida amb VLC, es pot fer de
+ moltes altres maneres, com pot ser FFmpeg o una eina propia de NDI dedicada
+ a això.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un cop ja tenim un flux de video creat, l'haurem de rebre a l'Unreal, per
+ fer-ho, hem d'utilitzar el plugin corresponent, i seguir els pasos de la
+ seva documentació 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NDI Unreal Documentation"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tests/NDIReceive.jpeg
+	lyxscale 20
+	height 1.5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Node NDI Receiver
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:NDIReceiver"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ara que ja està tot programat, ja comencem a veure alguns resultats d'aquest
+ software.
+ Per aprofitar l'Unreal i provar altres efectes també, s'ha escollit un
+ video amb un chroma per comprovar com es comportava devant un streaming
+ calculant-lo a temps real.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tests/UnrealNDI.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultat NDI Input
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:NDIReceiverResultat"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Els resultats d'aquesta prova han sigut molt bons, la latència del NDI era
+ molt baixa, a més d'una qualitat sorprenent.
+ Ha donat alguns problemes d'estabilitat en algun moment, però s'ha de tenir
+ en compte que el plugin d'Unreal encara és molt nou i és normal que doni
+ algun problema que altre, encara i això, són resultats prou estables i
+ té potencial per poder ser utilitzat com a eina de televisió professional.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Unity}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per la prova del Unity, s'ha creat un projecte que contigui diversos elements.
+ Un video de fons, un element 3D amb un video com a texture, un logo 3D
+ i un PNG amb transparència.
+ Per a la reproducció de videos s'ha escollit el plugin UMP (Universal Media
+ Player) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UMP Plugin"
+literal "false"
+
+\end_inset
+
+, considerat el reproductor més complert de tota l'Asset Store (plataforma
+ de descàrrega de plugins).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tests/UMPFunctions.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Funcionalitats UMP
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:UMPFunctions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A més, és l'únic compatible amb Linux, el sistema operatiu més utilitzat
+ en sistemes al núvol 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cloud Linux"
+literal "false"
+
+\end_inset
+
+.
+ Pel UMP, haurem de posar un element que controla la reproductor, i definir
+ quines són les malles que han de renderitzar el video.
+ Per aquesta prova es té un controlador que reproduirà el video del fons,
+ i un altre que reproduirà el video de la càpsula, l'altre element 3D.
+ A més, tindrem una animació pel logo 3D que anirà girant, i un altre per
+ la capsula que s'anirà movent per la pantalla.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tests/UnityTest.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Prova Unity
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ProvaUnity"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Els resultats amb Unity han sigut molt satisfactoris, no ha donat cap problema
+ i la reproducció ha sigut la més fluida.
+ El plugin UMP suporta pràcticament tot tipus de formats de videos ja que
+ utilitza les llibreries de libVLC.
+ El codi és mitjanament obert pel que es podrà editar fàcilment.
+ La imatge en PNG té la transparència perfectament aplicada, pel que veiem
+ que el Unity suporta els valors d'alpha d'aquest.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ara que ja s'han fet proves suficients amb totes les eines, es pot decidir
+ sense cap tipus de dubte, que la millor opció per aquest projecte és 
+\series bold
+Unity
+\series default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Elecció de les llibreries a utilitzar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Entrada de fluxos}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Decidit Unity com a eina a utilitzar, el següent pas és escollir les llibreries
+ que permetran l'entrada de fluxos.
+ Anteriorment s'han comentat les dues més importants, que són FFmpeg i libVLC.
+ A les proves del Unity s'ha utilitzat un plugin anomenat UMP, el qual ha
+ donat molts bons resultats.
+ S'ha decidit utilitzar-lo ja que fa ús de libVLC, i ens ofereix una gran
+ compatibilitat, a diferència d'altres com pot ser AVPro 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AVPro"
+literal "false"
+
+\end_inset
+
+, molt més potent, però amb la desventatge d'utilitzar llibreries pròpies
+ i no ser compatible amb Linux.
+\end_layout
+
+\begin_layout Standard
+Encara i apuntar tot a UMP, s'ha fet una prova comparativa dels dos plugins,
+ ambdós executant-se en el mateix sistema operatiu (Windows 10) i mateixes
+ condicions, un video molt pesat en resolució 8K.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/AVPro.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Prova AVPro (Video 8K)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AVProvsUMP"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/UMPvsAVPro.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Prova UMP (Video 8K)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:UMPvsAVPro"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Les conclusions són que el AVPro és molt més potent per videos en 4K o més,
+ pero en videos 1080p o menys, el rendiment és molt igualat, i si tenim
+ en compte que UMP accepta molts més formats, tenim un clar guanyador pels
+ objectius d'aquest projecte on resolucions de 4K o més, no són la prioritat.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Sortida del frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per altre banda, la sortida del frame és més complicada, no és comú voler
+ treure per streaming el frame de Unity.
+ La opció més viable sembla utilitzar FFmpeg amb configuracions de piping.
+ És a dir, hauriem de generar les imatges a dins de Unity a una velocitat
+ determinada per aconseguir els FPS (Frames per second) desitjats.
+ I després introduir-ho a FFmpeg amb una comanda utilitzant 
+\begin_inset Quotes fld
+\end_inset
+
+pipe
+\begin_inset Quotes frd
+\end_inset
+
+ com a input.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hi ha un projecte de Github 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FFmpegOut"
+literal "false"
+
+\end_inset
+
+, desenvolupat per l'usuari Keijiro, molt conegut a la comunitat de Unity
+ per crear una gran varietat de plugins molt útils i innovadors.
+ El que aconsegueix és introduir FFmpeg a Unity, i utilitzar el mètode dels
+ pipeline per grabar un video local.
+ Afortunadament el codi és open-source, pel que el podem modificar per aconsegui
+r que enlloc de generar un fitxer en local, faci un streaming per rtp.
+ Aconseguit això, ens trobem amb diversos problemes.
+ Amb Linux només suporta la API de render 
+\begin_inset Quotes fld
+\end_inset
+
+Vulkan
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Vulkan"
+literal "false"
+
+\end_inset
+
+.
+ És una API que està agafant molta força, però és millor evitar-la ja que
+ és encara molt nova, i el plugin de reproducció de video que s'utilitza
+ només suporta OpenGL.
+ A part d'això i més important, l'àudio no surt de cap manera, i s'ha de
+ capturar de manera externa, pel que serà molt complicat sincronitzar-ho
+ amb el video.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un altre opció és automatitzar unes comandes de FFmpeg per capturar la finestra
+ i generar un streaming de sortida.
+ Com ja ha sigut comentat abans, FFmpeg és l'eina més potent de video i
+ es controla mitjançant comandes al terminal, el que és molt útil per a
+ poder automatitzar les tasques a través de scripts.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Elecció del hardware i sistema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Plataforma Virtual AWS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'elecció de la plataforma que contindrà el software no ha sigut gaire complicad
+a.
+ Les opcions eren Azure, AWS (Amazon Web Services) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWS"
+literal "false"
+
+\end_inset
+
+ o Google.
+ Es tracten de plataformes Cloud on es poden emmagatzemar i executar tot
+ tipus d'arxius.
+ Són molt utilitzades ja que només les mega corporacions disposen d'infraestruct
+ures de servidors propis, la majoria de desenvolupadors lloguen els servidors
+ a una d'aquestes plataformes.
+ Comparativa entre AWS i Azure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWSvsAzure"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="5.5cm">
+<column alignment="center" valignment="middle" width="5.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+AWS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Azure
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Plataforma de computació al núvol sota demanda (Amazon)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Plataforma pública al núvol (Microsoft)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Amigable desde els seus inicis amb el model de codi obert
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No tenen bona relació amb la comunitat de codi obert
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Té una gran avantatge en quant a ofertes de núvol governamental
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Limitat en quant a ofertes per al núovl governamental
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Models de preu flexibles
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Models de preus més tancats i menys varietat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Segueix donant recolzament per suportar els models de núvols híbrids
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Excel·lent per models amb núvols hibrids
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gran varietat de software i sistemes operatius tant Linux com Windows
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Està més limitat al sistema operatiu de Windows encara que també té algunes
+ opcions de Linux
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+El sistema d'emmagatzematge de AWS (EBS) és molt ràpid per sistemes amb
+ big data.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+L'emmagatzematge estàndard té problemes amb el big data i per tant s'ha
+ de contractar un server de primera qualitat.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entorns molt més madurs pel big data
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entorns més verds per big data, encara que Azure està millorant en aquest
+ aspecte
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Es pot accedir a les màquines de manera individual
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Les màquines estan agrupades en un sol servei al núvol i responen al mateix
+ domini però amb diferents ports
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Elastic Compute Cloud (EC2) Es paga per hora utilitzada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Es paguen per minut
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S3 Arxius de rcuperació a curt termini.
+ Per llargs terminis es pot utilitzar Glacier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Té una opció semblant a S3, però per recuperacions a llarg termini encara
+ no disposa de cap solució
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+La seguretat es proporciona a través de rols definits per l'usuari administrador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Es defineix un director que serà l'administrador del servidor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparativa subjectiva de les possibles eines
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+AWS és la millor opció per hostear aquest projecte, a més concorda amb l'elecció
+ de l'empresa on s'esta fent aquest projecte, Watchity, que tenen tot el
+ seu software i servidors contractats amb aquesta plataforma.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Sistema operatiu}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per escollir el sistema operatiu més adient haurem de veure les ventatges
+ que té cada un dels més populars, que són: Windows, MacOS i Linux.
+ Tenint en compte que el projecte s'emmagatzemarà i s'executarà desde un
+ servidor de AWS, el més adient és tenir-ho amb el sistema operatiu més
+ popular al núvol, Linux.
+ Windows també disposa d'opcions per ser executat en un servidor, però les
+ funcionalitats son infinitament inferiors, a més de ser privatiu i no permetre
+ la modificació de cap element del sistema.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per tant, sabent que el sistema operatiu serà Linux, també caldrà escollir
+ la distribució més adient.
+ Les millors opcions són Ubuntu Server, CentOS, SUSE i Arch.
+ Cada un d'ells tenen les seves ventatges i desventatges.
+ A Watchity, treballen amb CentOS en totes les seves màquines, ja que es
+ una distribució molt sòlida i de les més utilitzades per servidor.
+ La diferència més gran entre aquests dos és que Ubuntu al estar basat en
+ Debian, els paquets són instalats en .deb amb el gestor de paquets 
+\begin_inset Quotes fld
+\end_inset
+
+apt-get
+\begin_inset Quotes frd
+\end_inset
+
+, mentres que a CentOS s'utilitza 
+\begin_inset Quotes fld
+\end_inset
+
+yum
+\begin_inset Quotes frd
+\end_inset
+
+ o 
+\begin_inset Quotes fld
+\end_inset
+
+dnf
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Realment per aquest projecte és indiferent l'elecció d'un o un altre, pel
+ que s'escollirà CentOS simplement per no diferenciar-se a la metodologia
+ de treball de Watchity.
 \end_layout
 
 \begin_layout Standard
@@ -1139,6 +4974,568 @@ Smirnov, A.
 21bc12bf0
 \end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Puppeteer"
+literal "false"
+
+\end_inset
+
+Google.
+ (2021a, February 11).
+ Puppeteer | Tools for Web Developers |.
+ Google Developers.
+ https://developers.google.com/web/tools/puppeteer
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ApacheLicense"
+literal "false"
+
+\end_inset
+
+Apache.
+ (2004, January 1).
+ Apache License, Version 2.0.
+ Apache License.
+ https://www.apache.org/licenses/LICENSE-2.0
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "WebGLBrowserSupport"
+literal "false"
+
+\end_inset
+
+Mozilla.
+ (2021, May 27).
+ WebGL: 2D and 3D graphics for the web - Web APIs | MDN.
+ WebGL Support by Browser.
+ https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#browser_compatibility
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "UE4BestPhotoEngine"
+literal "false"
+
+\end_inset
+
+Dealessandri, M.
+ (2020, May 14).
+ What is the best game engine: is Unreal Engine right for you? GamesIndustry.Biz.
+ https://www.gamesindustry.biz/articles/2020-01-16-what-is-the-best-game-engine-is
+-unreal-engine-4-the-right-game-engine-for-you
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "PopularUnity"
+literal "false"
+
+\end_inset
+
+Eric Peckham, E.
+ P.
+ (2019, October 17).
+ TechCrunch is now a part of Verizon Media.
+ Extra Crunch.
+ https://techcrunch.com/2019/10/17/how-unity-built-the-worlds-most-popular-game-e
+ngine/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "UnityMultiplatform"
+literal "false"
+
+\end_inset
+
+Technologies, U.
+ (2021, January 1).
+ Multiplatform.
+ Unity.
+ https://unity.com/features/multiplatform
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "TIOBE"
+literal "false"
+
+\end_inset
+
+TIOBE.
+ (2021, July 1).
+ index | TIOBE - The Software Quality Company.
+ https://www.tiobe.com/tiobe-index/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MonoBehaviour"
+literal "false"
+
+\end_inset
+
+Technologies, U.
+ (2021b, January 1).
+ Unity - Scripting API: MonoBehaviour.
+ Unity.
+ https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HDRP"
+literal "false"
+
+\end_inset
+
+Lagarde, S.
+ (2020, February 24).
+ HDRP: Out of Preview in 2019.3.
+ Unity Blog.
+ https://blog.unity.com/technology/hdrp-out-of-preview-in-2019-3
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DivX"
+literal "false"
+
+\end_inset
+
+Texto: Luz Fernández.
+ (2002, December 28).
+ La copia de películas se hace fácil en Internet.
+ Cinco Días.
+ https://cincodias.elpais.com/cincodias/2002/12/28/tecnologia/1041322677_850215.htm
+l
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "StreamingProtocols"
+literal "false"
+
+\end_inset
+
+Bychok, A.
+ (2021, May 21).
+ Streaming Protocol Comparison: RTMP, WebRTC, FTL, SRT – Restream Blog.
+ Ultimate Live Streaming Hub – Restream Blog.
+ https://restream.io/blog/streaming-protocols/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "AV1Codec"
+literal "false"
+
+\end_inset
+
+Fernández, Y.
+ (2019, November 7).
+ Qué es el códec AV1 y cuáles son sus ventajas.
+ Xataka.
+ https://www.xataka.com/basics/que-codec-av1-cuales-sus-ventajas
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MixerFTL"
+literal "false"
+
+\end_inset
+
+Hao, D.
+ T.
+ G.
+ (2019, August 7).
+ Mixer’s Faster Than Light streaming protocol explained.
+ Dot Esports.
+ https://dotesports.com/streaming/news/mixers-faster-than-light-streaming-protoco
+l-explained
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MixerCierre"
+literal "false"
+
+\end_inset
+
+Rus, C.
+ (2020, June 23).
+ Microsoft cierra Mixer, su alternativa a Twitch en la que tenía en exclusiva
+ a superestrellas de eSports como.
+ .
+ .
+ Xataka.
+ https://www.xataka.com/videojuegos/microsoft-cierra-mixer-su-alternativa-a-twitch
+-que-tenia-exclusiva-a-superestrellas-esports-como-ninja
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "TwtichRTMP"
+literal "false"
+
+\end_inset
+
+Twitch.
+ (2015, December 18).
+ Twitch Blog | Twitch Engineering: An Introduction and Overview.
+ Twitch Blog.
+ https://blog.twitch.tv/en/2015/12/18/twitch-engineering-an-introduction-and-overv
+iew-a23917b71a25/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "FFmpeg About"
+literal "false"
+
+\end_inset
+
+FFmpeg.
+ (2021, January 1).
+ About FFmpeg.
+ https://ffmpeg.org/about.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "FFmpeg Filters"
+literal "false"
+
+\end_inset
+
+FFmpeg.
+ (2021b, January 1).
+ FFmpeg Filters Documentation.
+ https://ffmpeg.org/ffmpeg-filters.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "VideoLAN"
+literal "false"
+
+\end_inset
+
+VideoLAN.
+ (2021, January 1).
+ Free Software and Open Source video streaming solution for every OS! -
+ VideoLAN.
+ https://www.videolan.org/videolan/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "VideoLAN Contribution"
+literal "false"
+
+\end_inset
+
+VideoLAN.
+ (2021a, January 1).
+ Contribute to the project - VideoLAN.
+ https://www.videolan.org/contribute.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "libVLCSampleCode"
+literal "false"
+
+\end_inset
+
+VideoLAN.
+ (2019, March 4).
+ libVLC Tutorial - VideoLAN Wiki.
+ WikiVLC.
+ https://wiki.videolan.org/LibVLC_Tutorial/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HeadlessChromeProject"
+literal "false"
+
+\end_inset
+
+Pereyro, S.
+ (2017, October 31).
+ Screencast with Headless Chrome.
+ Google Docs.
+ https://docs.google.com/presentation/d/1b-HvxKmeFYE3qoNDJDHfbgVwEbi0QgmTvpH8w4CK5
+Tw/edit#slide=id.gc6f90357f_0_0
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Postman"
+literal "false"
+
+\end_inset
+
+Postman.
+ (2021, January 1).
+ Postman | The Collaboration Platform for API Development.
+ https://www.postman.com/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ChromeDevTools"
+literal "false"
+
+\end_inset
+
+Google.
+ (2021a, January 1).
+ Chrome DevTools Protocol.
+ Page Domain.
+ https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-startScreenca
+st
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Nightcrawler"
+literal "false"
+
+\end_inset
+
+Filmaffinity.
+ (2014, January 1).
+ Nightcrawler (2014).
+ https://www.filmaffinity.com/es/film779937.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Stalker"
+literal "false"
+
+\end_inset
+
+Filmaffinity.
+ (1979, January 1).
+ Stalker (1979).
+ https://www.filmaffinity.com/es/film534365.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "AutoplayPolicy"
+literal "false"
+
+\end_inset
+
+Google.
+ (2017, September 13).
+ Autoplay policy in Chrome.
+ Chrome Developers.
+ https://developer.chrome.com/blog/autoplay/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "FFmpegPatternType"
+literal "false"
+
+\end_inset
+
+FFmpeg.
+ (2021c, January 1).
+ FFmpeg Formats Documentation.
+ https://ffmpeg.org/ffmpeg-formats.html#image2-1
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "FBSamplesRepo"
+literal "false"
+
+\end_inset
+
+FBSamples.
+ (2020, May 8).
+ GitHub - fbsamples/Canvas-Streaming-Example: This project contains example
+ code showing how to go live on Facebook using a element as a source.
+ GitHub.
+ https://github.com/fbsamples/Canvas-Streaming-Example
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "NewTekNDI"
+literal "false"
+
+\end_inset
+
+NewTek.
+ (2021, January 1).
+ About NDI - Network Device Interface.
+ https://www.ndi.tv/about-ndi/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "NDI Unreal Documentation"
+literal "false"
+
+\end_inset
+
+NewTek.
+ (2020, November).
+ NDI Unreal Documentation.
+ NDI Unreal Documentation.
+ http://514f211588de67e4fdcf-437b8dd50f60b69cf0974b538e50585b.r63.cf1.rackcdn.com/Ut
+ilities/SDK/NDI_SDK_Unreal_Engine/4.25/NDI%20IO%20Plugin%20for%20Unreal%20Engine%
+20Quickstart%20Guide.pdf
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "UMP Plugin"
+literal "false"
+
+\end_inset
+
+Unity Direction Kit.
+ (2016, June 4).
+ UMP (Win, Mac, Linux, WebGL) | Video.
+ Unity Asset Store.
+ https://assetstore.unity.com/packages/tools/video/ump-win-mac-linux-webgl-49625
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Cloud Linux"
+literal "false"
+
+\end_inset
+
+Verma, A.
+ (2015, August 30).
+ Access denied | fossbytes.com used Cloudflare to restrict access.
+ Fossbytes.
+ https://fossbytes.com/ubuntu-linux-is-the-most-popular-operating-system-in-cloud
+/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "AVPro"
+literal "false"
+
+\end_inset
+
+RenderHeadsLTD.
+ (2020, March 12).
+ AVPro Video - Ultra Edition | Video.
+ Unity Asset Store.
+ https://assetstore.unity.com/packages/tools/video/avpro-video-ultra-edition-18429
+4
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "FFmpegOut"
+literal "false"
+
+\end_inset
+
+Keijiro, K.
+ (2019, October 24).
+ GitHub - keijiro/FFmpegOut: Video capture plugin for Unity with FFmpeg.
+ GitHub.
+ https://github.com/keijiro/FFmpegOut
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Vulkan"
+literal "false"
+
+\end_inset
+
+AMD.
+ (2016, February 16).
+ Vulkan.
+ https://www.amd.com/es/technologies/vulkan
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "AWS"
+literal "false"
+
+\end_inset
+
+Amazon.
+ (2021, January 1).
+ AWS | Cloud Computing - Servicios de informática en la nube.
+ Amazon Web Services, Inc.
+ https://aws.amazon.com/es/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "AWSvsAzure"
+literal "false"
+
+\end_inset
+
+AWS vs Azure-Who is the big winner in the cloud war? (2021, July 27).
+ ProjectPro.
+ https://www.dezyre.com/article/aws-vs-azure-who-is-the-big-winner-in-the-cloud-wa
+r/401
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -1187,6 +5584,377 @@ noprefix "false"
  Selenium Driver Graph [Graph].
  Selenium Driver Graph.
  https://www.selenium.dev/documentation/images/basic_comms.png?width=400px
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PupeteerLogo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ pupeteer.
+ (2018, January 12).
+ Pupeteer Logo [Graph].
+ Logo.
+ https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-98
+72-91d1fc2ea683.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:WebGLExample"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ WebGL Example.
+ (2017, March 17).
+ [Illustration].
+ Aquarium.
+ https://1stwebdesigner.com/wp-content/uploads/2014/03/aquarium.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QuixelMegascans"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Quixel.
+ (2019, March 20).
+ Quixel Megascan [Render].
+ UE4 Demo.
+ https://www.youtube.com/watch?v=9fC20NWhx4s
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BlueprintRotate"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Spiris, S.
+ (2014, December 25).
+ Blueprint [Graph].
+ UE4 Simple Blueprint.
+ https://answers.unrealengine.com/storage/temp/24917-rotate90degrees.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BlueprintChaos"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Neginfinity, N.
+ (2013, January 27).
+ Chaos Blueprint [Graph].
+ UE4 Blueprint Example of Bad Node Programming.
+ https://forum.unity.com/proxy.php?image=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FDeiyJr
+DUwAAJQJ8.jpg&hash=f36b58c4bd4dc432a0a0ff8c62b453c4
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TiobeRanking"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Daria, D.
+ (2021, July 12).
+ Ranking Languages 2020 [Graph].
+ Darly Solutions.
+ https://darly.solutions/the-most-popular-programming-languages-in-2021/
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BookOfDead"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Unity.
+ (2018, January 16).
+ Book of the Dead - Unity Interactive Demo - Teaser.
+ YouTube.
+ https://www.youtube.com/watch?v=DDsRfbfnC_A
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EFTCaptura"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ BATTLESTATE GAMES LIMITED.
+ (2015, December 22).
+ Pantalla de Pre-Alfa 19.
+ www.escapesfromtarkov.com.
+ https://www.escapefromtarkov.com/media/id/29?lang=es
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DiagramaProtocol"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Aakanksha, A.
+ (2016, May 12).
+ Diagrama Protocol-Format-Códec [Graph].
+ StreamShark.
+ https://streamshark.io/blog/understanding-codecs-and-formats/
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TCPvsUDP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Ruether, T.
+ (2021, March 16).
+ TCP vs UDP [Graph].
+ Wowza.
+ https://www.wowza.com/wp-content/uploads/Graphic-UDP-Vs-TCP-Diagram_1150x685.webp
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LatencyGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Ruether, T.
+ (2021a, March 16).
+ Graph Latency Streaming Protocols [Graph].
+ Wowza.
+ https://www.wowza.com/wp-content/uploads/latency-continuum-2021-with-protocols-70
+0x300-1.webp
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FFmpeg"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ FFmpeg.
+ (2013, April 10).
+ FFmpeg Logo [Logo].
+ Wikipedia Media.
+ https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/FFmpeg_Logo_new.svg/1280
+px-FFmpeg_Logo_new.svg.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:VLC1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Brinkmann, M.
+ (2009, July 7).
+ VLC 1.0 [Photograph].
+ Ghacks.Net.
+ https://www.ghacks.net/2009/07/07/vlc-media-player-1-0-released/
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ExperimentHCEmpirical"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Pereyro, S.
+ (2017, October 31).
+ Screencast with Headless Chrome.
+ Google Docs.
+ https://docs.google.com/presentation/d/1b-HvxKmeFYE3qoNDJDHfbgVwEbi0QgmTvpH8w4CK5
+Tw/edit#slide=id.gc6f90357f_0_0
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:HCTestindexhtml"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 9) Test Headless Chrome Index.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NDIVLC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ NewTek.
+ (2016, August 31).
+ NDI VLC Output Config [Config].
+ NewTek.
+ https://www.newtek.com/blog/tips/vlc-media-player-and-newtek-ndi-vlc-plugin/
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NDIReceiver"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ NewTek.
+ (2020b, November 20).
+ NDI Receiver Unreal [Graph].
+ NewTek.
+ https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMEVIL0BGn1XzKBxR2VKpZowQag
+dDYYENRmA&usqp=CAU
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NDIReceiverResultat"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, June 1) Test NDI Receiver.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:UMPFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Unity Direction Kit.
+ (2016a, June 4).
+ UMP Functionalities [Graph].
+ Asset Store.
+ https://assetstorev1-prd-cdn.unity3d.com/key-image/9f96a930-72d3-4972-a650-f4ea4f
+6e326b.webp
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ProvaUnity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, January 14) Test Unity UMP.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:AVProvsUMP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 25) Test AVPro vs UMP.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:UMPvsAVPro"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 25) Test UMP vs AVPro.
+ Own elaboration.
 \end_layout
 
 \begin_layout Standard

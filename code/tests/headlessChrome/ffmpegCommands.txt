@@ -1,0 +1,9 @@
+//Executem el script de node videoPlayback.js
+node videoPlayback.js
+
+//Iniciem el ffmpeg per llegir totes les captures i convertir-les a un streaming rtmp
+cd /Output/images/
+ffmpeg -r 24 -pattern_type glob -re -i '*.jpg' -f flv rtmp://example.com
+
+//FFplay Stream per reproduir-lo
+ffplay rtmp://example.com

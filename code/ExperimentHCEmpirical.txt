@@ -1,0 +1,20 @@
+// Init remote interface to chrome port
+function initRemoteInterface(chrome){
+    const port = chrome.port;
+    logger.log("Initialize Remote Interface on port: " + port);
+    return ChromeRemoteInterface({port: port});
+}
+
+//Load Page
+async function loadPage(url){
+    await Page.navigate({url: url});
+}
+
+//Start screencast
+function startCapturingFrames(){
+    logger.log("Starting capturing screen frames...");
+    return Page.startScreencast({
+        format: "jpeg",
+        quality: 100
+    })
+}
