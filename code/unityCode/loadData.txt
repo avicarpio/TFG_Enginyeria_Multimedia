@@ -1,0 +1,6 @@
+BinaryFormatter bf = new BinaryFormatter();
+FileStream fileStream = File.Open(Application.persistentDataPath + "/" + sceneName, FileMode.Open);
+SaveData saveReceive = bf.Deserialize(fileStream) as SaveData;
+fileStream.Close();
+
+//Executa totes les funcions pertintents per cada objecte de SaveData

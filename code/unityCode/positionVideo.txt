@@ -1,0 +1,24 @@
+string[] coordinates = splitInfo[1].Split(',');
+float[] coordNums = new float[2];
+
+//Parse coordinates float
+for(int i = 0; i < coordinates.Length; i++)
+{
+	coordNums[i] = float.Parse(coordinates[i], CultureInfo.InvariantCulture.NumberFormat);
+}
+
+int videoN = int.Parse(splitInfo[0], CultureInfo.InvariantCulture.NumberFormat);
+
+//Define position values
+GameObject videoTran = umpPlayers[videoN].transform.parent.gameObject;
+Vector3 initPos = videoTran.transform.position;
+Vector3 desiredPos = new Vector3(map(coordNums[0], 0, 1, -_CAMERALIMITS.x, _CAMERALIMITS.x), map(coordNums[1], 0, 1, _CAMERALIMITS.y, -_CAMERALIMITS.y), videoTran.transform.position.z);
+
+//Video LookAt Camera
+videoTran.transform.rotation = Quaternion.Euler(90, 180, 0);
+
+//Move Animation
+LeanTween.value(gameObject, initPos, desiredPos, tweenTime).setOnUpdate((Vector3 val) =>
+{
+	videoTran.transform.position = val;
+}).setEaseOutExpo();

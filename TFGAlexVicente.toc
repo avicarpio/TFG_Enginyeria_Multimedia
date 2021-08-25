@@ -1,0 +1,37 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introducció}{2}{section.1}%
+\contentsline {section}{\numberline {2}Part Teòrica}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Explicació del projecte}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Projecte Actual}{3}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Requeriments del nou Mixer}{4}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Eines Gràfiques}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Headless Chrome}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}WebGL Headless}{8}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Unreal Engine 4}{8}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Unity}{10}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Tractament dels fluxes de video}{13}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Formats Compatibles}{13}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Protocols de Streaming}{15}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Llibreries de processament}{19}{subsubsection.2.3.3}%
+\contentsline {section}{\numberline {3}Proposició}{23}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Comparació: Ventatges i desventatges de cada eina}{23}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Elecció de l'eina i justificació}{24}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Chrome Headless}{24}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Unreal Engine 4}{32}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Unity}{34}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Elecció de les llibreries a utilitzar}{36}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Entrada de fluxos}{36}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Sortida del frame}{38}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Elecció del hardware i sistema}{38}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Plataforma Virtual AWS}{38}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Sistema operatiu}{39}{subsubsection.3.4.2}%
+\contentsline {section}{\numberline {4}Part Pràctica}{40}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Arquitectura del sistema}{40}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Possibilitats}{41}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Resolució}{41}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Compatibilitat fluxes d'entrada}{43}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Control de l'app}{47}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Compatibilitat audio}{48}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Transicions}{48}{subsubsection.4.2.5}%
+\contentsline {section}{\numberline {5}Images References}{53}{section.5}%
+\contentsline {section}{\numberline {6}Annexes}{54}{section.6}%

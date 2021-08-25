@@ -12,9 +12,13 @@
 
 \usepackage[english]{babel}
 
-\lstset{basicstyle=\ttfamily,
+\newfontfamily\firaCode[Extension=.ttf]{FiraCode}
+
+\definecolor{codeColor}{RGB}{50, 180, 50}
+
+\lstset{basicstyle=\fontsize{8}{9}\selectfont\firaCode,
   showstringspaces=false,
-  commentstyle=\color{red},
+  commentstyle=\color{codeColor},
   keywordstyle=\color{blue}
 }
 \end_preamble
@@ -29,7 +33,7 @@
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -40,11 +44,13 @@
 \default_output_format default
 \output_sync 0
 \bibtex_command default
-\index_command default
+\index_command makeindex
 \float_placement H
-\paperfontsize default
+\paperfontsize 12
 \spacing single
 \use_hyperref true
+\pdf_title "Treball Final de Grau Àlex Vicente"
+\pdf_author "Àlex Vicente"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered false
 \pdf_bookmarksopen false
@@ -91,6 +97,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\bullet 0 0 10 4
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -288,12 +295,14 @@ L'objectiu d'aquest projecte és crear una aplicació de live video mixing
  senzilla, eficaç i ràpida.
  Tot això creat amb una eina utilitzada als videojocs com és un motor gràfic.
  En un primer moment pot sorprendre una mica la idea i es pot arribar a
- pensar que no és viable ja que no està pensada per això.
- Però anireu veient que tot cobra sentit i els videojocs, o les eines per
- crear-los, són més potents del que creiem i s'utilitzen a molts llocs que
- mai hauriem imaginat.
- Ha estat realitzat a l'empresa Watchity S.L., on he estat treballant com
- a becari, i a la vegada ho he combinat amb el meu projecte de fi de grau.
+ pensar que no és viable ja que un motor gràfic de videojocs no està pensat
+ per això.
+ Però com s'anirà veient tot agafa sentit i els videojocs, o les eines per
+ crear-los, són més potents del que creiem.
+ Ja que aquestes tecnologies s'utilitzen a molts llocs que mai hauriem imaginat.
+ Aquest projecte ha estat realitzat a l'empresa Watchity S.L., on he estat
+ treballant com a becari, i a la vegada ho he combinat amb el meu projecte
+ de fi de grau.
  Ja que es tracta d'una idea molt interessant i innovadora, que em va cridar
  molt l'atenció desde el primer moment.
  En aquesta empresa ja tenien una primera aplicació, basada en una eina
@@ -307,6 +316,12 @@ L'objectiu d'aquest projecte és crear una aplicació de live video mixing
 En el mercat existeixen algunes altres propostes que fan la competència,
  però, el que es busca és tenir molta més potencia i possibilitats que aquestes
  eines, i a la vegada ha de ser fàcil d'utilitzar.
+ Com a exemples de competència tenim vMix o Wirecast, com a software instalable,
+ que fan video mixing professional.
+ Per altre banda tindriem StreamYard o Restream que fan video mixing al
+ núvol, però llavors es queden bastant limitats.
+ I és aquí on Watchity vol incidir com a opció diferencial, creant una eina
+ potent al núvol, que superi les possibilitats de la competència.
 \end_layout
 
 \begin_layout Standard
@@ -2310,6 +2325,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="5">
 <features tabularvalignment="middle">
@@ -3054,6 +3070,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="4">
 <features tabularvalignment="middle">
@@ -4445,6 +4462,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="2">
 <features tabularvalignment="middle">
@@ -4829,6 +4847,3820 @@ dnf
 Realment per aquest projecte és indiferent l'elecció d'un o un altre, pel
  que s'escollirà CentOS simplement per no diferenciar-se a la metodologia
  de treball de Watchity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CentOSLogo.png
+	lyxscale 20
+	height 4cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CentOS Logo
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CentOS"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Part Pràctica}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Arquitectura del sistema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'aplicació es composarà d'un binari executable de Unity, emmagatzemat a
+ un servidor d'AWS.
+ En aquest servidor es rebràn crides cURL a través d'un frontend comprensible
+ per l'usuari a qui va dirigit.
+ Les peticions dels usuaris seràn processades i 
+\begin_inset Quotes fld
+\end_inset
+
+traduïdes
+\begin_inset Quotes frd
+\end_inset
+
+ per fer els canvis a l'aplicació de Unity d'una manera que entengui.
+ El servidor estarà emetent constantment la sortida del Unity amb un monitor
+ virtual, que serà enviada per multicast a la web on l'usuari està interactuant
+ per poder veure els canvis que ha realitzat.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Arquitectura.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Arquitectura del Projecte
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Arquitectura"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Possibilitats}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Resolució}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La resolució de l'aplicació serà per defecte 1920x1080.
+ Això es defineix a la configuració de la targeta gràfica del servidor d'AWS,
+ concretament a l'arxiu /etc/X11/xorg.conf.
+ Aquest, és un arxiu de configuració que utilitza Nvidia i que emmagatzema
+ tot tipus de configuració gràfica, ja sigui resolucions, tipus de targeta,
+ monitors virtuals, refresc, etc.
+ Al tractar-se d'un servidor, les configuracions gràfiques s'han de realitzar
+ manualment, i crear un xorg.conf que s'adequï a les necessitats de cada
+ un.
+ A continuació s'adjunta el fitxer xorg que s'ha realitzat per aquest projecte.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/xorg.conf"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Configuració Gràfica | xorg.conf},label={Xorg}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Començant amb la secció de 
+\begin_inset Quotes fld
+\end_inset
+
+Monitor
+\begin_inset Quotes frd
+\end_inset
+
+, serveix per definir un nou monitor, pel primer cas fem un primari amb
+ el nom Monitor0, i en el segon cas fem un monitor secundari amb el nom
+ Monitor1, situat a l'esquerra del primari.
+ Aquest segon monitor es crea per si de cas en un futur es volgués tenir
+ més d'una aplicació de Unity executant-se a la vegada, encara que la idea
+ es tenir-ne només una en cada màquina AWS de forma ordinària.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La següent secció és el 
+\begin_inset Quotes fld
+\end_inset
+
+Device
+\begin_inset Quotes frd
+\end_inset
+
+, tracta de la targeta gràfica que es té instalada, amb tota la informació
+ necessaria, molt important posar el model (Tesla T4), targetes molt potents
+ que a disposició de AWS, i el BusID, en aquest cas el PCI:0:30:0.
+ Si no es posen aquestes dades, podria no funcionar la conexió gràfica amb
+ l'ordinador.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la secció 
+\begin_inset Quotes fld
+\end_inset
+
+Screen
+\begin_inset Quotes frd
+\end_inset
+
+ es defineix la configuració de pantalla.
+ Molt diferent a la configuració de monitor.
+ En aquest bloc es posarà un nom identificador 
+\begin_inset Quotes fld
+\end_inset
+
+Screen0
+\begin_inset Quotes frd
+\end_inset
+
+, el dispositiu gràfic que s'utilitza 
+\begin_inset Quotes fld
+\end_inset
+
+Device0
+\begin_inset Quotes frd
+\end_inset
+
+ (referència a la GPU Nvidia Tesla T4), el monitor que renderitza aquesta
+ pantalla 
+\begin_inset Quotes fld
+\end_inset
+
+Monitor0
+\begin_inset Quotes frd
+\end_inset
+
+ la profunditat de color, que són 24.
+ Ja que utilitzarem el estàndard, corresponent al True Color 24-bit, que
+ utilitza 8-bits per cada color primari R, G i B.
+ Cada cop s'està utilitzant més el Deep Color que utilitza 10-bits per canal,
+ més conegut com a HDR (també existeix de 12-bits o més) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HDRGuia"
+literal "false"
+
+\end_inset
+
+ en els televisors més actuals, si en volguéssim fer ús i poder utilitzar
+ contingut que disposi d'aquesta tecnologia hauriem de posar un 30 en el
+ valor de DefaultDepth.
+ Però ara per ara, no interessa utilitzar HDR i no és un objectiu proposat
+ que l'aplicació ho permeti.
+\end_layout
+
+\begin_layout Standard
+Seguit d'això es crea una subsecció que contindrà unes dades fixades de
+ com ha de ser la pantalla, amb una resolució de 1920x1080 i 24 de profunditat.
+\end_layout
+
+\begin_layout Standard
+Per últim, i de manera opcional, es poden definir unes opcions de comportament
+ de la pantalla, el que s'ha utilitzat són les opcions de ForceFullCompositionPi
+peline i TripleBuffer per evitar bugs gràfics en els que la pantalla pot
+ quedar tallada verticalment (un bug bastant comú en sistemes Linux amb
+ gràfiques d'Nvidia).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/VSyncXorg.png
+	lyxscale 20
+	height 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemple Bug Gràfic VSync
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:XorgVSync"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vist això, queda provat que es pot definir qualsevol resolució al sistema,
+ nomes caldrà canviar l'arxiu de configuració xorg.conf i posar la que es
+ desitji.
+ Es podria posar una resolució de 4K o 720p, això si, lògicament com més
+ alta sigui la resolució, més latència es tindrà a la sortida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Compatibilitat fluxes d'entrada}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per l'entrada de videos s'utilitza el plugin UMP de l'asset store de Unity,
+ que a la vegada aquest utilitza internament les llibreries libVLC, pel
+ que es permetrà qualsevol format que VLC accepti de manera nativa.
+ Segons la pròpia pàgina de Videolan, creadors de libVLC els formats acceptats
+ són:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Vídeo Códecs
+\end_layout
+
+\begin_layout Itemize
+MPEG-1/2
+\end_layout
+
+\begin_layout Itemize
+DivX® (1/2/3/4/5/6)
+\end_layout
+
+\begin_layout Itemize
+MPEG-4 ASP
+\end_layout
+
+\begin_layout Itemize
+XviD
+\end_layout
+
+\begin_layout Itemize
+3ivX D4
+\end_layout
+
+\begin_layout Itemize
+H.261
+\end_layout
+
+\begin_layout Itemize
+H.263 / H.263i, H.264 / MPEG-4 AVC
+\end_layout
+
+\begin_layout Itemize
+Cinepak
+\end_layout
+
+\begin_layout Itemize
+Theora
+\end_layout
+
+\begin_layout Itemize
+Dirac / VC-2
+\end_layout
+
+\begin_layout Itemize
+MJPEG (A/B)
+\end_layout
+
+\begin_layout Itemize
+WMV 1/2
+\end_layout
+
+\begin_layout Itemize
+WMV 3 / WMV-9 / VC-1
+\end_layout
+
+\begin_layout Itemize
+Sorenson 1/3
+\end_layout
+
+\begin_layout Itemize
+DV
+\end_layout
+
+\begin_layout Itemize
+On2 VP3/VP5/VP6
+\end_layout
+
+\begin_layout Itemize
+Indeo Video v3 (IV32)
+\end_layout
+
+\begin_layout Itemize
+Real Video (1/2/3/4)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Àudio
+\end_layout
+
+\begin_layout Itemize
+MPEG Layer 1/2
+\end_layout
+
+\begin_layout Itemize
+MP3 - MPEG Layer 3
+\end_layout
+
+\begin_layout Itemize
+AAC - MPEG-4 part3
+\end_layout
+
+\begin_layout Itemize
+Vorbis
+\end_layout
+
+\begin_layout Itemize
+AC3 - A/52
+\end_layout
+
+\begin_layout Itemize
+E-AC-3
+\end_layout
+
+\begin_layout Itemize
+MLP / TrueHD>3
+\end_layout
+
+\begin_layout Itemize
+DTS
+\end_layout
+
+\begin_layout Itemize
+WMA 1/2
+\end_layout
+
+\begin_layout Itemize
+WMA 3
+\end_layout
+
+\begin_layout Itemize
+FLAC
+\end_layout
+
+\begin_layout Itemize
+ALAC
+\end_layout
+
+\begin_layout Itemize
+Speex
+\end_layout
+
+\begin_layout Itemize
+Musepack / MPC
+\end_layout
+
+\begin_layout Itemize
+ATRAC 3
+\end_layout
+
+\begin_layout Itemize
+Wavpack
+\end_layout
+
+\begin_layout Itemize
+Mod
+\end_layout
+
+\begin_layout Itemize
+TrueAudio
+\end_layout
+
+\begin_layout Itemize
+APE
+\end_layout
+
+\begin_layout Itemize
+Real Audio
+\end_layout
+
+\begin_layout Itemize
+Alaw/µlaw
+\end_layout
+
+\begin_layout Itemize
+AMR (3GPP)
+\end_layout
+
+\begin_layout Itemize
+MIDI
+\end_layout
+
+\begin_layout Itemize
+LPCM
+\end_layout
+
+\begin_layout Itemize
+ADPCM
+\end_layout
+
+\begin_layout Itemize
+QCELP
+\end_layout
+
+\begin_layout Itemize
+DV Audio
+\end_layout
+
+\begin_layout Itemize
+QDM2/QDMC
+\end_layout
+
+\begin_layout Itemize
+MACE
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Subtítols
+\end_layout
+
+\begin_layout Itemize
+DVD
+\end_layout
+
+\begin_layout Itemize
+Text files (MicroDVD, SubRIP, SubViewer, SSA1-5, SAMI, VPlayer)
+\end_layout
+
+\begin_layout Itemize
+Closed captions
+\end_layout
+
+\begin_layout Itemize
+Vobsub
+\end_layout
+
+\begin_layout Itemize
+Universal Subtitle Format (USF)
+\end_layout
+
+\begin_layout Itemize
+SVCD / CVD
+\end_layout
+
+\begin_layout Itemize
+DVB
+\end_layout
+
+\begin_layout Itemize
+OGM
+\end_layout
+
+\begin_layout Itemize
+CMML
+\end_layout
+
+\begin_layout Itemize
+Kate
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fluxos d'entrada
+\end_layout
+
+\begin_layout Itemize
+UDP/RTP Unicast
+\end_layout
+
+\begin_layout Itemize
+UDP/RTP Multicast
+\end_layout
+
+\begin_layout Itemize
+HTTP / FTP
+\end_layout
+
+\begin_layout Itemize
+MMS
+\end_layout
+
+\begin_layout Itemize
+TCP/RTP Unicast
+\end_layout
+
+\begin_layout Itemize
+DCCP/RTP Unicast
+\end_layout
+
+\begin_layout Itemize
+Arxius Locals
+\end_layout
+
+\begin_layout Itemize
+DVD Video
+\end_layout
+
+\begin_layout Itemize
+Video CD / VCD
+\end_layout
+
+\begin_layout Itemize
+SVCD
+\end_layout
+
+\begin_layout Itemize
+Audio CD (no DTS-CD)
+\end_layout
+
+\begin_layout Itemize
+DVB (Satellite, Digital TV, Cable TV)
+\end_layout
+
+\begin_layout Itemize
+MPEG encoder
+\end_layout
+
+\begin_layout Itemize
+Video acquisition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Formats d'entrada
+\end_layout
+
+\begin_layout Itemize
+MPEG (ES,PS,TS,PVA,MP3)
+\end_layout
+
+\begin_layout Itemize
+AVI
+\end_layout
+
+\begin_layout Itemize
+ASF / WMV / WMA
+\end_layout
+
+\begin_layout Itemize
+MP4 / MOV / 3GP
+\end_layout
+
+\begin_layout Itemize
+OGG / OGM / Annodex
+\end_layout
+
+\begin_layout Itemize
+Matroska (MKV)
+\end_layout
+
+\begin_layout Itemize
+Real
+\end_layout
+
+\begin_layout Itemize
+WAV (including DTS)
+\end_layout
+
+\begin_layout Itemize
+Raw Audio: DTS
+\end_layout
+
+\begin_layout Itemize
+AAC
+\end_layout
+
+\begin_layout Itemize
+AC3/A52
+\end_layout
+
+\begin_layout Itemize
+Raw DV
+\end_layout
+
+\begin_layout Itemize
+FLAC
+\end_layout
+
+\begin_layout Itemize
+FLV (Flash)
+\end_layout
+
+\begin_layout Itemize
+MXF
+\end_layout
+
+\begin_layout Itemize
+Nut
+\end_layout
+
+\begin_layout Itemize
+Standard MIDI / SMF
+\end_layout
+
+\begin_layout Itemize
+Creative™ Voice
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En resum, tots els formats estandaritzats son perfectament compatibles amb
+ l'aplicació i hauria de ser bastant complicat trobar-se amb un video incompatib
+le per la reproducció.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Control de l'app}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El control de l'aplicació es farà mitjançant comandes cURL, que contindran
+ text pla amb les instruccions que haurà de fer el Unity, per exemple 
+\begin_inset Quotes fld
+\end_inset
+
+addVideo
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+destroyBackground
+\begin_inset Quotes frd
+\end_inset
+
+, etc.
+ La metodologia per utilitzar cada funcionalitat serà semblant entre elles
+ per aconseguir un ús fluit i senzill d'entendre.
+ Els elements estaràn separats en Videos, Imatges, Textos i Background.
+ Exceptuant el background, la resta seràn un conjunt d'arrays ordenats per
+ números, tindrem el video número 1, número 3, i no caldrà que tinguin un
+ ordre seqüencial, a més de crear arrays dinàmics per permetre una longitud
+ infinita.
+\end_layout
+
+\begin_layout Standard
+La metodologia de la comanda a seguir serà: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+function=elementNumber%attributes~optionalSettings
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exemple:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+addVideo=1%/home/user/videoTest.mp4~1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seguint d'esquerra a dreta l'exemple que s'ha posat tenim a la banda esquerra
+ de l'igual, la funció que haurà de fer, en aquest cas addVideo, és a dir,
+ afegir un nou video a l'escena actual.
+ Després de l'igual tenim tots els atributs i configuració, en aquest cas
+ posem el video a la posició 1 (no posició espaial, sinó de l'array), utilitzem
+ el separador % per introduir l'atribut principal que pràcticament totes
+ les funcionalitats tindran, per aquest exemple serà la ruta on es trova
+ el video que es vol reproduir.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Compatibilitat audio}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per altre banda tenim el sistema d'àudio, en el que un usuari pot posar
+ una cancó, veu en off, o el que vulgui de fons.
+ Aquí no s'utilitza libVLC, sinó la llibreria interna d'àudio de la que
+ disposa Unity, pel que serà compatible únicament amb audio WAV i MPEG,
+ que ha de ser més que suficient tenint en compte que no és un objectiu
+ principal ni molt demandat, i es compleix un suport dels estandards d'àudio.
+ Això sí, s'accepten fitxers tant locals com al núvol, descarregant la informaci
+ó d'aquests, i emmagatzemant-la en un array d'AudioClips.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/addAudio.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Àudio | addAudio.cs},label={AddAudio}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Transicions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es permeten 3 tipus de transicions en videos, per tall, crossfade i fade.
+ En la de tall, passem d'un video a un altre d'una manera brusca.
+ El crossfade significa canviar d'un video a un altre fent que un va desapareixe
+nt mentres el segon apareix, pel que no passem per un pla en negre i pot
+ quedar més dinàmic segons el moment.
+ En el fade en canvi, el primer video es va difuminant fins a passar a un
+ pla en negre, i un cop s'ha arribat al negre, el segon apareix de manera
+ gradual.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per fer ús d'aquestes funcionalitats disposarem de 2 comandes:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+dissolve=videoNumber%link_localPath~transitionTime
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquesta crida servirà per fer un canvi d'un video a un altre, amb un efecte
+ de fade.
+ El atribut transitionTime que va després del símbol ~ és opcional, i per
+ defecte el valor serà 0.
+ Aquest valor indica els segons que trigarà en desaparèixer un video, és
+ a dir que la transició completa serà el doble del valor que s'introdueixi.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+cross=videoNumber%link_localPath~transitionTime
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En canvi si posem el mode 
+\begin_inset Quotes fld
+\end_inset
+
+cross
+\begin_inset Quotes frd
+\end_inset
+
+, es farà un efecte de crossfade amb una transició dinàmica.
+ El valor de transitionTime funciona exactament igual que l'anterior, per
+ tant, el temps total de la transició també serà el doble del valor introduït.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El tercer tipus de transició que s'havia comentat era el de tall, com és
+ bastant innecessari crear una nova funció per aquesta transició tan senzilla,
+ el que s'ha de fer és utilitzar qualsevol de les dues però amb un valor
+ de transitionTime de 0, que es pot declarar explícitament o com ja s'ha
+ comentat abans, no posar-lo i l'agafarà igualment com a valor per defecte.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Addicionalment, totes les transicions incorporen un script per tal de que
+ l'audio baixi de manera gradual conforme desapareixin els videos i no talli
+ de manera brusca.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Animacions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la majoria de commandes visuals de l'applicació (videos, imatges, textos...)
+ es permet un paràmetre opcional que definirà el que trigarà en arribar
+ a l'objectiu demanat.
+ Per exemple si volem moure i escalar un video, podem posar al final de
+ la comanda el símbol ~ i indicar un valor en segons de quant trigarà en
+ fer l'animació.
+ Aquests efectes tenen una animació anomenada EaseOutExpo, el que significa
+ que segueixen una curva exponencial en el transcurs de l'animació.
+ Per defecte seria lineal, però quedaria molt poc dinàmic i poc professional.
+ Pel que s'ha optat per aquesta alternativa ja que es considera la més adequada
+ pel tipus de clients i és molt atractiu.
+ Tot això s'ha aconseguit gràcies a l'ajuda de un plugin molt famós de Unity
+ anomenat LeanTween 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LeanTween"
+literal "false"
+
+\end_inset
+
+, desenvolupat per l'usuari 
+\begin_inset Quotes fld
+\end_inset
+
+Dented Pixel
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/DentedPixelLogo.png
+	lyxscale 20
+	height 4cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logo Dented Pixel
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DentedPixel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es un 
+\begin_inset Quotes fld
+\end_inset
+
+tweening engine
+\begin_inset Quotes frd
+\end_inset
+
+ que permet fer càlculs intermitjos per passar d'un valor a un altre, amb
+ curves d'animació totalment customitzables.
+ Un exemple d'ús que es mostra a la seva documentació.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size tiny
+LeanTween.moveX(gameObject, 1f, 1f).setEase(LeanTweenType.easeInQuad).setDelay(1f);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Transformacions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Posicions i escala
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+És molt probable que el modificador les posicions i escales dels videos
+ serà de les funcionalitats més utilitzades i és un requisit indispensable.
+ Aquest bloc es divideix en 3 comandes diferents:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Position
+\end_layout
+
+\begin_layout Standard
+Es defineix un valor X i un valor Y compresos entre 0 i 1.
+ Entenent com a 0,0 el punt superior esquerra de la pantalla.
+ Es fa una conversió interna per passar dels valors de tant per 1, a un
+ valor que representi la posició dins del motor de Unity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/positionVideo.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Codi Posició | positionVideo.cs},label={Position}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per tant; la seva utilització és aquesta:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/positionDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Posició | positionReadme.md},label={PositionDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Scale
+\end_layout
+
+\begin_layout Standard
+Es defineix un sol valor en el rang de 0 a 1 que indicarà l'escala (mida)
+ desitjada.
+ Només té un valor ja que no es contempla tenir videos deformats o de resolucion
+s extranyes que no siguin amb un aspect ratio de 16:9.
+\end_layout
+
+\begin_layout Standard
+La programació d'aquest bloc és bastant més senzilla ja que la conversió
+ es directe, el Unity utilitza la mateixa mesura, valors de 0 a 1.
+ Pel que un valor de 0.5 serà el 50% de la mida original.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/scaleVideo.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Codi Scale | scaleVideo.cs},label={Scale}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La seva documentació corresponent és bastant semblant a la de posició.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/scaleDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Scale | scaleReadme.md},label={ScaleDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Poscale
+\end_layout
+
+\begin_layout Standard
+Poscale és una comanda que fusiona les dues anteriors per poder fer les
+ dues coses de cop, posicionar i escalar, el que permet poder sincronitzar
+ més facilment l'animació de totes dues, a més d'un ús més còmode.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/poscaleDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Poscale | poscaleReadme.md},label={PoscaleDocu-1}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Colors i transparències
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+També es permet modificar la transparència del video, per a fer-ho s'ha
+ de modificar l'alpha del material del Unity.
+ Aprofitant que es programa això, també es permetrà canviar el color del
+ material en cas de desitjar-ho.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Colors
+\end_layout
+
+\begin_layout Standard
+Aquesta funció tenyirà d'un color el video, per exemple si li indiquem un
+ color vermell pur, es dibuixarà tot en escala de vermells.
+ Es té en compte que potser no serà una funcionalitat molt utilitzada, però
+ per algun cas específic pot ser bastant útil.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/colorsDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Colors | colorsReadme.md},label={ColorsDocu-1-1}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Transparències
+\end_layout
+
+\begin_layout Standard
+Es permet canviar l'alpha dels videos per poder tenir-ne d'alguns superposats
+ sobre altres.
+ Això és molt útil i era un rels requisits indispensables, sobretot en imatges,
+ del que es parlarà més endevant.
+ Per aquesta funció també es permet crear una animació, que dóna un aspecte
+ molt dinàmic i professional.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/TransparencyTest.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mostra de transparència
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TransparencyTest"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per utilitzar-ho només cal seguir la següent nomenclatura:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/alphaDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Transparències | alphaReadme.md},label={transparencyDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Encara que aquest efecte es pot aconseguir simplement modificant el valor
+ alpha del material principal, pels objectes de video, s'utilitza un shader
+ propi anomenat com a Smart Material, que controlarà tot tipus d'efectes
+ que se li demanin.
+ És per això que només calen un parell de línies per aplicar-lo.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/alphaVideo.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Codi Alpha | alphaVideo.cs},label={AlphaMaterial}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Layer Sorting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Layer Sorting o si traduïm literalment, ordenació de capes, és la funcionalitat
+ que ens permet controlar les posicions en el eix de la Z, és a dir, el
+ vector normal del pla de la càmera.
+ Per aconseguir-ho, no s'ha fet només utilitzant la posició espaial, sinó
+ que també s'ha fet ús de la tècnica de modificar el Z Buffer.
+ En gràfics per ordinador, el z-buffering és el que s'encarrega de gestionar
+ quins son els objectes que es renderitzen devant de la resta.
+ La targeta gràfica fa un càlcul segons les posicions dels objectes i genera
+ la imatge generada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/z_buffer.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Representació Z-Buffer
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Z-buffer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En aquesta figura podem veure una representació d'aquest efecte, com més
+ blanc sigui l'objecte, més prioritat tindrà a renderitzar-se, i per tant,
+ més a sobre estarà de la resta d'objectes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Z_buffer2.png
+	lyxscale 20
+	height 14cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparació Render i Z-Buffer
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Z-buffer2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entenen això doncs, i sabent que Unity proporciona un atribut del material
+ anomenat 
+\begin_inset Quotes fld
+\end_inset
+
+Render Queue
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RenderQueue"
+literal "false"
+
+\end_inset
+
+, podrem modificar al nostre gust el Z-Buffer i renderitzar un objecte que
+ estigui molt lluny de la càmara abans que un que estigui més a prop, per
+ exemple.
+\end_layout
+
+\begin_layout Standard
+Per a utilitzar-ho, s'ha definit un sistema de capes, que va de 0 a infinit,
+ entenent que com més gran sigui el número, menys prioritat tindrà a renderitzar
+-se.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/layersortDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació LayerSort | layerSortReadme.md},label={layerSortDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Només caldrà indicar quin es el video que es vol canviar de posició, i la
+ capa destí.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La programació al unity és molt intuïtiva, només caldrà agafar el material
+ del render, i a la propietat renderQueue, assignar-li un valor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+render.material.renderQueue = value;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Cropping}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El efecte de cropping vol dir retallar un video.
+ La forma més simple al retallar seria en forma rectangular.
+ En aquesta aplicació, a més de poder retallar rectangularment, utilitzant
+ la potència i possibilitats de Unity podem retallar amb qualsevol tipus
+ de forma gràcies als shaders.
+ La manera d'utilitzar-ho serà aplicant una màscara que es composarà de
+ colors blancs (visible) i negres (no visible).
+ Un color gris voldria dir que es veu lleugerament, pel que també ho podriem
+ utilitzar per fer degradats d'opacitat.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/WCTCutout.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Exemple de màscara de crop
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:WCTCrop"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En aquesta figura tenim un exemple de màscara de cropping, aplicarem aquesta
+ imatge al shader que s'ha creat anteriorment i farà l'efecte de crop.
+ Per la mida i posició del crop, utilitzarem les propietats de Tiling i
+ Offset del shader per modificar les UV de la imatge.
+\end_layout
+
+\begin_layout Standard
+Doncs si posem un video qualsevol a sobre d'un altre, i li apliquem aquest
+ efecte amb la mateixa màscara mostrada abans, aconseguirem aquest resultat.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CropExample.png
+	lyxscale 20
+	height 10cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultat de Crop amb màscara WCT
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:WCTCropResultat"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per últim, comentar com s'ha fet la creació del shader.
+ S'ha utilitzat l'eina de Unity ShaderGraph 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ShaderGraph"
+literal "false"
+
+\end_inset
+
+, que permet crear-ne sense necessitat de programar, el que ho fa bastant
+ més senzill i intuitiu.
+ Utilitza un sistema de nodes, bastant inspirat en els blueprints de Unreal,
+ però aquí resulta molt més útil, ja que la programació de shaders és baix
+ nivell i no és gaire fàcil d'aprendre.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CropShader.png
+	lyxscale 20
+	height 8cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Crop Shader Graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CropShaderGraph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Així queden els nodes per aconseguir el resultat de un material d'un video
+ amb una màscara.
+ Al centre tenim el node de 
+\begin_inset Quotes fld
+\end_inset
+
+Tiling and Offset
+\begin_inset Quotes frd
+\end_inset
+
+ que permetrà moure la màscara en el pla.
+ A aquest node li entra a 
+\begin_inset Quotes fld
+\end_inset
+
+UV
+\begin_inset Quotes frd
+\end_inset
+
+, la sortida del node de posició, que indica respecte a què ho haurem de
+ moure, en aquest cas, respecte la posició global.
+ Entra també el resultat de Tiling, al que se li ha de fer un processament
+ previ, ja que el valor real segueix una corva logarítmica, haurem de dividir
+ 1 entre el valor real.
+ I per últim també un Vector2 que serà el Offset.
+ Tot això ho introduim al valor de 
+\begin_inset Quotes fld
+\end_inset
+
+UV
+\begin_inset Quotes frd
+\end_inset
+
+ de la màscara i això crearà el desplaçament.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per últim, només caldrà multiplicar aquest resultat, amb l'Alpha de la textura
+ original (Video), introduir-lo al material PBR resultant, i s'aconseguirà
+ l'efecte.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La documentació corresponent per la seva utilització:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/cropDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Cropping | cropReadme.md},label={cropDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Outline and Shadows}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un altre efecte que s'ha creat, és l'anomenat 
+\begin_inset Quotes fld
+\end_inset
+
+Outline and Shadows
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Permet posar un marc d'un color sòlid a un video, o una ombra.
+ En la creació d'aquest efecte, s'ha fet un altre shader desde 0.
+ S'ha seguit la tècnica per fer l'efecte de outline en un sprite d'un videojoc,
+ ja que el crop podrà tenir diferents formes.
+ L'usuari 
+\begin_inset Quotes fld
+\end_inset
+
+CodeMonkey
+\begin_inset Quotes frd
+\end_inset
+
+, que es dedica a fer tutorials de Unity, en va fer un dedicat a aquest
+ efecte 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CodeMonkeyOutline"
+literal "false"
+
+\end_inset
+
+, que ha sigut molt útil per crear la base del nostre.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/OutlineShadow.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sombrejat en un video amb Crop
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ShadowCrop"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí es pot veure la distribució resultant del shader.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/OutlineShader.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Outline Shader Graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:OutlineShaderGraph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per utilitzar-ho hi ha moltes comandes i configuracions ja que és un shader
+ molt complert, però un cop s'entengui el seu ús, pot ser molt útil.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/outlineDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Outline | outlineReadme.md},label={outlineDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Chroma Key}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Él chroma és el efecte millor efecte del que disposa l'aplicació, ja que
+ no és gaire fàcil de fer a temps real depèn les eines que s'utilitzin,
+ és per això que la competència no disposa d'aquest efecte.
+ Era un repte molt important aconseguir-ho ja que marcarà la diferència.
+ Per la seva realització, s'ha integrat dins el mateix shader del Smart
+ Material creat anteriorment, això sí, utilitzant Sub-Shaders.
+ Amb això es poden crear nodes propis que realitzin qualsevol funció.
+ Resultant en un node de 
+\begin_inset Quotes fld
+\end_inset
+
+Chroma
+\begin_inset Quotes frd
+\end_inset
+
+ amb moltes entrades, que com a sortida té el color resultant del frame
+ del video, i la màscara d'alpha, que es pot combinar amb un Crop sense
+ cap problema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ChromaShader.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Chroma Shader Graph
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ChromaShaderGraph"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquest node conté 5 Sub-Graph, és a dir, 5 petits shaders que fan processaments
+ intermitjos per aconseguir el resultat final.
+ Processos com poden ser toleràncies, conversions de rgb a un altre format,
+ càlcul de difuminat de contorns, eliminació de restes de color verd (Despill),
+ etc.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/SubShadersChroma.png
+	lyxscale 20
+	height 3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sub Shaders Chroma
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SubShadersChroma"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tot això resulta en uns quants atributs que poden ser modificats, que són:
+\end_layout
+
+\begin_layout Itemize
+Key Color: Especifica el color a eliminar (per defecte verd pur rgb(0,1,0)).
+\end_layout
+
+\begin_layout Itemize
+Threshold: El rang de color a eliminar partint del Key Color, per si hi
+ ha ombres al color o la iluminació no està del tot bé.
+\end_layout
+
+\begin_layout Itemize
+Smoothness: Per aplicar un smooth al threshold i no apliqui una opacitat
+ binària.
+\end_layout
+
+\begin_layout Itemize
+Sharpen: El valor indica com d'afilat es vol el contorn.
+\end_layout
+
+\begin_layout Itemize
+Mask Feather: Suavitzat de contorns.
+\end_layout
+
+\begin_layout Itemize
+Despill: Defineix si es volen eliminar les restes de verd o no, i amb quina
+ quantitat, 1 eliminarà tot el verd de la imatge, 0 ho deixarà igual.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El chroma resultant és molt vàlid, i més tenint en compte que s'està processant
+ en temps real.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ChromaTest.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Chroma Test
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ChromaTest"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Textos}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pels textos s'ha utilitzat el plugin de Unity TextMeshPro, que està inclòs
+ per defecte a les últimes versions, ja que és molt superior al sistema
+ de Textos que tenia anteriorment.
+ Per defecte aparèixen amb una animació de opacitat de 0 a 1, de 0.2 segons.
+ Els paràmetres que es poden modificar són: canviar el text, canviar el
+ pivot (permet ajustar millor Títols amb Subtítols entre altres), canviar
+ la posició, opacitat, i destruïr-los.
+ Tot el que té a veure amb el format del text, es farà amb el propi sistema
+ de TextMeshPro, que permet aplicar atributs d'una manera molt semblant
+ a com es faria amb HTML, per exemple, la font, mida, color...
+\end_layout
+
+\begin_layout Standard
+Concretament els atributs o 
+\begin_inset Quotes fld
+\end_inset
+
+tags
+\begin_inset Quotes frd
+\end_inset
+
+ com diuen a la seva documentació 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TextMeshProDocu"
+literal "false"
+
+\end_inset
+
+ són:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="25" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="5.5cm">
+<column alignment="center" valignment="middle" width="5.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tags
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Efecte
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+align
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alineació de textos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+alpha, color
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Color i Opacitat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b, i
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Estils de negrita i cursiva
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cspace
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Espaiat de textos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+font
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Font i selecció de materials
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ident
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sagnia
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+line-height
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alçada de la línia
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+link
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Assigna un ID
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+lowercase, uppercase, smallcaps 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Capitalització automàtica
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+margin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Marges del text
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+mark
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Marcar el text
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+mspace
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Monoespacial
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+noparse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Evita parsejar els simbols antilambda
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nobr
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Elimina els espais entre línies
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+page
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Salt de pàgina
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Posició horitzontal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mida de la font
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+space
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Espai horitzontal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sprite
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Afegir sprites al text
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+s, u
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ratllat i subratllat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+style
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Estils personalitzats
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sub, sup
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Subíndex i superíndex
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+voffset
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Desplaçament de la línia base
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+width
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Amplada del text
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Atributs de TextMeshPro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La documentació per instertar textos a l'aplicació segueix bastant la nomenclatu
+ra dels anteriors.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/textDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Text | textReadme.md},label={textDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Imatges}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sistema d'imatges funciona amb el component RawImage de Unity UI.
+ No té gaire complicació, els requisits eren poder aplicar imatges de qualsevol
+ format i posibilitat de transparència.
+ Per descarregar la imatge, es comprova si es local o remota, i es descarrega
+ utilitzant la llibreria UnityWebRequest, com ja es feia amb els àudios
+ anteriorment (veure addAudio.cs 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "AddAudio"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/addImage.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Codi Image | addImage.cs},label={addImage}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La utilització d'aquesta funció és molt intuïtiva i no requereix de gaire
+ explicació.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/imageDocu.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Documentació Image | imageReadme.md},label={imageDocu}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Scenes Management}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'aplicació permet guardar i carregar escenes personalitzades.
+ Aquestes escenes s'emmagatzemen en fitxers binaris que s'entenen millor
+ amb el Unity que els JSON 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JSON vs Binary"
+literal "false"
+
+\end_inset
+
+.
+ El 
+\begin_inset Quotes fld
+\end_inset
+
+SceneManager
+\begin_inset Quotes frd
+\end_inset
+
+ es composa de 2 blocs, el bloc de save, i el de load.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El bloc de save, guarda parseja tots els objectes de l'escena, i els guarda
+ en una classe pròpia anomenada Save Data que conté tots els camps necessaris
+ a omplir per guardar l'escena.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/saveDataStruct.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={SaveDataStruct | saveData.cs},label={saveData}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Guarda en llistes tots els videos, imatges, textos i background.
+ Després formata tota l'estructura en un fitxer binari i el guarda al path
+ per defecte de Unity.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/saveBinary.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={SaveBinary | saveBinary.cs},label={saveBinary}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El bloc de càrrega, fa una mica el procés contrari, carrega el fitxer binari
+ en una nova estructura SaveData.
+ Passant per tots els elements de l'estructura, va executant totes les funcions
+ pertintents per acabar obtenint el mateix resultat.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/unityCode/loadData.txt"
+lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={LoadData | loadData.cs},label={loadData}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A més, la transició entre aquestes escenes pot ser de diferent tipus.
+ Actualment es permeten 2 estils.
+ El primer seria el més bàsic, es fa a una fosa a negre, es carrega la següent
+ escena, i un cop carregada, es fa visible la següent.
+ L'altre fa un efecte de unes cortines que es tanquen, surt un logo, que
+ pot ser el del client o qualsevol imatge, i un cop carregada la següent
+ escena, s'obre de nou fent visible la nova distribució.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/TancantEscena.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tancant Escena
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TancantEscena"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/EscenaTancada.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Escena Tancada
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:EscenaTancada"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/ObrintEscena.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Obrint Escena
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ObrintEscena"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Debugging}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquesta secció està pensada pel desenvolupament de l'aplicació.
+ Ja que quan s'utilitza l'aplicació compilada al servidor no es té una consola
+ que mostri tot el log, s'ha integrat una consola que es mostra a sobre
+ dels videos, per poder debuggar més fàcilment.
+ Només cal executar la crida debug=true per activar aquesta consola de desenvolu
+pament.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+curl --data "debug=true" http://localhost:4444/ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un cop la tenim activada, tots els errors que pasin al Unity aniràn sortint
+ per allà.
+ A més també es disposa d'algunes comandes de control per rebre informació.
+ Com pot ser retornar una llista amb totes els videos, imatges, textos i
+ escenes disponibles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+debug=listVideos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/DebugTest.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Debug Console Test
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DebugConsole"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A més, aquestes funcions de debug també es pot fer que retornin la resposta
+ a través de terminal on fem les crides, si no volem que els videos quedin
+ tapats per el debug.
+ Això ho fem indicant la comanda 
+\begin_inset Quotes fld
+\end_inset
+
+status
+\begin_inset Quotes frd
+\end_inset
+
+ enlloc de 
+\begin_inset Quotes fld
+\end_inset
+
+debug
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+curl --data "status=listVideos" http://localhost:4444/ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/StatusResponse.png
+	lyxscale 20
+	height 4cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Status Response
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:StatusResponse"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5536,6 +9368,115 @@ AWS vs Azure-Who is the big winner in the cloud war? (2021, July 27).
 r/401
 \end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HDRGuia"
+literal "false"
+
+\end_inset
+
+López, J.
+ C.
+ (2019, February 20).
+ La biblia del HDR: qué es, cuáles son los estándares actuales y cómo no
+ todo lo que dicen que es HDR lo es en.
+ .
+ .
+ Xataka.
+ https://www.xataka.com/televisores/biblia-hdr-que-cuales-estandares-actuales-como
+-no-todo-que-dicen-que-hdr-efectivamente
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "LeanTween"
+literal "false"
+
+\end_inset
+
+Unity.
+ (2014, August 11).
+ LeanTween | Animation Tools.
+ Unity Asset Store.
+ https://assetstore.unity.com/packages/tools/animation/leantween-3595
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "RenderQueue"
+literal "false"
+
+\end_inset
+
+Technologies, U.
+ (2020, January 25).
+ Unity - Scripting API: RenderQueue.
+ Unity3d.
+ https://docs.unity3d.com/ScriptReference/Rendering.RenderQueue.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ShaderGraph"
+literal "false"
+
+\end_inset
+
+Technologies, U.
+ (2021, January 1).
+ Shader Graph | Crea tus shaders visualmente con.
+ Unity.
+ https://unity.com/es/shader-graph
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "CodeMonkeyOutline"
+literal "false"
+
+\end_inset
+
+CodeMonkey.
+ (2019, November 24).
+ Code Monkey - Sprite Outline - 2D Shader Graph Tutorial.
+ https://unitycodemonkey.com/video.php?v=FvQFhkS90nI
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "TextMeshProDocu"
+literal "false"
+
+\end_inset
+
+Digital Native Studios.
+ (2021, January 1).
+ Rich Text, TextMesh Pro Documentation.
+ TextMeshPro.
+ http://digitalnativestudios.com/textmeshpro/docs/rich-text/#style
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "JSON vs Binary"
+literal "false"
+
+\end_inset
+
+Harald, H.
+ (2020, January 1).
+ JSON VS Binary.
+ Esoteric Software.
+ http://es.esotericsoftware.com/forum/JSON-VS-Binary-13339
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -5954,6 +9895,283 @@ noprefix "false"
 
  Vicente A.
  (2021, March 25) Test UMP vs AVPro.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CentOS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ CentOS.
+ (2015, December 12).
+ CentOS [Logo].
+ Wiki.
+ https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Centos-logo-light.svg/65
+8px-Centos-logo-light.svg.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Arquitectura"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, January 18) Esquema Arquitectura.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:XorgVSync"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, January 18) Exemple Bug Gràfic VSync.
+ Own elaboration (clip is from Kingsman 2014).
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DentedPixel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Dented Pixel.
+ (2021, January 1).
+ Dented Pixel [Logo].
+ Twitter.
+ https://pbs.twimg.com/profile_images/1470829398/LogoSquareLarge_400x400.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TransparencyTest"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 25) Esquema Arquitectura.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Z-buffer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ rzeronte.
+ (2020, January 2).
+ Z-Buffer [Render].
+ Brakeza.
+ https://brakeza.com/wp-content/uploads/2020/01/z_buffer_penguins_image.png
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:WCTCrop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 18) Crop WCT Màscara.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:WCTCropResultat"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 18) Resultat Crop WCT.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CropShaderGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 22) Crop Shader Graph.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ShadowCrop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 22) Shadow.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:OutlineShaderGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 22) Shadow.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ChromaShaderGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 30) Chroma Node Shader Graph.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SubShadersChroma"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 30)Sub Shaders Chroma.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TancantEscena"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 19)Tancant Escena.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EscenaTancada"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+Vicente A.
+ (2021, April 19)Escena Tancada.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ObrintEscena"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 19)Obrint Escena.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DebugConsole"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 17)Debug Console.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:StatusResponse"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 17)Status Response.
  Own elaboration.
 \end_layout
 

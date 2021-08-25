@@ -1,0 +1,37 @@
+cutout=n_video%name	#Name of Figure
+
+Available Names:
+- None #Remove Cutout Texture
+- Rectangle
+- RectangleBlur
+- Rounded
+- Random
+- WCT
+- Nike
+- Gradient
+
+Ex:
+cutout=0%WCT
+cutout=0%Rectangle
+cutout=0%Random
+curl --data "cutout=1%RectangleBlur" http://localhost:4444/
+curl --data "cutout=1%WCT" http://localhost:4444/
+curl --data "cutout=1%Rectangle" http://localhost:4444/
+
+----------------------------------
+
+cutScale=n_video%x,y #X,Y Coordinates (0,1)
+
+Ex:
+cutScale=0%0.5,0.5
+curl --data "cutScale=1%0.2,0.6" http://localhost:4444/
+curl --data "cutScale=0%1,1" http://localhost:4444/
+
+----------------------------------
+
+cutMove=n_video%x,y #X,Y Coordinates (0,1)
+
+Ex:
+cutMove=0%0.5,0.5 #Default Position
+curl --data "cutMove=1%0.6,0.4" http://localhost:4444/
+curl --data "cutMove=0%0.5,0.5" http://localhost:4444/

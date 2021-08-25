@@ -1,0 +1,12 @@
+//Inicialitzar descarregador
+UnityWebRequest www = UnityWebRequestTexture.GetTexture(info[1]);
+yield return www.SendWebRequest();
+//Descarregar Imatge
+textureDownload = DownloadHandlerTexture.GetContent(www);
+//Assignar imatge i mides
+newImage.texture = textureDownload;
+var texWidth = textureDownload.width;
+var texHeight = textureDownload.height;
+newImage.GetComponent<RectTransform>().sizeDelta = new Vector2 (texWidth, texHeight);
+//Afegir a l'array de imatges
+imagesArray.Add(nImage, newImage);

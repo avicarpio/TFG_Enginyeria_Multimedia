@@ -1,0 +1,53 @@
+text="n_text%someText"
+
+Optional:
+~animationTime	#Default 0, set Transition Time in seconds
+
+Ex:
+text=This is the first video
+text=This is the first video~1
+curl --data "text=1%This is the first video" http://localhost:4444/
+curl --data "text=1%This is the first video~1" http://localhost:4444/
+
+----------------------------------
+
+setText="n_text%someText"
+
+Optional:
+~animationTime	#Default 0, set Transition Time in seconds
+
+Ex:
+setText=This is the first video
+setText=This is the first video~1
+curl --data "setText=1%Text has Changed" http://localhost:4444/
+curl --data "setText=1%Text has Changed~1" http://localhost:4444/
+
+----------------------------------
+
+#Useful for text justification and Centered Titles
+pivotText=n_text%pivotX,pivotY #Default is Center 0.5,0.5 Pos 0,0 is Upper Left
+
+Ex:
+pivotText=0%0,0
+pivotText=0%0.5,0.5
+curl --data "pivotText=0%0,0" http://localhost:4444/
+curl --data "pivotText=0%0.5,0.5" http://localhost:4444/
+
+----------------------------------
+
+posText=n_text%posx,posy
+
+Ex:
+posText=0%0.5,0.5,1
+curl --data "posText=0%0.4,0.5" http://localhost:4444/
+
+----------------------------------
+
+destroyText="n_text"
+
+Optional:
+~animationTime #Default 0, set Transition Time in seconds
+
+Ex:
+destroyText=0
+curl --data "destroyText=0" http://localhost:4444/

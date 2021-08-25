@@ -1,0 +1,10 @@
+opacity=n_video%a #Alpha (0, 1)
+
+Optional:
+~setAnimationTime #Default 0, set Transition Time in seconds
+
+Ex:
+opacity=0%0	#Transparent
+opacity=0%1	#Opaque
+curl --data "opacity=1%0.3" http://localhost:4444/
+curl --data "opacity=0%1~2" http://localhost:4444/

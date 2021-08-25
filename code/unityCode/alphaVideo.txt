@@ -1,0 +1,4 @@
+Renderer render = umpPlayers[nVideo].GetComponentInParent<Renderer>();
+
+//Apliquem un valor a l'atribut _Opacity del Shader Smart Material
+render.material.SetFloat("_Opacity", val);

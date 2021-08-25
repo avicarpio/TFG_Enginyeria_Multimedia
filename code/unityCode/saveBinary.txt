@@ -1,0 +1,4 @@
+BinaryFormatter bf = new BinaryFormatter();
+FileStream fileStream = File.Create(Application.persistentDataPath + "/" + sceneName);
+bf.Serialize(fileStream, saveData);
+fileStream.Close();

@@ -1,0 +1,12 @@
+float finalScale = float.Parse(splitInfo[1], CultureInfo.InvariantCulture.NumberFormat);
+int videoN = int.Parse(splitInfo[0], CultureInfo.InvariantCulture.NumberFormat);
+GameObject videoTran = umpPlayers[videoN].transform.parent.gameObject;
+Vector3 initScale = videoTran.transform.localScale;
+Vector3 desiredScale = new Vector3(_LIMITSCALE.x * finalScale, _LIMITSCALE.y * finalScale, _LIMITSCALE.z * finalScale);
+videoTran.transform.rotation = Quaternion.Euler(90, 180, 0);
+
+//Scale
+LeanTween.value(gameObject, initScale, desiredScale, tweenTime).setOnUpdate((Vector3 val) =>
+{
+    videoTran.transform.localScale = val;
+}).setEaseOutExpo();

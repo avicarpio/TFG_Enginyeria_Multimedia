@@ -1,0 +1,50 @@
+image="n_image%URL" #Initial Position is Optional
+
+Optional:
+#posx,posy,scalex,scaley #Default 0,0,0
+~setTransitionTime #Default 0, set Transition Time in seconds
+
+Ex:
+image="0%https://www.image.png"
+curl --data "image=0%https://www.image.png" http://localhost:4444/
+
+----------------------------------
+
+setImage="n_image%URL"
+
+Ex:
+setImage=0%https://www.image.png
+curl --data "setImage=0%https://www.image.png" http://localhost:4444/
+
+----------------------------------
+
+poscaleImage=n_video%posx,posy,scalex,scaley #Do not use this for initial positions
+
+Ex:
+poscaleImage=0%0.5,0.5,1,1
+curl --data "poscaleImage=0%0.5,0.5,1,1" http://localhost:4444/
+curl --data "poscaleImage=0%0.2,0.3,1,0.5" http://localhost:4444/
+curl --data "poscaleImage=0%0.5,0.5,0.2,0.2" http://localhost:4444/
+
+----------------------------------
+
+alphaImage=n_video%a #Alpha (0, 1)
+
+Ex:
+alphaImage=0%0	#Transparent
+alphaImage=0%1	#Opaque
+curl --data "alphaImage=0%1" http://localhost:4444/
+curl --data "alphaImage=0%0" http://localhost:4444/
+curl --data "alphaImage=0%0.5" http://localhost:4444/
+
+----------------------------------
+
+destroyImage="n_image"
+
+Optional:
+~setTransitionTime								#Default 0, set Transition Time in seconds
+
+Ex:
+destroyImage=0
+curl --data "destroyImage=1" http://localhost:4444/
+curl --data "destroyImage=0~3" http://localhost:4444/

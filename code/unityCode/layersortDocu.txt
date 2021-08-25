@@ -1,0 +1,8 @@
+layerSort=n_video%Z_coord #Range (0-Inf) Steps 1 by 1 (Int)
+
+Ex:
+layerSort=0%0
+curl --data "layerSort=0%0" http://localhost:4444/
+curl --data "layerSort=1%2" http://localhost:4444/
+curl --data "layerSort=0%1" http://localhost:4444/
+curl --data "layerSort=1%0" http://localhost:4444/

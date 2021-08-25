@@ -1,0 +1,22 @@
+//Classe de Unity util per descarregar arxius
+UnityWebRequest www = new UnityWebRequest();
+
+//Nomes s'accepten arxius WAV o MPEG, en cas de ser un altre, donara error i no es descarregara
+if(Path.GetExtension(info[1]).Contains("wav")){
+
+    www = UnityWebRequestMultimedia.GetAudioClip(info[1],AudioType.WAV);
+
+}else{
+
+    www = UnityWebRequestMultimedia.GetAudioClip(info[1],AudioType.MPEG);
+
+}
+
+//Esperem a que es descarregui el fitxer d'audio
+yield return www.SendWebRequest();
+
+//Creem un nou audio al array
+audiosArray.Add(nAudio, newAudio);
+
+//Guardem el contigut de la descarrega al Clip
+audiosArray[nAudio].clip = DownloadHandlerAudioClip.GetContent(www);

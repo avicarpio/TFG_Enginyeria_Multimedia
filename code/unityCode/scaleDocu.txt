@@ -1,0 +1,10 @@
+scale=n_video%scale #Scale(0, 1)
+
+Optional:
+~setTransitionTime #Default 0, set Transition Time in seconds
+
+Ex:
+scale=0%0.4
+scale=0%0.4~5 #5 Second to get the desired parameters
+curl --data "scale=1%0.3~2" http://localhost:4444/
+curl --data "scale=1%1~2" http://localhost:4444/

@@ -1,0 +1,10 @@
+poscale=n_video%posx,posy,scale	#Positions (0, 1) Scale(0, 1)
+
+Optional:
+~setTransitionTime #Default 0, set Transition Time in seconds
+
+Ex:
+poscale=0%0.5,0.5,0.4
+poscale=0%0.5,0.5,0.4~5 #5 Second to get the desired parameters
+curl --data "poscale=1%0.5,0.8,0.3~2" http://localhost:4444/
+curl --data "poscale=1%0.5,0.5,1~2" http://localhost:4444/

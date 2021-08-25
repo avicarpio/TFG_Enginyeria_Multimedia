@@ -1,0 +1,10 @@
+[System.Serializable]
+public class SaveData
+{
+    public List<Videos> videos;
+    public List<Texts> texts;
+    public List<Images> images;
+    public List<Audios> audios;
+    public string backImagePath;
+    public string backVideoPath;
+}
