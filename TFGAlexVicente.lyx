@@ -10,7 +10,13 @@
 
 \usepackage{xcolor}
 
+\usepackage{url}
+\usepackage{breakurl}
+
 \usepackage[english]{babel}
+
+\usepackage{hyperref}
+\def\UrlBreaks{\do\/\do-}
 
 \newfontfamily\firaCode[Extension=.ttf]{FiraCode}
 
@@ -21,6 +27,10 @@
   commentstyle=\color{codeColor},
   keywordstyle=\color{blue}
 }
+
+\urlstyle{same}
+
+\sloppy
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -3024,6 +3034,13 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language=C,caption={Codi base d
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -4886,6 +4903,13 @@ name "fig:CentOS"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -8664,7 +8688,1779 @@ name "fig:StatusResponse"
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Sortida Aplicació}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsubsection{Video}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per la sortida de l'aplicació de Unity, s'utilitzarà FFmpeg, que capturarà
+ un monitor virtual creat anteriorment.
+ Per tant, els passos necessaris a fer son:
+\end_layout
+
+\begin_layout Standard
+Crear un monitor virtual amb Xorg, que carregarà la configuració de l'arxiu
+ xorg.conf
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+sudo Xorg :0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El següent pas serà executar el binari de Unity, que contindrà tot el projecte,
+ amb la comanda
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Framed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+DISPLAY=:0 /home/wct/Builds/WCT.x86_64 -logFile ~/Logs/"$(date +"%Y_%m_%d_%I_%M_%
+p").log"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquesta comanda executarà l'arxiu WCT.x86_64 en el monitor virtual :0, que
+ és el creat anteriorment amb Xorg :0.
+ A més, generarà un arxiu de log, per poder tenir un seguiment dels problemes
+ que poguin sorgir.
+\end_layout
+
+\begin_layout Standard
+Per últim, s'haurà d'exportar el contingut del monitor a un flux RTMP o
+ el que es desitji.
+ Hi ha moltes maneres de fer-ho, després de moltes proves, una de les més
+ òptimes és la següent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firaCode
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Framed
+position "c"
+hor_pos "c"
+has_inner_box 0
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.2pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+ffmpeg -y -f x11grab -draw_mouse 0 -s 1920x1080 -framerate 30 -async 1 -i
+ :0.0+0,0 -f pulse -i default -pix_fmt yuv420p -c:v h264 -preset superfast
+ -maxrate 4000k -bufsize 4000k -c:a aac -b:a 128k -f flv rtmp://output.com
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalfont
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Rendiments Màxims i Tests}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'aplicació s'executa a una màquina s3 de AWS.
+ Té 4 cores de CPU i una GPU Nvidia Tesla T4.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/ResultatScreen.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mostra Resultat Unity
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ResultatFrame"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El processador acostuma estar en una càrrega de 60-80%, depenent del contingut
+ que s'estigui reproduint.
+ Tenint en compte que s'està ocupant del Unity i FFmpeg a la vegada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/ResultatHTOP.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Htop Unity i FFmpeg
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ResultatHtop"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La GPU té una càrrega bastant variable, però de VRAM utilitza molt poca,
+ sempre va sobrat de rendiment.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/unity/ResultatNVTOP.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+NVTOP Unity i FFmpeg
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ResultatNVtop"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Conclusions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Amb aquest projecte s'ha descobert un món de possibilitats tant per mí,
+ com per Watchity i el món audiovisual.
+ S'han descobert molts aspectes del Unity que semblaven inviables de juntar
+ amb l'arquitectura del mixer anterior, i que finalment amb molt esforç
+ i estudi, s'ha aconseguit de manera òptima.
+\end_layout
+
+\begin_layout Standard
+Veient el potencial que té, s'espera que aquestes tecnologies evolucionin
+ fins a un punt on la televisió o el cine, utilitzi moltes tècniques dels
+ videojocs.
+\end_layout
+
+\begin_layout Standard
+Evidentment alguns objectius s'han assolit amb més èxit que d'altres, pero
+ a trets generals, podem dir sense dubte que el projecte ha sigut un èxit,
+ i que tindrà una utilitat real a una empresa.
+\end_layout
+
+\begin_layout Standard
+Els aspectes més dèbils del projecte, són els problemes que s'ha tingut
+ de compatibilitat entre Unity / Linux / Nvidia Drivers.
+ Unity sí que té un software molt pel sistema operatiu utilitzat, encara
+ que també s'ha d'entendre que no és el seu target principal.
+ Per altre banda, Nvidia proporciona uns drivers que no són open-source,
+ pel que ja trobarem moltes incompatibilitats i errors que només es podran
+ solucionar si la companyia ho permet.
+ Un exemple d'incompatibilitat és que els drivers propietaris de Nvidia
+ no permeten l'ús de VA-API, una de les tecnologies més potents per acceleració
+ de video.
+\end_layout
+
+\begin_layout Standard
+Si en un futur decidicin alliberar el codi del seus drivers, o com a mínim,
+ donar més suport als usuaris de Linux, es podrien aconseguir uns resultats
+ molt superiors a Windows, a més de totes les ventatges que Linux dona per
+ a servidors.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Línies de futur}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A mida que s'anava desenvolupat el projecte, amb el descobriment del potencial
+ que tenen aquestes tecnologies, , han anat sorgint noves idees per millorar
+ i sobretot, innovar més en el món audiovisual.
+ Alguns d'aquests punts que es realitzaràn, o tenen la possibilitat de realitzar
+-se en un futur són:
+\end_layout
+
+\begin_layout Itemize
+Animacions de textos.
+\end_layout
+
+\begin_layout Itemize
+Labels de textos i banners.
+\end_layout
+
+\begin_layout Itemize
+Playlists de videos.
+\end_layout
+
+\begin_layout Itemize
+Macro: possibilitat de emmagatzemar una seqüència de commandes, per reproduir-la
+ més tard automàticament.
+\end_layout
+
+\begin_layout Itemize
+Multi Output Audio: d'un mateix streaming, poder seleccionar entre un idioma
+ o un altre, anant tota la informació pel mateix flux de dades.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El projecte ha motivat molt a tothom que ha estat involucrat, i es seguirà
+ desenvolupant per aconseguir arribar al màxim potencial que es pugui.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Referències Imatges}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frontend-Mixer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Watchity.
+ (2019, September 9).
+ Frontend Mixer [Graph].
+ Frontend Mixer.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://help.watchity.com/hc/article_attachments/360027399494/Tipo_Production.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Selenium-Graph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ SeleniumHQ.
+ (2021, July 7).
+ Selenium Driver Graph [Graph].
+ Selenium Driver Graph.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.selenium.dev/documentation/images/basic_comms.png?width=400px
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PupeteerLogo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ pupeteer.
+ (2018, January 12).
+ Pupeteer Logo [Graph].
+ Logo.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-987
+2-91d1fc2ea683.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:WebGLExample"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ WebGL Example.
+ (2017, March 17).
+ [Illustration].
+ Aquarium.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://1stwebdesigner.com/wp-content/uploads/2014/03/aquarium.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QuixelMegascans"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Quixel.
+ (2019, March 20).
+ Quixel Megascan [Render].
+ UE4 Demo.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.youtube.com/watch?v=9fC20NWhx4s
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BlueprintRotate"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Spiris, S.
+ (2014, December 25).
+ Blueprint [Graph].
+ UE4 Simple Blueprint.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://answers.unrealengine.com/storage/temp/24917-rotate90degrees.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BlueprintChaos"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Neginfinity, N.
+ (2013, January 27).
+ Chaos Blueprint [Graph].
+ UE4 Blueprint Example of Bad Node Programming.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://forum.unity.com/proxy.php?image=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FDeiyJrD
+UwAAJQJ8.jpg&hash=f36b58c4bd4dc432a0a0ff8c62b453c4
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TiobeRanking"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Daria, D.
+ (2021, July 12).
+ Ranking Languages 2020 [Graph].
+ Darly Solutions.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://darly.solutions/the-most-popular-programming-languages-in-2021/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BookOfDead"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Unity.
+ (2018, January 16).
+ Book of the Dead - Unity Interactive Demo - Teaser.
+ YouTube.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.youtube.com/watch?v=DDsRfbfnC_A
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EFTCaptura"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ BATTLESTATE GAMES LIMITED.
+ (2015, December 22).
+ Pantalla de Pre-Alfa 19.
+ www.escapesfromtarkov.com.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.escapefromtarkov.com/media/id/29?lang=es
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DiagramaProtocol"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Aakanksha, A.
+ (2016, May 12).
+ Diagrama Protocol-Format-Códec [Graph].
+ StreamShark.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://streamshark.io/blog/understanding-codecs-and-formats/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TCPvsUDP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Ruether, T.
+ (2021, March 16).
+ TCP vs UDP [Graph].
+ Wowza.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.wowza.com/wp-content/uploads/Graphic-UDP-Vs-TCP-Diagram_1150x685.webp
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LatencyGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Ruether, T.
+ (2021a, March 16).
+ Graph Latency Streaming Protocols [Graph].
+ Wowza.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.wowza.com/wp-content/uploads/latency-continuum-2021-with-protocols-700
+x300-1.webp
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FFmpeg"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ FFmpeg.
+ (2013, April 10).
+ FFmpeg Logo [Logo].
+ Wikipedia Media.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/FFmpeg_Logo_new.svg/1280p
+x-FFmpeg_Logo_new.svg.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:VLC1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Brinkmann, M.
+ (2009, July 7).
+ VLC 1.0 [Photograph].
+ Ghacks.Net.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.ghacks.net/2009/07/07/vlc-media-player-1-0-released/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ExperimentHCEmpirical"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Pereyro, S.
+ (2017, October 31).
+ Screencast with Headless Chrome.
+ Google Docs.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.google.com/presentation/d/1b-HvxKmeFYE3qoNDJDHfbgVwEbi0QgmTvpH8w4CK5T
+w/edit#slide=id.gc6f90357f_0_0
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:HCTestindexhtml"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 9) Test Headless Chrome Index.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NDIVLC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ NewTek.
+ (2016, August 31).
+ NDI VLC Output Config [Config].
+ NewTek.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.newtek.com/blog/tips/vlc-media-player-and-newtek-ndi-vlc-plugin/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NDIReceiver"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ NewTek.
+ (2020b, November 20).
+ NDI Receiver Unreal [Graph].
+ NewTek.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMEVIL0BGn1XzKBxR2VKpZowQagd
+DYYENRmA&usqp=CAU
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NDIReceiverResultat"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, June 1) Test NDI Receiver.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:UMPFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Unity Direction Kit.
+ (2016a, June 4).
+ UMP Functionalities [Graph].
+ Asset Store.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://assetstorev1-prd-cdn.unity3d.com/key-image/9f96a930-72d3-4972-a650-f4ea4f6
+e326b.webp
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ProvaUnity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, January 14) Test Unity UMP.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:AVProvsUMP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 25) Test AVPro vs UMP.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:UMPvsAVPro"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 25) Test UMP vs AVPro.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CentOS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ CentOS.
+ (2015, December 12).
+ CentOS [Logo].
+ Wiki.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Centos-logo-light.svg/658
+px-Centos-logo-light.svg.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Arquitectura"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, January 18) Esquema Arquitectura.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:XorgVSync"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, January 18) Exemple Bug Gràfic VSync.
+ Own elaboration (Kingsman 2014).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DentedPixel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Dented Pixel.
+ (2021, January 1).
+ Dented Pixel [Logo].
+ Twitter.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://pbs.twimg.com/profile_images/1470829398/LogoSquareLarge_400x400.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TransparencyTest"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, March 25) Esquema Arquitectura.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Z-buffer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ rzeronte.
+ (2020, January 2).
+ Z-Buffer [Render].
+ Brakeza.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://brakeza.com/wp-content/uploads/2020/01/z_buffer_penguins_image.png
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:WCTCrop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 18) Crop WCT Màscara.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:WCTCropResultat"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 18) Resultat Crop WCT.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CropShaderGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 22) Crop Shader Graph.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ShadowCrop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 22) Shadow.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:OutlineShaderGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 22) Shadow.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ChromaShaderGraph"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 30) Chroma Node Shader Graph.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SubShadersChroma"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 30)Sub Shaders Chroma.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TancantEscena"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 19)Tancant Escena.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EscenaTancada"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+Vicente A.
+ (2021, April 19)Escena Tancada.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ObrintEscena"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, April 19)Obrint Escena.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DebugConsole"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 17)Debug Console.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:StatusResponse"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, February 17)Status Response.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ResultatFrame"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, June 05)Resultat Frame.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ResultatHtop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, June 05)Resultat HTOP.
+ Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ResultatNVtop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Vicente A.
+ (2021, June 05)Resultat NVTOP.
+ Own elaboration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sloppy
+\end_layout
+
 \end_inset
 
 
@@ -8681,8 +10477,19 @@ literal "false"
 Watchity.
  (2019b, September 13).
  ¿Qué es el Control Room (Live Distribution)? Watchity - Help Center.
- https://help.watchity.com/hc/es/articles/360017584293--Qu%C3%A9-es-el-Control-Roo
-m-Live-Distribution-
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://help.watchity.com/hc/es/articles/360017584293--Qu%C3%A9-es-el-Control-Room
+-Live-Distribution-
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8697,8 +10504,19 @@ Watchity.
  (2020, July 8).
  Share cuts on Social Networks.
  Watchity - Help Center.
- https://help.watchity.com/hc/en-us/articles/360023619094-Share-cuts-on-Social-Net
-works
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://help.watchity.com/hc/en-us/articles/360023619094-Share-cuts-on-Social-Netw
+orks
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8712,7 +10530,18 @@ literal "false"
 Watchity.
  (2019, September 9).
  ¿Qué es el Mixer? Watchity - Help Center.
- https://help.watchity.com/hc/es/articles/360018866273--Qu%C3%A9-es-el-Mixer-
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://help.watchity.com/hc/es/articles/360018866273--Qu%C3%A9-es-el-Mixer-
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8727,8 +10556,19 @@ Pereyro, S.
  (2018, February 09).
  Live streaming with headless chrome - Empirical.
  Empirical.
- https://blog.goempirical.com/how-to-use-headless-chrome-to-screencast-audio-and-v
-ideo-to-an-rtmp-endpoint-216ccfdde4db
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://blog.goempirical.com/how-to-use-headless-chrome-to-screencast-audio-and-vi
+deo-to-an-rtmp-endpoint-216ccfdde4db
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8742,7 +10582,18 @@ literal "false"
 FreeDesktop.
  (2021, January 16).
  PulseAudio.
- https://www.freedesktop.org/wiki/Software/PulseAudio/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.freedesktop.org/wiki/Software/PulseAudio/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8757,7 +10608,18 @@ Google.
  (2021, February 25).
  Getting Started with Headless Chrome | Web |.
  Google Developers.
- https://developers.google.com/web/updates/2017/04/headless-chrome
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://developers.google.com/web/updates/2017/04/headless-chrome
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8772,7 +10634,18 @@ SeleniumHQ.
  (2018, December 19).
  SeleniumHQ Browser Automation.
  Selenium.
- https://www.selenium.dev/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.selenium.dev/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8787,7 +10660,18 @@ SeleniumHQ.
  (2021a, July 7).
  Driver requirements :: Documentation for Selenium.
  Documentació Selenium.
- https://www.selenium.dev/documentation/en/webdriver/driver_requirements/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.selenium.dev/documentation/en/webdriver/driver_requirements/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8802,8 +10686,19 @@ Smirnov, A.
  (2020, November 18).
  How to run a headless Chrome browser in Selenium WebDriver.
  Medium.
- https://itnext.io/how-to-run-a-headless-chrome-browser-in-selenium-webdriver-c55
-21bc12bf0
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://itnext.io/how-to-run-a-headless-chrome-browser-in-selenium-webdriver-c552
+1bc12bf0
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8818,7 +10713,18 @@ Google.
  (2021a, February 11).
  Puppeteer | Tools for Web Developers |.
  Google Developers.
- https://developers.google.com/web/tools/puppeteer
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://developers.google.com/web/tools/puppeteer
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8833,7 +10739,18 @@ Apache.
  (2004, January 1).
  Apache License, Version 2.0.
  Apache License.
- https://www.apache.org/licenses/LICENSE-2.0
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.apache.org/licenses/LICENSE-2.0
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8848,7 +10765,18 @@ Mozilla.
  (2021, May 27).
  WebGL: 2D and 3D graphics for the web - Web APIs | MDN.
  WebGL Support by Browser.
- https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#browser_compatibility
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#browser_compatibility
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8862,8 +10790,19 @@ literal "false"
 Dealessandri, M.
  (2020, May 14).
  What is the best game engine: is Unreal Engine right for you? GamesIndustry.Biz.
- https://www.gamesindustry.biz/articles/2020-01-16-what-is-the-best-game-engine-is
--unreal-engine-4-the-right-game-engine-for-you
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.gamesindustry.biz/articles/2020-01-16-what-is-the-best-game-engine-is-
+unreal-engine-4-the-right-game-engine-for-you
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8879,8 +10818,19 @@ Eric Peckham, E.
  (2019, October 17).
  TechCrunch is now a part of Verizon Media.
  Extra Crunch.
- https://techcrunch.com/2019/10/17/how-unity-built-the-worlds-most-popular-game-e
-ngine/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://techcrunch.com/2019/10/17/how-unity-built-the-worlds-most-popular-game-en
+gine/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8895,7 +10845,18 @@ Technologies, U.
  (2021, January 1).
  Multiplatform.
  Unity.
- https://unity.com/features/multiplatform
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://unity.com/features/multiplatform
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8909,7 +10870,18 @@ literal "false"
 TIOBE.
  (2021, July 1).
  index | TIOBE - The Software Quality Company.
- https://www.tiobe.com/tiobe-index/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.tiobe.com/tiobe-index/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8924,7 +10896,18 @@ Technologies, U.
  (2021b, January 1).
  Unity - Scripting API: MonoBehaviour.
  Unity.
- https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8939,7 +10922,18 @@ Lagarde, S.
  (2020, February 24).
  HDRP: Out of Preview in 2019.3.
  Unity Blog.
- https://blog.unity.com/technology/hdrp-out-of-preview-in-2019-3
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://blog.unity.com/technology/hdrp-out-of-preview-in-2019-3
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8954,8 +10948,18 @@ Texto: Luz Fernández.
  (2002, December 28).
  La copia de películas se hace fácil en Internet.
  Cinco Días.
- https://cincodias.elpais.com/cincodias/2002/12/28/tecnologia/1041322677_850215.htm
-l
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://cincodias.elpais.com/cincodias/2002/12/28/tecnologia/1041322677_850215.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8970,7 +10974,18 @@ Bychok, A.
  (2021, May 21).
  Streaming Protocol Comparison: RTMP, WebRTC, FTL, SRT – Restream Blog.
  Ultimate Live Streaming Hub – Restream Blog.
- https://restream.io/blog/streaming-protocols/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://restream.io/blog/streaming-protocols/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -8985,7 +11000,18 @@ Fernández, Y.
  (2019, November 7).
  Qué es el códec AV1 y cuáles son sus ventajas.
  Xataka.
- https://www.xataka.com/basics/que-codec-av1-cuales-sus-ventajas
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.xataka.com/basics/que-codec-av1-cuales-sus-ventajas
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9002,8 +11028,19 @@ Hao, D.
  (2019, August 7).
  Mixer’s Faster Than Light streaming protocol explained.
  Dot Esports.
- https://dotesports.com/streaming/news/mixers-faster-than-light-streaming-protoco
-l-explained
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://dotesports.com/streaming/news/mixers-faster-than-light-streaming-protocol
+-explained
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9021,8 +11058,19 @@ Rus, C.
  .
  .
  Xataka.
- https://www.xataka.com/videojuegos/microsoft-cierra-mixer-su-alternativa-a-twitch
--que-tenia-exclusiva-a-superestrellas-esports-como-ninja
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.xataka.com/videojuegos/microsoft-cierra-mixer-su-alternativa-a-twitch-
+que-tenia-exclusiva-a-superestrellas-esports-como-ninja
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9037,8 +11085,19 @@ Twitch.
  (2015, December 18).
  Twitch Blog | Twitch Engineering: An Introduction and Overview.
  Twitch Blog.
- https://blog.twitch.tv/en/2015/12/18/twitch-engineering-an-introduction-and-overv
-iew-a23917b71a25/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://blog.twitch.tv/en/2015/12/18/twitch-engineering-an-introduction-and-overvi
+ew-a23917b71a25/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9052,7 +11111,18 @@ literal "false"
 FFmpeg.
  (2021, January 1).
  About FFmpeg.
- https://ffmpeg.org/about.html
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://ffmpeg.org/about.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9066,7 +11136,18 @@ literal "false"
 FFmpeg.
  (2021b, January 1).
  FFmpeg Filters Documentation.
- https://ffmpeg.org/ffmpeg-filters.html
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://ffmpeg.org/ffmpeg-filters.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9081,7 +11162,18 @@ VideoLAN.
  (2021, January 1).
  Free Software and Open Source video streaming solution for every OS! -
  VideoLAN.
- https://www.videolan.org/videolan/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.videolan.org/videolan/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9095,7 +11187,18 @@ literal "false"
 VideoLAN.
  (2021a, January 1).
  Contribute to the project - VideoLAN.
- https://www.videolan.org/contribute.html
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.videolan.org/contribute.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9110,7 +11213,18 @@ VideoLAN.
  (2019, March 4).
  libVLC Tutorial - VideoLAN Wiki.
  WikiVLC.
- https://wiki.videolan.org/LibVLC_Tutorial/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://wiki.videolan.org/LibVLC_Tutorial/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9125,8 +11239,19 @@ Pereyro, S.
  (2017, October 31).
  Screencast with Headless Chrome.
  Google Docs.
- https://docs.google.com/presentation/d/1b-HvxKmeFYE3qoNDJDHfbgVwEbi0QgmTvpH8w4CK5
-Tw/edit#slide=id.gc6f90357f_0_0
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.google.com/presentation/d/1b-HvxKmeFYE3qoNDJDHfbgVwEbi0QgmTvpH8w4CK5T
+w/edit#slide=id.gc6f90357f_0_0
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9140,7 +11265,18 @@ literal "false"
 Postman.
  (2021, January 1).
  Postman | The Collaboration Platform for API Development.
- https://www.postman.com/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.postman.com/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9155,8 +11291,19 @@ Google.
  (2021a, January 1).
  Chrome DevTools Protocol.
  Page Domain.
- https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-startScreenca
-st
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-startScreencas
+t
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9170,7 +11317,18 @@ literal "false"
 Filmaffinity.
  (2014, January 1).
  Nightcrawler (2014).
- https://www.filmaffinity.com/es/film779937.html
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.filmaffinity.com/es/film779937.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9184,7 +11342,18 @@ literal "false"
 Filmaffinity.
  (1979, January 1).
  Stalker (1979).
- https://www.filmaffinity.com/es/film534365.html
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.filmaffinity.com/es/film534365.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9199,7 +11368,18 @@ Google.
  (2017, September 13).
  Autoplay policy in Chrome.
  Chrome Developers.
- https://developer.chrome.com/blog/autoplay/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://developer.chrome.com/blog/autoplay/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9213,7 +11393,18 @@ literal "false"
 FFmpeg.
  (2021c, January 1).
  FFmpeg Formats Documentation.
- https://ffmpeg.org/ffmpeg-formats.html#image2-1
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://ffmpeg.org/ffmpeg-formats.html#image2-1
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9229,7 +11420,18 @@ FBSamples.
  GitHub - fbsamples/Canvas-Streaming-Example: This project contains example
  code showing how to go live on Facebook using a element as a source.
  GitHub.
- https://github.com/fbsamples/Canvas-Streaming-Example
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/fbsamples/Canvas-Streaming-Example
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9243,7 +11445,18 @@ literal "false"
 NewTek.
  (2021, January 1).
  About NDI - Network Device Interface.
- https://www.ndi.tv/about-ndi/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.ndi.tv/about-ndi/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9258,9 +11471,20 @@ NewTek.
  (2020, November).
  NDI Unreal Documentation.
  NDI Unreal Documentation.
- http://514f211588de67e4fdcf-437b8dd50f60b69cf0974b538e50585b.r63.cf1.rackcdn.com/Ut
-ilities/SDK/NDI_SDK_Unreal_Engine/4.25/NDI%20IO%20Plugin%20for%20Unreal%20Engine%
-20Quickstart%20Guide.pdf
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://514f211588de67e4fdcf-437b8dd50f60b69cf0974b538e50585b.r63.cf1.rackcdn.com/Uti
+lities/SDK/NDI_SDK_Unreal_Engine/4.25/NDI%20IO%20Plugin%20for%20Unreal%20Engine%2
+0Quickstart%20Guide.pdf
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9275,7 +11499,18 @@ Unity Direction Kit.
  (2016, June 4).
  UMP (Win, Mac, Linux, WebGL) | Video.
  Unity Asset Store.
- https://assetstore.unity.com/packages/tools/video/ump-win-mac-linux-webgl-49625
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://assetstore.unity.com/packages/tools/video/ump-win-mac-linux-webgl-49625
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9290,8 +11525,18 @@ Verma, A.
  (2015, August 30).
  Access denied | fossbytes.com used Cloudflare to restrict access.
  Fossbytes.
- https://fossbytes.com/ubuntu-linux-is-the-most-popular-operating-system-in-cloud
-/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://fossbytes.com/ubuntu-linux-is-the-most-popular-operating-system-in-cloud/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9306,8 +11551,18 @@ RenderHeadsLTD.
  (2020, March 12).
  AVPro Video - Ultra Edition | Video.
  Unity Asset Store.
- https://assetstore.unity.com/packages/tools/video/avpro-video-ultra-edition-18429
-4
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://assetstore.unity.com/packages/tools/video/avpro-video-ultra-edition-184294
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9322,7 +11577,18 @@ Keijiro, K.
  (2019, October 24).
  GitHub - keijiro/FFmpegOut: Video capture plugin for Unity with FFmpeg.
  GitHub.
- https://github.com/keijiro/FFmpegOut
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/keijiro/FFmpegOut
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9336,7 +11602,18 @@ literal "false"
 AMD.
  (2016, February 16).
  Vulkan.
- https://www.amd.com/es/technologies/vulkan
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.amd.com/es/technologies/vulkan
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9351,7 +11628,18 @@ Amazon.
  (2021, January 1).
  AWS | Cloud Computing - Servicios de informática en la nube.
  Amazon Web Services, Inc.
- https://aws.amazon.com/es/
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://aws.amazon.com/es/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9364,8 +11652,19 @@ literal "false"
 
 AWS vs Azure-Who is the big winner in the cloud war? (2021, July 27).
  ProjectPro.
- https://www.dezyre.com/article/aws-vs-azure-who-is-the-big-winner-in-the-cloud-wa
-r/401
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.dezyre.com/article/aws-vs-azure-who-is-the-big-winner-in-the-cloud-war
+/401
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9384,8 +11683,19 @@ López, J.
  .
  .
  Xataka.
- https://www.xataka.com/televisores/biblia-hdr-que-cuales-estandares-actuales-como
--no-todo-que-dicen-que-hdr-efectivamente
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.xataka.com/televisores/biblia-hdr-que-cuales-estandares-actuales-como-
+no-todo-que-dicen-que-hdr-efectivamente
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9400,7 +11710,18 @@ Unity.
  (2014, August 11).
  LeanTween | Animation Tools.
  Unity Asset Store.
- https://assetstore.unity.com/packages/tools/animation/leantween-3595
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://assetstore.unity.com/packages/tools/animation/leantween-3595
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9415,7 +11736,18 @@ Technologies, U.
  (2020, January 25).
  Unity - Scripting API: RenderQueue.
  Unity3d.
- https://docs.unity3d.com/ScriptReference/Rendering.RenderQueue.html
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.unity3d.com/ScriptReference/Rendering.RenderQueue.html
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9430,7 +11762,18 @@ Technologies, U.
  (2021, January 1).
  Shader Graph | Crea tus shaders visualmente con.
  Unity.
- https://unity.com/es/shader-graph
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://unity.com/es/shader-graph
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9444,7 +11787,18 @@ literal "false"
 CodeMonkey.
  (2019, November 24).
  Code Monkey - Sprite Outline - 2D Shader Graph Tutorial.
- https://unitycodemonkey.com/video.php?v=FvQFhkS90nI
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://unitycodemonkey.com/video.php?v=FvQFhkS90nI
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9459,7 +11813,18 @@ Digital Native Studios.
  (2021, January 1).
  Rich Text, TextMesh Pro Documentation.
  TextMeshPro.
- http://digitalnativestudios.com/textmeshpro/docs/rich-text/#style
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://digitalnativestudios.com/textmeshpro/docs/rich-text/#style
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -9474,716 +11839,13 @@ Harald, H.
  (2020, January 1).
  JSON VS Binary.
  Esoteric Software.
- http://es.esotericsoftware.com/forum/JSON-VS-Binary-13339
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
+ 
+\begin_inset Flex URL
 status open
 
 \begin_layout Plain Layout
 
-
-\backslash
-section{Images References}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Frontend-Mixer"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Watchity.
- (2019, September 9).
- Frontend Mixer [Graph].
- Frontend Mixer.
- https://help.watchity.com/hc/article_attachments/360027399494/Tipo_Production.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Selenium-Graph"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- SeleniumHQ.
- (2021, July 7).
- Selenium Driver Graph [Graph].
- Selenium Driver Graph.
- https://www.selenium.dev/documentation/images/basic_comms.png?width=400px
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PupeteerLogo"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- pupeteer.
- (2018, January 12).
- Pupeteer Logo [Graph].
- Logo.
- https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-98
-72-91d1fc2ea683.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:WebGLExample"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- WebGL Example.
- (2017, March 17).
- [Illustration].
- Aquarium.
- https://1stwebdesigner.com/wp-content/uploads/2014/03/aquarium.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:QuixelMegascans"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Quixel.
- (2019, March 20).
- Quixel Megascan [Render].
- UE4 Demo.
- https://www.youtube.com/watch?v=9fC20NWhx4s
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:BlueprintRotate"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Spiris, S.
- (2014, December 25).
- Blueprint [Graph].
- UE4 Simple Blueprint.
- https://answers.unrealengine.com/storage/temp/24917-rotate90degrees.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:BlueprintChaos"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Neginfinity, N.
- (2013, January 27).
- Chaos Blueprint [Graph].
- UE4 Blueprint Example of Bad Node Programming.
- https://forum.unity.com/proxy.php?image=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FDeiyJr
-DUwAAJQJ8.jpg&hash=f36b58c4bd4dc432a0a0ff8c62b453c4
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:TiobeRanking"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Daria, D.
- (2021, July 12).
- Ranking Languages 2020 [Graph].
- Darly Solutions.
- https://darly.solutions/the-most-popular-programming-languages-in-2021/
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:BookOfDead"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Unity.
- (2018, January 16).
- Book of the Dead - Unity Interactive Demo - Teaser.
- YouTube.
- https://www.youtube.com/watch?v=DDsRfbfnC_A
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:EFTCaptura"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- BATTLESTATE GAMES LIMITED.
- (2015, December 22).
- Pantalla de Pre-Alfa 19.
- www.escapesfromtarkov.com.
- https://www.escapefromtarkov.com/media/id/29?lang=es
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:DiagramaProtocol"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Aakanksha, A.
- (2016, May 12).
- Diagrama Protocol-Format-Códec [Graph].
- StreamShark.
- https://streamshark.io/blog/understanding-codecs-and-formats/
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:TCPvsUDP"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Ruether, T.
- (2021, March 16).
- TCP vs UDP [Graph].
- Wowza.
- https://www.wowza.com/wp-content/uploads/Graphic-UDP-Vs-TCP-Diagram_1150x685.webp
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:LatencyGraph"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Ruether, T.
- (2021a, March 16).
- Graph Latency Streaming Protocols [Graph].
- Wowza.
- https://www.wowza.com/wp-content/uploads/latency-continuum-2021-with-protocols-70
-0x300-1.webp
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:FFmpeg"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- FFmpeg.
- (2013, April 10).
- FFmpeg Logo [Logo].
- Wikipedia Media.
- https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/FFmpeg_Logo_new.svg/1280
-px-FFmpeg_Logo_new.svg.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:VLC1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Brinkmann, M.
- (2009, July 7).
- VLC 1.0 [Photograph].
- Ghacks.Net.
- https://www.ghacks.net/2009/07/07/vlc-media-player-1-0-released/
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ExperimentHCEmpirical"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Pereyro, S.
- (2017, October 31).
- Screencast with Headless Chrome.
- Google Docs.
- https://docs.google.com/presentation/d/1b-HvxKmeFYE3qoNDJDHfbgVwEbi0QgmTvpH8w4CK5
-Tw/edit#slide=id.gc6f90357f_0_0
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:HCTestindexhtml"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, March 9) Test Headless Chrome Index.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:NDIVLC"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- NewTek.
- (2016, August 31).
- NDI VLC Output Config [Config].
- NewTek.
- https://www.newtek.com/blog/tips/vlc-media-player-and-newtek-ndi-vlc-plugin/
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:NDIReceiver"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- NewTek.
- (2020b, November 20).
- NDI Receiver Unreal [Graph].
- NewTek.
- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMEVIL0BGn1XzKBxR2VKpZowQag
-dDYYENRmA&usqp=CAU
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:NDIReceiverResultat"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, June 1) Test NDI Receiver.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:UMPFunctions"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Unity Direction Kit.
- (2016a, June 4).
- UMP Functionalities [Graph].
- Asset Store.
- https://assetstorev1-prd-cdn.unity3d.com/key-image/9f96a930-72d3-4972-a650-f4ea4f
-6e326b.webp
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ProvaUnity"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, January 14) Test Unity UMP.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:AVProvsUMP"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, March 25) Test AVPro vs UMP.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:UMPvsAVPro"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, March 25) Test UMP vs AVPro.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:CentOS"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- CentOS.
- (2015, December 12).
- CentOS [Logo].
- Wiki.
- https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Centos-logo-light.svg/65
-8px-Centos-logo-light.svg.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Arquitectura"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, January 18) Esquema Arquitectura.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:XorgVSync"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, January 18) Exemple Bug Gràfic VSync.
- Own elaboration (clip is from Kingsman 2014).
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:DentedPixel"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Dented Pixel.
- (2021, January 1).
- Dented Pixel [Logo].
- Twitter.
- https://pbs.twimg.com/profile_images/1470829398/LogoSquareLarge_400x400.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:TransparencyTest"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, March 25) Esquema Arquitectura.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Z-buffer"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- rzeronte.
- (2020, January 2).
- Z-Buffer [Render].
- Brakeza.
- https://brakeza.com/wp-content/uploads/2020/01/z_buffer_penguins_image.png
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:WCTCrop"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, February 18) Crop WCT Màscara.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:WCTCropResultat"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, February 18) Resultat Crop WCT.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:CropShaderGraph"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, February 22) Crop Shader Graph.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ShadowCrop"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, February 22) Shadow.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:OutlineShaderGraph"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, February 22) Shadow.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ChromaShaderGraph"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, April 30) Chroma Node Shader Graph.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:SubShadersChroma"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, April 30)Sub Shaders Chroma.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:TancantEscena"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, April 19)Tancant Escena.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:EscenaTancada"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-Vicente A.
- (2021, April 19)Escena Tancada.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ObrintEscena"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, April 19)Obrint Escena.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:DebugConsole"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, February 17)Debug Console.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:StatusResponse"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- Vicente A.
- (2021, February 17)Status Response.
- Own elaboration.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-section{Annexes}
+http://es.esotericsoftware.com/forum/JSON-VS-Binary-13339
 \end_layout
 
 \end_inset

@@ -1,6 +1,6 @@
-color=n_video%r,g,b								#Colors (0, 1)
+color=n_video%r,g,b #Colors (0, 1)
 
 Ex:
-color=0%1,1,1									#White
-color=0%0,0,0									#Black
+color=0%1,1,1 #White
+color=0%0,0,0 #Black
 curl --data "color=1%1,0,0" http://localhost:4444/
