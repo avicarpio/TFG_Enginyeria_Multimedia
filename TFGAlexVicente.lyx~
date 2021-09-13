@@ -15,6 +15,9 @@
 
 \usepackage[english]{babel}
 
+\usepackage{hyperref}
+\def\UrlBreaks{\do\/\do-}
+
 \newfontfamily\firaCode[Extension=.ttf]{FiraCode}
 
 \definecolor{codeColor}{RGB}{50, 180, 50}
@@ -79,11 +82,9 @@
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine biblatex
-\cite_engine_type authoryear
+\cite_engine basic
+\cite_engine_type default
 \biblio_style plain
-\biblio_options \sloppy
-\biblatex_bibstyle authoryear
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -297,46 +298,90 @@ section{Introducció}
 \end_layout
 
 \begin_layout Standard
-L'objectiu d'aquest projecte és crear una aplicació de live video mixing
- usant tecnologies emprades en el món dels videojocs.
- És a dir, una aplicació multimedia amb la que poder gestionar fluxos de
- video d'entrada i de sortida, convinant-los i gestionant-los d'una manera
- senzilla, eficaç i ràpida.
- Tot això creat amb una eina utilitzada als videojocs com és un motor gràfic.
- En un primer moment pot sorprendre una mica la idea i es pot arribar a
- pensar que no és viable ja que un motor gràfic de videojocs no està pensat
- per això.
- Però com s'anirà veient tot agafa sentit i els videojocs, o les eines per
- crear-los, són més potents del que creiem.
- Ja que aquestes tecnologies s'utilitzen a molts llocs que mai hauriem imaginat.
- Aquest projecte ha estat realitzat a l'empresa Watchity S.L., on he estat
- treballant com a becari, i a la vegada ho he combinat amb el meu projecte
- de fi de grau.
+L'evolució de les tecnologies en el sector multimèdia és imparable, cada
+ cop tenim a la nostra disposició més serveis de streaming, 
+\begin_inset Quotes fld
+\end_inset
+
+video on demand
+\begin_inset Quotes frd
+\end_inset
+
+ i eines de producció molt professionals a l'abast de qualsevol tipus d'usuari.
+ I a la vegada, la demanda per aquest tipus d'eines també creix, ja que
+ la gent s'interessa en donar-se a conèixer, retransmetre conferències,
+ entretenir, i ho volen fer amb la major qualitat possible.
+ El gran problema és que no tothom disposa d'una màquina suficientment potent
+ per suportar eines de producció de vídeo tant potents, o dels coneixements
+ tècnics necessaris per utilitzar-los.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Partint d'aquesta base, s'ha marcat com a objectiu principal d'aquest projecte
+ crear una aplicació de live video mixing usant tecnologies alternatives,
+ amb els punts clau: remot, escalable, senzill i potent.
+ Es vol posar a disposició de qualsevol usuari, una eina al núvol capaç
+ d'aconseguir uns resultats equivalents o superiors a les eines de vídeo
+ més professionals.
+ Al estar executada al núvol, vol dir que no s'utilitzaran recursos de la
+ màquina local, per tant qualsevol tipus d'ordinador, per molt simple o
+ antic que sigui, podrà treballar amb vídeos d'alta qualitat i realitzar
+ composicions extraordinàries.
+ En resum, es vol crear una aplicació multimèdia amb la que poder gestionar
+ fluxos de vídeo d'entrada i de sortida, combinant-los i gestionant-los
+ d'una manera senzilla, eficaç i ràpida.
+ Durant el transcurs d'aquest treball, s'anirà veient que hi ha moltes possibili
+tats per dur a terme l'objectiu, es plantejaran totes elles, es compararan,
+ i s'escollirà la que més s'adeqüi a les necessitats.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquest projecte ha estat realitzat a l'empresa Watchity S.L., on he estat
+ treballant com a becari, i a la vegada ho he combinat amb el meu treball
+ final de grau.
  Ja que es tracta d'una idea molt interessant i innovadora, que em va cridar
- molt l'atenció desde el primer moment.
- En aquesta empresa ja tenien una primera aplicació, basada en una eina
- anomenada Snowmix que tenia les seves limitacions.
+ molt l'atenció des de el primer moment.
+ En aquesta empresa ja disposen d'una eina al núvol per tractar vídeo, porten
+ anys treballant amb ella i han comprovat que la demanda per aquest tipus
+ d'eines és real, pel que volen evolucionar el sistema i donar més possibilitats
+ d'edició.
+ Actualment tenen una aplicació basada en una eina anomenada Snowmix que
+ té les seves limitacions.
+ La quantitat de vídeos amb la que es pot treballar és limitat, estàs lligat
+ a un programari que no controles i els efectes que es poden aplicar sobre
+ els vídeos són massa senzills.
+ S'analitzarà l'aplicació actual, es compararà i es decidiran uns requisits
+ indispensables pel seu successor.
  Aquesta és una de les raons per la qual es van plantejar contractar un
- becari que refés el sistema desde un altre punt de vista totalment diferent.
+ becari que refés el sistema des de un altre punt de vista totalment diferent.
  
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En el mercat existeixen algunes altres propostes que fan la competència,
- però, el que es busca és tenir molta més potencia i possibilitats que aquestes
- eines, i a la vegada ha de ser fàcil d'utilitzar.
- Com a exemples de competència tenim vMix o Wirecast, com a software instalable,
- que fan video mixing professional.
- Per altre banda tindriem StreamYard o Restream que fan video mixing al
- núvol, però llavors es queden bastant limitats.
- I és aquí on Watchity vol incidir com a opció diferencial, creant una eina
- potent al núvol, que superi les possibilitats de la competència.
-\end_layout
-
-\begin_layout Standard
-Aquest projecte es vol enfocar en un públic professional, i no tant en casos
- individuals, encara que també seria possible.
- 
+En el mercat existeixen algunes altres propostes.
+ Com a exemples de competència tenim vMix o Wirecast, com a software instal·labl
+e, que fan vídeo mixing professional, pel que es requereixen uns coneixements
+ tècnics sobre el món audiovisual.
+ Per altre banda tindríem StreamYard o Restream que fan vídeo mixing al
+ núvol, però llavors es queden bastant limitats, no es permet gaire control
+ sobre l'escena, no tenen gaires efectes que donin un toc elegant i es nota
+ a simple vista que s'està usant una eina que no és professional.
+ I és aquí on Watchity vol incidir com a una proposta diferencial, creant
+ una eina potent al núvol totalment remota i a la vegada, potent.
 \end_layout
 
 \begin_layout Standard
@@ -428,26 +473,8 @@ Arquitectura Global
 \begin_layout Standard
 El primer que s'ha d'explicar, és la arquitectura del sistema actual de
  l'empresa Watchity, abans de començar amb el nou.
- Tenen a disposició dels clients, diferents eines de video, les més importants
+ Tenen a disposició dels clients, diferents eines de vídeo, les més importants
  són: 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Control Room
-\series default
-, és una eina que serveix per controlar fluxos de vídeo i distribuir-los
- a diferents xarxes socials.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ControlRoom"
-literal "false"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -455,7 +482,7 @@ literal "false"
 \series bold
 Cut & Share
 \series default
-, serveix per crear petits videos fàcilment, a partir d'altres més llargs,
+, serveix per crear petits vídeos fàcilment, a partir d'altres més llargs,
  i poder-los compartir d'una manera senzilla i còmode.
  
 \begin_inset CommandInset citation
@@ -478,7 +505,7 @@ Mixer
 \shape italic
 Live Video Mixing 
 \emph on
-que es composa del frontend, i el backend.
+que es compon del frontend, i el backend.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -490,17 +517,35 @@ literal "false"
 
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Control Room
+\series default
+, és una eina que serveix per controlar fluxos de vídeo i distribuir-los
+ a diferents xarxes socials.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ControlRoom"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \shape italic
 \emph on
-En el frontend trobem una aplicació controlada per navegador que té totes
- les opcions bàsiques per fer una edició en viu dels videos.
- Però, té algunes limitacions, com poden ser: un màxim de 15 capes de videos
+En el Mixer trobem una aplicació controlada per navegador que té totes les
+ opcions bàsiques per fer una edició en viu dels vídeos.
+ Però, té algunes limitacions, com poden ser: un màxim de 15 capes de vídeos
  o imatges, no té cap tipus de compatibilitat amb elements 3D, una resolució
  de 720p al output, no disposa de control per guardar/carregar, limitació
- de potència per fluxos d'streaming simultanis, poques possibilitats de
- transicions, no disposa de cap eina per afegir efectes ni de video, ni
+ de potència per fluxos de streaming simultanis, poques possibilitats de
+ transicions, no disposa de cap eina per afegir efectes ni de vídeo, ni
  de so (per exemple, chroma key o reverb, respectivament), impossibilitat
  per treballar a resolucions de 4K o més.
  
@@ -533,7 +578,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Frontend Mixer
+Esquema de la producció Watchity
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Frontend-Mixer"
@@ -558,39 +603,18 @@ name "fig:Frontend-Mixer"
 \end_layout
 
 \begin_layout Standard
-A partir d'això, es treu un streaming de output en WebRTC RTP, que es pot
- emetre automàticament a tots els llocs que el client desitji (Facebook,
- Youtube, Instagram, etc.)
+A partir d'això, es genera un streaming de sortida en WebRTC que es pot
+ visualitzar al navegador de l'usuari.
+ A la vegada, es genera un streaming RTMP, que s'emet automàticament a totes
+ les xarxes socials que l'usuari desitgi (Facebook, Youtube, Instagram,
+ etc.)
 \end_layout
 
 \begin_layout Standard
-En quant al backend, s'ocupa de realitzar les tasques demanades desde el
+En quant al backend, s'ocupa de realitzar les tasques demanades des de el
  frontend explicat anteriorment.
  A més de controlar les diferents configuracions com poden ser la transcodificac
-ió dels videos, configuració dels videos...
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Parts a substituïr
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Encara que hi han alguns elements que primera vista poden semblar que es
- poden reutilitzar, no és així, ja que la idea es canviar totalment el sistema
- desde la base, utilitzant un altre tipus de software totalment diferent,
- veient que l'actual està molt limitat.
- Per tant, s'ha decidit no utilitzar res de l'anterior projecte i crear-ho
- tot desde zero.
+ió dels vídeos, configuració dels vídeos...
 \begin_inset Newline newline
 \end_inset
 
@@ -614,9 +638,9 @@ subsubsection{Requeriments del nou Mixer}
 \end_layout
 
 \begin_layout Standard
-Per crear el nou Mixer s'han definit una sèrie de requisits que ha de tenir,
- per tal de que compleixi amb les expectatives i sigui útil per duur a terme
- aquesta 
+Degut a les limitacions del sistema actual, es proposa una sèrie de requisits
+ que el nou Mixer haurà de tenir, assegurant-nos que compleixi amb les expectati
+ves i sigui útil per dur a terme aquesta 
 \begin_inset Quotes eld
 \end_inset
 
@@ -626,35 +650,25 @@ evolució
 
 .
  És possible que el producte final acabi tenint més funcionalitats de les
- que s'esmenten a continuació, però sí que reflexa les més bàsiques que
- ha de tenir.
-\end_layout
-
-\begin_layout Itemize
-Serà necessari que es puguin definir 
-\series bold
-escenes
-\series default
-, les quals també puguin emmagatzemar les posicions dels elements dins de
- cada una i totes les seves propietats.
+ que s'esmenten a continuació, però sí que reflexa les més bàsiques.
 \end_layout
 
 \begin_layout Itemize
 Poder injectar un 
 \series bold
-flux d'streaming
+flux de streaming
 \end_layout
 
 \begin_layout Itemize
-Poder injectar un video 
+Poder injectar un vídeo 
 \series bold
-pre-enregistrat (local)
+preenregistrat (local)
 \end_layout
 
 \begin_layout Itemize
-Tot tipus d'elements s'han de poder insertar amb 
+Tot tipus d'elements s'han de poder inserir amb 
 \series bold
-posicions i paràmtetres inicials
+posicions i paràmetres inicials
 \end_layout
 
 \begin_layout Itemize
@@ -668,13 +682,54 @@ alpha
 \end_layout
 
 \begin_layout Itemize
-Possibiltat de tenir fins a 
+Serà necessari que es puguin definir 
+\series bold
+escenes
+\series default
+, les quals també puguin emmagatzemar les posicions dels elements dins de
+ cada una i totes les seves propietats.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mute
+\series default
+/un-mute de cada font d'entrada
+\end_layout
+
+\begin_layout Itemize
+Control de volum de cada font d'entrada
+\end_layout
+
+\begin_layout Itemize
+Mixing de les fonts no silenciades
+\end_layout
+
+\begin_layout Itemize
+Control de volum de la sortida mesclada
+\end_layout
+
+\begin_layout Itemize
+Mute/un-mute de la sortida mesclada
+\end_layout
+
+\begin_layout Itemize
+Possibilitat de tenir fins a 
 \series bold
 6 fonts 
 \series default
-d'streaming 
+de streaming 
 \series bold
 simultàniament
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chroma-keying
+\series default
+ a les fonts de vídeo (streams o local)
 \end_layout
 
 \begin_layout Itemize
@@ -707,41 +762,29 @@ dissolve
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-Mute
-\series default
-/unmute de cada font d'entrada
-\end_layout
-
-\begin_layout Itemize
-Control de volum de cada font d'entrada
-\end_layout
-
-\begin_layout Itemize
-Mixing de les fonts no mutejades
-\end_layout
-
-\begin_layout Itemize
-Control de volum de la sortida mesclada
-\end_layout
-
-\begin_layout Itemize
-Mute/unmute de la sortida mesclada
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Chroma-keying
-\series default
- a les fonts de video (streams o local)
-\end_layout
-
-\begin_layout Itemize
 Possibilitat de treballar fins a 
 \series bold
 4K
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Encara que hi han alguns elements que primera vista poden semblar que es
+ poden reutilitzar, no és així, ja que la idea es canviar totalment el sistema
+ des de la base, utilitzant un altre tipus de software totalment diferent,
+ veient que l'actual està molt limitat.
+ Per tant, s'ha decidit no utilitzar res de l'anterior projecte i crear-ho
+ tot des de zero.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -758,6 +801,16 @@ subsection{Eines Gràfiques}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+A continuació es presentaran les eines gràfiques que podrien servir per
+ aconseguir l'objectiu.
+ Totes elles són ben conegudes, pel que ens assegurem una estabilitat i
+ suport del programari.
+ A més de tenir en totes una constant evolució, que podria ajudar a fer
+ créixer el projecte a mida que va passant el temps, per evitar que es quedi
+ estancat.
 \end_layout
 
 \begin_layout Standard
@@ -793,8 +846,8 @@ La primera opció que es va proposar va ser utilitzar Headless Chrome.
 \shape italic
 headless
 \shape default
-, el que significa que es pot utilitzar desde terminal, o més interesant,
- desde un servidor sense cap tipus de UI.
+, el que significa que es pot utilitzar des de terminal, o més interessant,
+ des de un servidor sense cap tipus de UI.
  Es va crear pensant en que podria ser molt útil, per fer testos automatitzats
  de webs o aplicacions online.
 \begin_inset Newline newline
@@ -823,12 +876,12 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Config H
 \begin_layout Standard
 Encara que està pensat per fer automatitzacions com he comentat abans, es
  pot aprofitar la potència de Chrome per altres tasques, com poden ser la
- reproducció de videos, crides a APIs, entre altres.
+ reproducció de vídeos, crides a APIs, entre altres.
 \end_layout
 
 \begin_layout Standard
 Buscant algun exemple per internet que aprofités Headless Chrome per la
- reproducció de video, ens vam trobar amb uns quants que havien pensat el
+ reproducció de vídeo, ens vam trobar amb uns quants que havien pensat el
  mateix.
 \end_layout
 
@@ -843,9 +896,9 @@ literal "false"
 
  trobem que van aconseguir fer streaming a Facebook i Youtube Live amb uns
  resultats bastant satisfactoris.
- A partir d'una web (video + àudio), ho convertien a un flux de sortida
+ A partir d'una web (vídeo + àudio), ho convertien a un flux de sortida
  RTMP.
- Comenta que el més complicat va ser aconseguir que el video i l'àudio estiguess
+ Comenta que el més complicat va ser aconseguir que el vídeo i l'àudio estiguess
 in sincronitzats.
  Però finalment ho va aconseguir gràcies al controlador d'àudio anomenat
  PulseAudio 
@@ -861,7 +914,7 @@ literal "false"
 
 \begin_layout Standard
 Headless Chrome està pensat per ser utilitzat amb alguna eina d'automatització,
- i així ho recomanen desde el propi blog oficial de Google Developers 
+ i així ho recomanen des de el propi blog oficial de Google Developers 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HeadlessChromeDevel"
@@ -874,7 +927,7 @@ literal "false"
 em una eina externa.
  Al blog de Google ens parlen de Puppeteer, Selenium, WebDriver i ChromeDriver.
  Totes elles tenen el mateix objectiu, automatitzar tasques al navegador.
- Podriem dir que la més desenvolupada i consolidada, és Selenium, però Pupeteer
+ Podríem dir que la més desenvolupada i consolidada, és Selenium, però Puppeteer
  també s'ha guanyat molt de renom en els últims temps, per tant, haurem
  de fer un estudi per veure els pros i contres de cada una i decidir amb
  quina d'aquestes ens quedarem.
@@ -908,7 +961,7 @@ literal "false"
 , que serveix per crear tasques automatitzades en un navegador o aplicació
  per validar funcionalitats.
  Es poden utilitzar scripts tant de C#, Python, JavaScript, PHP, Scala...
- Realment Selenium com a tal és una Suite que es composa d'un grup d'eines;
+ Realment Selenium com a tal és una Suite que es compon d'un grup d'eines;
  el seu propi IDE, Grid i WebDriver.
  Nosaltres estem interessats en l'últim, per tant és el que estudiarem.
 \begin_inset Newline newline
@@ -1077,7 +1130,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Pupeteer Logo
+Puppeteer Logo
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:PupeteerLogo"
@@ -1098,7 +1151,7 @@ name "fig:PupeteerLogo"
 \end_layout
 
 \begin_layout Standard
-És open source i està sota la llicència d'Apache 2.0 
+És open-source i està sota la llicència d'Apache 2.0 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ApacheLicense"
@@ -1111,12 +1164,12 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-És molt fàcil d'instalar, ja que només cal instalar un paquet npm i per
- utilitzar-lo es fa tot amb javascript mitjançant les comandes que disposen
+És molt fàcil d'instal·lar, ja que només cal instal·lar un paquet npm i
+ per utilitzar-lo es fa tot amb javascript mitjançant les comandes que disposen
  a la seva documentació.
- A més de tot això, la major ventatja que té és que està pensat per ser
+ A més de tot això, la major avantatge que té és que està pensat per ser
  utilitzat amb Headless Chrome, dóna moltes facilitats per realitzar totes
- les tasques sense estar veient cap tipus de UI, i a la vegada poder debuggar
+ les tasques sense estar veient cap tipus de UI, i a la vegada poder debugar
  de manera còmode i senzilla.
  
 \begin_inset Newline newline
@@ -1128,7 +1181,7 @@ literal "false"
 \begin_layout Standard
 Un petit codi d'exemple que ens mostren a la seva documentació per comprovar
  com de fàcil és utilitzar-lo.
- El que fem és afegir puppeteer al nostre script de js amb require, iniciem
+ El que fem és afegir Puppeteer al nostre script de js amb require, iniciem
  el navegador en mode headless, obrim el link 
 \begin_inset Quotes fld
 \end_inset
@@ -1184,7 +1237,7 @@ literal "false"
  Hem de tenir en compte que encara que el navegador sigui compatible, per
  tota la renderització 3D, per molt mínima que sigui, necessitarem una targeta
  gràfica, Això pot ser un problema ja que es vol executar tot en un model
- cloud, al donar estabilitat i professionalitat.
+ al núvol, al donar estabilitat i professionalitat.
  La majoria de gent que utilitza servidors té unes idees bastant diferents
  al que es vol fer aquí, i potser necessiten potència de CPU o molta RAM,
  però no GPU, pel que potser és complicat trobar una màquina remota amb
@@ -1239,7 +1292,7 @@ name "fig:WebGLExample"
 
 \begin_layout Standard
 Per una banda aquesta solució és molt atractiva ja que es faria tot el sistema
- desde 0 sense utilitzar cap tipus de dependència, però a la vegada també
+ des de 0 sense utilitzar cap tipus de dependència, però a la vegada també
  depens de les polítiques o limitacions de potència del navegador.
  Mai serà capaç d'utilitzar el 100% de la màquina i no és comparable amb
  una aplicació standalone.
@@ -1264,9 +1317,9 @@ subsubsection{Unreal Engine 4}
 \begin_layout Standard
 Un dels motors gràfics més utilitzats dels últims temps és Unreal Engine.
  Està creat per Epic Games, programat en C++ i amb una potència sorprenent
- que fa que sigui el més utilitzats en projectes fotorrealistes, o inclús,
+ que fa que sigui el més utilitzats en projectes foto realistes, o inclús,
  en projectes d'arquitectura.
- Sobretot a partir de 2019, on van juntar-se amb l'empresa Quixel, dedicada
+ Sobretot a partir de 2019, on es van ajuntar amb l'empresa Quixel, dedicada
  entre d'altres coses, a crear 
 \begin_inset Quotes fld
 \end_inset
@@ -1276,7 +1329,7 @@ megascans
 \end_inset
 
 .
- És una tecnologia que diposa textures amb grans resolucions i qualitats
+ És una tecnologia que disposa textures amb grans resolucions i qualitats
  sorprenents, però a la vegada molt eficients pel desenvolupament de videojocs.
  Així aconseguint un renderitzat molt realista a temps real, i destacant
  entre els altres motors competidors.
@@ -1327,7 +1380,7 @@ name "fig:QuixelMegascans"
 \begin_layout Standard
 Durant el transcurs del 2021 es llençarà la versió d'Unreal Engine 5, on
  han demostrat que poden inclús superar-se i crear uns entorns sorprenents
- juntant la tecnologia que ja havien estat desenvolupant de Quixel, amb
+ ajuntant la tecnologia que ja havien estat desenvolupant de Quixel, amb
  una nova anomenada Lumen, que controlarà totes les llums i farà ús del
  Ray-Tracing a temps real, també dit RTX a les targetes gràfiques de Nvidia.
  Amb totes aquestes novetats i evolucions tecnològiques que han anat fent
@@ -1352,7 +1405,7 @@ literal "false"
 L'Unreal disposa d'un sistema de programació anomenat Blueprints, és una
  metodologia de programació totalment visual i basada en nodes.
  Bàsicament són petites capces que internament tenen trossos de codi en
- C++, els quals juntem entrades i sortides.
+ C++, els quals ajuntem entrades i sortides.
 \end_layout
 
 \begin_layout Standard
@@ -1478,8 +1531,8 @@ subsubsection{Unity}
 \end_layout
 
 \begin_layout Standard
-El motor de videojocs més famós i més utilitzat desde els seus origens és
- sense dubte Unity 
+El motor de videojocs més famós i més utilitzat des de els seus orígens
+ és sense dubte Unity 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PopularUnity"
@@ -1521,10 +1574,10 @@ literal "false"
 
 \begin_layout Standard
 La programació dels scripts es fa amb llenguatge C# el qual forma part de
- la plataforma .NET propietaria de Microsoft.
+ la plataforma .NET propietària de Microsoft.
  És un llenguatge derivat de C/C++ i és dels més utilitzats juntament amb
  Java.
- Si ens fixem en el rànking de plataforma TIOBE 
+ Si ens fixem en el rànquing de plataforma TIOBE 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "TIOBE"
@@ -1535,7 +1588,7 @@ literal "false"
 , que és una web que s'encarrega d'ordenar els llenguatges de programació
  de més utilitzat a menys, podem veure que en el top 5, tenim els 3 llenguatges
  de C, els quals tenen una base molt semblant.
- Després tindriem Java i Python, tots dos són llenguatges d'alt nivell molt
+ Després tindríem Java i Python, tots dos són llenguatges d'alt nivell molt
  senzills i que faciliten molt el flux de programació.
 \end_layout
 
@@ -1594,12 +1647,12 @@ literal "false"
 \end_inset
 
 , que estalvia molta feina i permet fer tasques que a priori són complicades
- o llargues, en pocs minuts i en poques linies.
+ o llargues, en pocs minuts i en poques línies.
 \end_layout
 
 \begin_layout Standard
 MonoBehaviour és la classe base d'on parteixen tots els scripts de Unity.
- Només cal indicar que el nou script s'extén de la API.
+ Només cal indicar que el nou script s'estén de la API.
 \begin_inset Newline newline
 \end_inset
 
@@ -1626,7 +1679,7 @@ En les últimes versions de Unity, han apostat molt per competir directament
 \begin_layout Standard
 Quan Unity va començar, com que era relativament fàcil d'utilitzar i gratis,
  van aparèixer una quantitat immensa de jocs de mòbil creats amb aquest
- motor, pel que es va guanyar una fama errònea, de que aquest motor només
+ motor, pel que es va guanyar una fama errònia, de que aquest motor només
  servia per jocs petits, amb uns gràfics tirant a simples i sense molts
  efectes.
  
@@ -1777,8 +1830,8 @@ subsubsection{Formats Compatibles}
 \end_layout
 
 \begin_layout Standard
-L'aplicació haurà de rebre tot tipus de videos, de tots els formats possibles,
- entenent formats el conjunt de códecs i contenidors.
+L'aplicació haurà de rebre tot tipus de vídeos, de tots els formats possibles,
+ entenent formats el conjunt de còdecs i contenidors.
  Primer s'ha de fer un anàlisi dels formats que existeixen i com de populars
  són
 \series bold
@@ -1792,7 +1845,7 @@ L'aplicació haurà de rebre tot tipus de videos, de tots els formats possibles,
 \begin_layout Standard
 
 \series bold
-Códecs
+Còdecs
 \begin_inset Newline newline
 \end_inset
 
@@ -1800,20 +1853,20 @@ Códecs
 \end_layout
 
 \begin_layout Standard
-Hi ha molts tipus de códecs, però és cert que alguns s'utilitzen molt poc,
+Hi ha molts tipus de còdecs, però és cert que alguns s'utilitzen molt poc,
  o ja s'han quedat antiquats.
 \end_layout
 
 \begin_layout Itemize
-H.261: Aquest códec va ser el primer que es va tornar popular, degut a que
+H.261: Aquest còdec va ser el primer que es va tornar popular, degut a que
  era el que donava millors resultats en el seu moment.
  Però evidentment, ha passat molt temps i la tecnologia ha evolucionat suficient
- com per deixar aquest códec antiquat.
+ com per deixar aquest còdec antiquat.
 \end_layout
 
 \begin_layout Itemize
-H.263: Va ser el primer que códec realment eficient, però a la vegada demanava
- molts recursos de l'ordinador per codificar un video, i a la vegada, per
+H.263: Va ser el primer que còdec realment eficient, però a la vegada demanava
+ molts recursos de l'ordinador per codificar un vídeo, i a la vegada, per
  reproduir-lo necessitarem una potencia relativament alta.
 \end_layout
 
@@ -1821,21 +1874,21 @@ H.263: Va ser el primer que códec realment eficient, però a la vegada demanava
 H.264: És el més popular a l'actualitat de manera professional, també conegut
  com MPEG-4 AVC, compta amb una compressió molt alta amb una pèrdua de qualitat
  imperceptible.
- A més de ser molt polivalent al acceptar molts tipus de bitrate d'entrada.
+ A més de ser molt polivalent al acceptar molts tipus de bit rate d'entrada.
 \end_layout
 
 \begin_layout Itemize
 H.265: També anomenat HEVC, és el successor del H.264.
  A vegades pot donar uns resultats pitjors al seu predecessor, però sobretot
- pels videos en 4K obtenim uns molts millors resultats ja que comprimeix
+ pels vídeos en 4K obtenim uns molts millors resultats ja que comprimeix
  molt més obtenint uns resultats de qualitat molt semblants.
- En els videos 4K es pot obtenir fins a un 64% de reducció de bitrate en
+ En els vídeos 4K es pot obtenir fins a un 64% de reducció de bit rate en
  comparació amb H.264.
 \end_layout
 
 \begin_layout Itemize
-MPEG-1: És un códec bastant antic que ja no s'utilitza, però va ser molt
- utilitzat per discs de dades CD-ROM i inclou compressió tant de video com
+MPEG-1: És un còdec bastant antic que ja no s'utilitza, però va ser molt
+ utilitzat per discs de dades CD-ROM i inclou compressió tant de vídeo com
  d'àudio.
 \end_layout
 
@@ -1845,20 +1898,15 @@ MPEG-2: Dona bons resultats amb el DVD, però requereix pagar llicència per
 \end_layout
 
 \begin_layout Itemize
-MPEG-4: S'utilitza molt per contigut de videos a la xarxa, ja que té una
+MPEG-4: S'utilitza molt per contingut de vídeos a la xarxa, ja que té una
  gran compressió de vídeo i àudio, però la qualitat pot baixar al utilitzar
- baixos nivells de bitrate.
+ baixos nivells de bit rate.
 \end_layout
 
 \begin_layout Itemize
-X264: Molt similar al H.264 amb la gran diferència de ser open-source, el
- que fa que sigui el més utilitzat de manera gratuita, amb els millors resultats.
-\end_layout
-
-\begin_layout Itemize
-DivX: Comunament utilitzat per comprimir películes DVD i famós per impulsar
- la pirateria al voltant de l'any 2000 al permetre comprimir fins a 7 pelicules
- en un sol disc DVD 
+DivX: Comunament utilitzat per comprimir pel·lícules DVD i famós per impulsar
+ la pirateria al voltant de l'any 2000 al permetre comprimir fins a 7 pel·lícule
+s en un sol disc DVD 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DivX"
@@ -1892,7 +1940,7 @@ AVI: Cada cop és menys utilitzat, però a l'anterioritat va ser molt popular
 \end_layout
 
 \begin_layout Itemize
-MOV: A diferència de l'AVI, aquest códec creat per Apple, era molt poc o
+MOV: A diferència de l'AVI, aquest còdec creat per Apple, era molt poc o
  gens compatible amb altres sistemes operatius, pel que només s'utilitzava
  amb els seus dispositius.
 \end_layout
@@ -1915,11 +1963,11 @@ MKV: Acrònim de Matroska, és un format molt utilitzat per emmagatzemar més
  d'un arxiu en un sol.
  Per exemple podem trobar un arxiu MKV que contingui més d'una pista d'àudio
  (per diferents idiomes), alguns arxius de subtítols o inclús diferents
- arxius de video en un sol.
+ arxius de vídeo en un sol.
 \end_layout
 
 \begin_layout Itemize
-FLV: El format de video de Flash Player, que és molt compatible amb tots
+FLV: El format de vídeo de Flash Player, que és molt compatible amb tots
  els ordinadors, però cada cop s'està quedant més antiquat.
 \end_layout
 
@@ -1932,8 +1980,8 @@ FLV: El format de video de Flash Player, que és molt compatible amb tots
 
 \begin_layout Standard
 Els reproductors més famosos, com són VLC, MPV, o MPlayer, accepten tots
- els tipus de códecs i contenidors, pel que serà necessari i pràcticament
- requisit que l'aplicació també els accepti tots per a que no es quedi enrera.
+ els tipus de còdecs i contenidors, pel que serà necessari i pràcticament
+ requisit que l'aplicació també els accepti tots per a que no es quedi enrere.
  Ja sigui creant un reproductor propi, o un basat en llibreries de tercers.
 \begin_inset Newline newline
 \end_inset
@@ -1970,13 +2018,13 @@ JPEG: Un dels formats més utilitzat degut a la seva gran compressió, mantenint
 
 \begin_layout Itemize
 GIF: El GIF és un format diferent a la resta, ja que consta d'un conjunt
- d'imatges que es reprodueixen de manera continua, formant un petit video.
+ d'imatges que es reprodueixen de manera continua, formant un petit vídeo.
  Això si, la seva qualitat queda molt limitada.
 \end_layout
 
 \begin_layout Itemize
 PNG: Disposa d'una gran compressió mantenint la qualitat, com podria ser
- la del JPEG, però, amb la gran ventatja de que disposem de l'atribut alpha,
+ la del JPEG, però, amb la gran avantatge de que disposem de l'atribut alpha,
  el que permet tenir imatges amb transparències.
 \end_layout
 
@@ -1998,7 +2046,7 @@ PNG: Disposa d'una gran compressió mantenint la qualitat, com podria ser
 \end_layout
 
 \begin_layout Standard
-Els videos tindràn el seu propi àudio, i encara que no està pensat com a
+Els vídeos tindran el seu propi àudio, i encara que no està pensat com a
  requisit que es pugui reproduir àudio de manera independent, com podria
  ser una música de fons o una veu en off.
  Els formats que s'haurien de suportar per poder tenir un mínim de compatibilita
@@ -2007,14 +2055,14 @@ t són:
 
 \begin_layout Itemize
 WAV: Desenvolupat per Microsoft i un dels més utilitzats, és compatible
- amb pràcticament tots els códecs.
- Accepten arxius d'un tamany gran fins a 4GB, i poden estar molt comprimits
+ amb pràcticament tots els còdecs.
+ Accepten arxius d'una mida gran, fins a 4GB, i poden estar molt comprimits
  o poc.
 \end_layout
 
 \begin_layout Itemize
 MPEG: Un dels formats més famosos per ser un estàndard en àudio i sobretot,
- en la música, podem trobar per exemple els códecs MP2 (més utilitzat per
+ en la música, podem trobar per exemple els còdecs MP2 (més utilitzat per
  aplicacions de broadcast) o el MP3.
 \end_layout
 
@@ -2042,20 +2090,20 @@ subsubsection{Protocols de Streaming}
 \end_layout
 
 \begin_layout Standard
-En quant a la sortida del video/àudio resultant, s'haurà de decidir quin
+En quant a la sortida del vídeo/àudio resultant, s'haurà de decidir quin
  protocol s'utilitza, ja que es voldrà una sortida en streaming.
- El video en streaming, o retransmisió en directe, és la emisió d'un flux
+ El vídeo en streaming, o retransmissió en directe, és la emissió d'un flux
  de dades a temps real, o amb el menor retard possible, a un destí.
  Per exemple, quan mirem la televisió, tenint en compte que és per internet
- i no per antena, estem rebent un flux de dades que arriba desde uns servidors
+ i no per antena, estem rebent un flux de dades que arriba des de uns servidors
  centrals de la cadena en particular.
  Es van començar a fer experiments de televisió fa molts anys, però la majoria
- van ser un fracàs degut al gran ample de banda que demanaven els videos.
+ van ser un fracàs degut al gran ample de banda que demanaven els vídeos.
  Per tant el que va sorgir primer van ser els serveis de VOD (Video on Demand).
  No s'ha de confondre el VOD amb el Streaming ja que son dos conceptes totalment
  diferents i que no utilitzen les mateixes tecnologies.
- Un exemple de servei VOD que va triunfar és la plataforma Youtube.
- Aquesta tecnologia va anar avançant fins que van millorar les conexions
+ Un exemple de servei VOD que va triomfar és la plataforma Youtube.
+ Aquesta tecnologia va anar avançant fins que van millorar les connexions
  a internet i això va provocar que per fi el Streaming fos possible.
  L'objectiu del directe, és tenir un retard mínim, amb una qualitat bona.
  Actualment el mínim de qualitat per una plataforma professional és la resolució
@@ -2077,12 +2125,12 @@ normes
 \end_inset
 
  en com es transmetrà el flux de dades, a més de contemplar els errors i
- minimitzar-los en tot lo possible.
+ minimitzar-los en tot el possible.
 \end_layout
 
 \begin_layout Standard
-Un protocol no té res a veure amb un códec o un format, sinó que és complementar
-i a aquests i només s'ocupa de la transmisió.
+Un protocol no té res a veure amb un còdec o un format, sinó que és complementar
+i a aquests i només s'ocupa de la transmissió.
 \end_layout
 
 \begin_layout Standard
@@ -2128,7 +2176,7 @@ name "fig:DiagramaProtocol"
 \end_layout
 
 \begin_layout Standard
-Tots els protocols hauràn d'utilitzar un dels dos mètodes de transmissió
+Tots els protocols hauran d'utilitzar un dels dos mètodes de transmissió
  que existeixen, que són TCP (Transmission Control Protocol) o bé, UDP (User
  Datagram Protocol).
  La diferencia més important i notòria entre aquests, és que el TCP, requereix
@@ -2138,7 +2186,7 @@ Tots els protocols hauràn d'utilitzar un dels dos mètodes de transmissió
  fins a aconseguir-ho.
  Per altre banda, UDP ignora això, simplement envia els paquets, i el receptor
  ja s'ocuparà de rebre-ho correctament.
- Això provoca que a vegades es puguin percebre fragments en el video i pèrdua
+ Això provoca que a vegades es puguin percebre fragments en el vídeo i pèrdua
  de qualitat, però és molt més ràpid i té menys retard.
  
 \end_layout
@@ -2195,10 +2243,10 @@ RTMP (Real Time Messaging Protocol): Protocol TCP.
  És propietat d'Adobe, pel que era molt utilitzat a les webs que disposaven
  d'Adobe Flash Player.
  No obstant, s'ha quedat bastant obsolet i presenta problemes de compatibilitat
- amb códecs moderns i la seguritat és baixa.
+ amb còdecs moderns i la seguretat és baixa.
  Per altre banda, els resultats que dona són de bona qualitat i té molt
  suport amb les diferents plataformes i software.
- Els codecs més recomanats per aquest protocol són H.264 pel video, i AAC
+ Els còdecs més recomanats per aquest protocol són H.264 pel vídeo, i AAC
  per l'àudio.
 \end_layout
 
@@ -2207,12 +2255,11 @@ WebRTC: Protocol TCP i UDP.
  Utilitzat per la gran majoria de desenvolupadors web, degut a la seva gran
  compatibilitat amb tots els navegadors moderns: Chrome, Firefox, Opera,
  Safari, Edge...
- És de gran qualitat i soporta els códecs VP8 i VP9, clarament superiors
- al H.264 en quant a streaming de video.
- Per l'àudio, tenim que WebRTC suporta el códec Opus, gairebé el més utilitzat
- per videos en directe.
- A més, amb la ventatja de ser open source, el projecte està en una constant
- evolució, i pròximament suportarà el códec H.265, i més important encara
+ És de gran qualitat i suporta els còdecs VP8 i VP9.
+ Per l'àudio, tenim que WebRTC suporta el còdec Opus, gairebé el més utilitzat
+ per vídeos en directe.
+ A més, amb la avantatja de ser open-source, el projecte està en una constant
+ evolució, i pròximament suportarà el còdec H.265, i més important encara
  el AV1, que promet una gran millora en tots els aspectes 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2267,7 +2314,7 @@ SRT (Secure Realiable Transport): Protocol UDP.
  També es un protocol open-source, al igual que WebRTC, i és considerat
  com a l'evolució de RTMP.
  És de molta qualitat i bastant més estable als anteriors.
- Els objectius d'aquest projecte són crear un protocol que transmeti videos
+ Els objectius d'aquest projecte són crear un protocol que transmeti vídeos
  sense soroll al senyal (jitter) i que eviti la pèrdua de paquets.
 \end_layout
 
@@ -2423,7 +2470,7 @@ Estabilitat, gran compatibilitat i qualitat
 \begin_inset Text
 
 \begin_layout Plain Layout
-Open-source, códecs actuals i molt baixa latència
+Open-source, còdecs actuals i molt baixa latència
 \end_layout
 
 \end_inset
@@ -2441,7 +2488,7 @@ Qualitat adaptativa i molt ràpid
 \begin_inset Text
 
 \begin_layout Plain Layout
-Molta qualitat, estabilitat i compatibilitat de codecs
+Molta qualitat, estabilitat i compatibilitat de còdecs
 \end_layout
 
 \end_inset
@@ -2463,7 +2510,7 @@ Contres
 \begin_inset Text
 
 \begin_layout Plain Layout
-Molta latència, més insegur que altres opcions, códecs antics
+Molta latència, més insegur que altres opcions, còdecs antics
 \end_layout
 
 \end_inset
@@ -2503,7 +2550,7 @@ Està en desenvolupament, no hi ha gaire documentació
 \begin_layout Plain Layout
 
 \series bold
-Video Códecs
+Video Còdecs
 \end_layout
 
 \end_inset
@@ -2552,7 +2599,7 @@ H.264
 \begin_layout Plain Layout
 
 \series bold
-Àudio Códecs
+Àudio Còdecs
 \end_layout
 
 \end_inset
@@ -2689,7 +2736,7 @@ subsubsection{Llibreries de processament}
 
 \begin_layout Standard
 La gran majoria d'aplicacions que utilitzem a diari que disposen de reproductors
- multimedia, o qualsevol tipus de processament de video/àudio, utilitzen
+ multimèdia, o qualsevol tipus de processament de vídeo/àudio, utilitzen
  llibreries externes per fer aquest procés més senzill.
  Hi ha varies opcions de llibreries de processament de contingut multimèdia.
  Totes elles tenen un desenvolupament complex, és per això que hi ha poca
@@ -2712,7 +2759,7 @@ FFMPEG
 \end_layout
 
 \begin_layout Standard
-És la llibreria de processament de video/àudio més gran que existeix, i
+És la llibreria de processament de vídeo/àudio més gran que existeix, i
  és utilitzada per la gran majoria de desenvolupadors.
  
 \end_layout
@@ -2773,21 +2820,21 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Decodificar: és l'acció de convertir un flux de dades en un contingut multimedia
- visible i amb sentit per a un receptor.
+Descodificar: és l'acció de convertir un flux de dades en un contingut multimèdi
+a visible i amb sentit per a un receptor.
 \end_layout
 
 \begin_layout Itemize
-Codificar: és l'acció contraria a decodificar, convertir un contingut multimedia
- a un flux de dades, ja sigui per una transmissió més còmode, comprimir,
- o el que es desitji.
+Codificar: és l'acció contraria a descodificar, convertir un contingut multimèdi
+a a un flux de dades, ja sigui per una transmissió més còmode, comprimir,
+ o el que es desitgi.
 \end_layout
 
 \begin_layout Itemize
-Transcodificar: significa convertir un contingut multimèdia d'un códec a
+Transcodificar: significa convertir un contingut multimèdia d'un còdec a
  un altre.
  Per exemple, ens podem trobar amb un contingut en H.265, que el volem reproduir
- en un ordinador relativament antic, que no accepta aquest códec, pel que
+ en un ordinador relativament antic, que no accepta aquest còdec, pel que
  haurem de transcodificar-lo a un altre que l'ordinador si que 
 \begin_inset Quotes fld
 \end_inset
@@ -2800,30 +2847,30 @@ entengui
 \end_layout
 
 \begin_layout Itemize
-Multiplexar: si tenim video i àudio per separat i ho volem juntar, el que
- haurem de fer es un mux, és a dir, juntar dos o més fluxes d'entrada, en
- un de sortida.
+Multiplexar: si tenim vídeo i àudio per separat i ho volem ajuntar, el que
+ haurem de fer es un mux, és a dir, ajuntar dos o més fluxos d'entrada,
+ en un de sortida.
 \end_layout
 
 \begin_layout Itemize
-Demultiplexar: és el contrari de multiplexar, tenint un sol flux d'entrada,
- extreiem dos o més.
+Desmultiplexar: és el contrari de multiplexar, tenint un sol flux d'entrada,
+ extraiem dos o més.
 \end_layout
 
 \begin_layout Itemize
 Stream: si enlloc de voler generar un fitxer de sortida, el que volem és
  directament crear un streaming, utilitzant el protocol més apropiat, ho
- podem fer tot desde ffmpeg i sense utilitzar cap eina externa.
+ podem fer tot des de FFmpeg i sense utilitzar cap eina externa.
 \end_layout
 
 \begin_layout Itemize
-Filtres: per si totes les funcionalitats anteriors fóssin poques, també
- permeten aplicar filtres als àudios o als videos, el que ho fà molt còmode
- per poder automatitzar tasques desde terminal, sense haver d'utilitzar
- editors de video o àudio.
+Filtres: per si totes les funcionalitats anteriors fossin poques, també
+ permeten aplicar filtres als àudios o als vídeos, el que ho fa molt còmode
+ per poder automatitzar tasques des de terminal, sense haver d'utilitzar
+ editors de vídeo o àudio.
  En quant a filtres d'àudio disposem de 105 efectes, entre ells els més
  senzills com el volum, compressors...
- I en quant al video, disposem de 264 efectes, com per exemple, fer un crop,
+ I en quant al vídeo, disposem de 264 efectes, com per exemple, fer un crop,
  escalar, rotar...
  
 \begin_inset CommandInset citation
@@ -2865,7 +2912,7 @@ Es va desenvolupar principalment per GNU/Linux, però està disponible per
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "code/ffmpegTranscode.txt"
-lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Exemple Transcodificació Arxiu H.265 a H.264},label={ffmpegTranscode}"
+lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Exemple Transcodificació d'un Arxiu a H.264},label={ffmpegTranscode}"
 
 \end_inset
 
@@ -2873,9 +2920,9 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Exemple 
 \end_layout
 
 \begin_layout Standard
-La instalació d'aquesta eina és molt senzilla, sobretot si s'utilitza Linux,
- o concretament Ubuntu, es pot aconseguir introduint un parell de línies
- al terminal.
+La instal·lació d'aquesta eina és molt senzilla, sobretot si s'utilitza
+ Linux, o concretament Ubuntu, es pot aconseguir introduint un parell de
+ línies al terminal.
 \begin_inset Newline newline
 \end_inset
 
@@ -2894,8 +2941,8 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language=bash,caption={Instalac
 \end_layout
 
 \begin_layout Standard
-També és molt utilitzat per la compressió de videos de manera automàtica,
- per exemple, si pujem un video a 
+També és molt utilitzat per la compressió de vídeos de manera automàtica,
+ per exemple, si es puja un vídeo a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2903,9 +2950,9 @@ Twitter
 \begin_inset Quotes frd
 \end_inset
 
-, no es pujarà el video original, ja que el pes de l'arxiu seria excessiu
- per emmagatzemar-ho al seus servidors, sinó que es fa una copia reduida
- del video, i aquest és el que es guarda.
+, no es pujarà el vídeo original, ja que el pes de l'arxiu seria excessiu
+ per emmagatzemar-ho al seus servidors, sinó que es fa una copia reduïda
+ del vídeo, i aquest és el que es guarda.
 \begin_inset Newline newline
 \end_inset
 
@@ -2926,7 +2973,7 @@ LibVLC
 Per altre banda trobem un altre gran framework, l'únic capaç de competir
  amb FFmpeg, i és LibVLC.
  Està desenvolupat per la organització VideoLAN, on tenen com a objectiu,
- desde la seva fundació, desenvolupar aplicacions open-source gratuites.
+ des de la seva fundació, desenvolupar aplicacions open-source gratuïtes.
  Van començar el projecte a una universitat de França l'any 1996, i va començar
  a ser open-source a partir de l'any 2001, però, a l'any 2009 van decidir
  seguir amb el projecte de manera independent i trencar tots els vincles
@@ -3004,9 +3051,9 @@ name "fig:VLC1"
 \end_layout
 
 \begin_layout Standard
-LibVLC no està tant pensat per utilitzar-lo desde terminal com podria ser
+LibVLC no està tant pensat per utilitzar-lo des de terminal com podria ser
  FFmpeg, i encara que també es pot integrar a qualsevol projecte, és més
- complicat de instalar i utilitzar 
+ complicat de instal·lar i utilitzar 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "libVLCSampleCode"
@@ -3015,6 +3062,8 @@ literal "false"
 \end_inset
 
 .
+ A continuació es mostra el codi base o plantilla del que partim per poder
+ utilitzar libVLC mitjançant un script en C++.
 \begin_inset Newline newline
 \end_inset
 
@@ -3047,197 +3096,7 @@ status open
 
 
 \backslash
-section{Proposició}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subsection{Comparació: Ventatges i desventatges de cada eina}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Està clar que cada eina té les seves ventatges i desventatges, tampoc hi
- ha una que sigui millor que l'altre, sinó que depèn del projecte que es
- vulgui fer les solucions seran molt diferents.
- A continuació s'analitzaran els pros i contres de cada eina, desde un punt
- de vista subjectiu pel projecte que es vol fer:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="middle" width="2.5cm">
-<column alignment="center" valignment="middle" width="2.5cm">
-<column alignment="center" valignment="middle" width="2.5cm">
-<column alignment="center" valignment="middle" width="2.5cm">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Chrome Headless
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Unreal Engine 4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Unity
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Pros
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Simplicitat, alta compatibilitat, no requereix utilitzar plugins
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-És professional, millor qualitat d'iluminació
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Molta documentació, molts plugins open-source, optimitzat per escenes senzilles,
- alta compatibilitat
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Contres
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Pot quedar limitat en quant a potència; efectes de video
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Relativament poca documentació, no tants plugins i comunitat com la competència,
- poca compatibilitat amb Linux
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Menys potent que Unreal, eines externes no professionals creades per la
- comunitat
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Comparativa subjectiva de les possibles eines
-\end_layout
-
-\end_inset
-
-
+section{Proposta tècnica}
 \end_layout
 
 \end_inset
@@ -3262,7 +3121,7 @@ subsection{Elecció de l'eina i justificació}
 \end_layout
 
 \begin_layout Standard
-Per poder decidir amb criteri i assegurar-se de que es prèn la decisió correcte
+Per poder decidir amb criteri i assegurar-se de que es pren la decisió correcte
  sobre quina és l'eina que s'ha de utilitzar, es farà una prova amb cada
  una de les eines esmentades (Chrome Headless, Unreal Engine 4 i Unity).
 \begin_inset Newline newline
@@ -3291,9 +3150,9 @@ subsubsection{Chrome Headless}
 És molt útil per tasques automatitzades, no es necessita cap tipus de software
  extra, com a molt es poden necessitar llibreries de nodejs pels scripts
  de javascripts, però en tot cas, quedaria tot empaquetat en un sol projecte.
- Al utilitzar el navegador de Chrome, això ens dona moltes ventatges en
+ Al utilitzar el navegador de Chrome, això ens dona moltes avantatges en
  quant a simplicitat de les tasques, però també ens limita la potència,
- compatibilitat de códecs i formats, pel que mai serà exactament igual que
+ compatibilitat de còdecs i formats, pel que mai serà exactament igual que
  si executéssim les mateixes tasques de manera nativa al ordinador.
 \begin_inset Newline newline
 \end_inset
@@ -3320,7 +3179,7 @@ literal "false"
 \end_inset
 
 .
- Headless Chrome està disponible a partir de la versió 59, acutalment van
+ Headless Chrome està disponible a partir de la versió 59, actualment van
  per la 91, pel que no seria cap problema utilitzar aquesta eina.
  Es poden carregar pàgines web i executar tests o tasques, a més de generar
  PDFs i fer captures de pantalla repetidament.
@@ -3333,16 +3192,16 @@ Screencast content
 \end_inset
 
 , això si, fent múltiples captures de pantalla.
- L'experiment que es va proposar va ser de capturar àudio i video de manera
+ L'experiment que es va proposar va ser de capturar àudio i vídeo de manera
  automàtica, tant d'una web pròpia com d'una web externa i transmetre el
  contingut a Facebook, Youtube, Twitch...
 \end_layout
 
 \begin_layout Standard
 El que utilitza com a eines, són Node.js, el navegador Headless Chrome en
- qüestió, Pulseaudio que és el motor de video que utilitzarà per la captura,
- i FFmpeg que farà la transmisió final del flux de Headless Chrome cap a
- les destinacions pertinents.
+ qüestió, Pulseaudio que és el motor de vídeo que utilitzarà per la captura,
+ i FFmpeg que farà la transmissió final del flux de Headless Chrome cap
+ a les destinacions pertinents.
  Tot això ho vol fer utilitzant un servidor que s'ocupi de totes les tasques.
  Tenint una aplicació client, en aquest cas farà ús de Postman 
 \begin_inset CommandInset citation
@@ -3353,7 +3212,7 @@ literal "false"
 \end_inset
 
 , es comunica amb el servidor central que tindrà tota la programació, agafa
- el contingut multimèdia d'un altre web, i l'envia als servidors multimedia.
+ el contingut multimèdia d'un altre web, i l'envia als servidors multimèdia.
 \end_layout
 
 \begin_layout Standard
@@ -3434,14 +3293,14 @@ literal "false"
 \end_inset
 
 , podem deduir que es tracta un petit script que envia la comanda de fer
- captura de pantalla, en el format que desitjem (en el cas d'exemple és
- en jpeg), i junta aquests frames per aconseguir tenir un video.
+ captura de pantalla, en el format que desitgem (en el cas d'exemple és
+ en jpeg), i junta aquests frames per aconseguir tenir un vídeo.
  En quant a l'àudio, ens comenta que encara que era un dels seus reptes,
  no està suportat per Chrome, pel que no es podrà capturar de manera nativa.
- La opció més vàlida serà capturar-lo per separat, i més tard juntar-ho,
- el que farà que hi hagi problemes de sincronització d'àudio/video, un problema
+ La opció més vàlida serà capturar-lo per separat, i més tard ajuntar-ho,
+ el que farà que hi hagi problemes de sincronització d'àudio/vídeo, un problema
  molt comú en aquest tipus de projectes.
- La qualitat dels videos tampoc podrà ser molt alta, ja que headless chrome
+ La qualitat dels vídeos tampoc podrà ser molt alta, ja que headless chrome
  no suporta acceleració per hardware amb GPU, ho veiem a l'exemple 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3466,13 +3325,13 @@ literal "false"
  podem enviar 30 comandes per segon de que faci la captura de pantalla,
  però és pràcticament impossible que vagi totalment sincronitzat i faci
  exactament les 30 captures cada segon, un dels problemes que comporta això,
- és que s'anirà desincronitzant poc a poc, cada cop més, l'àudio.
+ és que s'anirà dessincronitzant poc a poc, cada cop més, l'àudio.
 \end_layout
 
 \begin_layout Standard
-Després de fer totes les captures, o mentres s'estan fent, es pot utilitzar
- FFmpeg per juntar les imatges en una seqüència de video, juntar-li l'àudio,
- i transmetre-ho a on es desitji, ja sigui en directe o a un fitxer local.
+Després de fer totes les captures, o mentre s'estan fent, es pot utilitzar
+ FFmpeg per ajuntar les imatges en una seqüència de vídeo, ajuntar-li l'àudio,
+ i transmetre-ho a on es desitgi, ja sigui en directe o a un fitxer local.
 \end_layout
 
 \begin_layout Standard
@@ -3485,7 +3344,7 @@ En aquest projecte, no s'ha utilitzat cap eina d'automatització de navegador,
 \begin_layout Standard
 Per la primera prova, es programarà tot en HTML i Javascript.
  Per una banda tindrem el index.html, un arxiu molt senzillet que contindrà
- un o dos videos locals que es reproduiràn automàticament a dins un canvas,
+ un o dos vídeos locals que es reproduiran automàticament a dins un canvas,
  al obrir l'arxiu.
 \begin_inset Newline newline
 \end_inset
@@ -3505,8 +3364,8 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language=HTML,caption={Test Chr
 \end_layout
 
 \begin_layout Standard
-L'aspecte de la web és correcte, tenim un video, concretament, el tràiler
- de la película Nightcrawler 
+L'aspecte de la web és correcte, tenim un vídeo, concretament, el tràiler
+ de la pel·lícula Nightcrawler 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Nightcrawler"
@@ -3515,7 +3374,7 @@ literal "false"
 \end_inset
 
  ocupant tota la pantalla en el fons, i a la cantonada superior esquerra,
- ocupant un quart de la pantalla tenim el tràiler de la película Stalker
+ ocupant un quart de la pantalla tenim el tràiler de la pel·lícula Stalker
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3571,17 +3430,17 @@ name "fig:HCTestindexhtml"
 
 \begin_layout Standard
 Un dels primers problemes que han sorgit, ha sigut amb la reproducció dels
- videos, degut a que un navegador no està pensat exclusivament per aquestes
+ vídeos, degut a que un navegador no està pensat exclusivament per aquestes
  funcions, les seves polítiques d'ús poden canviar dràsticament d'un dia
  per l'altre i destrossar un projecte d'aquest estil.
  Tant és així que a l'any 2017, van introduir una nova política a la versió
- 71, en la que no estava permès auto reproduir els videos automàticament
- al obrir una web, sinó que el usuari havia de clicar manualment al video.
+ 71, en la que no estava permès auto reproduir els vídeos automàticament
+ al obrir una web, sinó que el usuari havia de clicar manualment al vídeo.
  Això si, permetia reproduir-los si estaven sense so.
- Una política probablement introduida per evitar el ús de publicitat molesta,
+ Una política probablement introduïda per evitar el ús de publicitat molesta,
  però que hauria canviat per complet aquest projecte i hauria fet que deixés
  de funcionar.
- Per tant, les opcions que es tenen, és reproduir els videos sense àudio
+ Per tant, les opcions que es tenen, és reproduir els vídeos sense àudio
  (inviable ja que l'àudio és un dels requisits), o utilitzar una eina externa
  com Puppeteer per fer 
 \begin_inset Quotes fld
@@ -3591,7 +3450,7 @@ trampes
 \begin_inset Quotes frd
 \end_inset
 
- i clicar allà on volguem fent creure al navegador que ho està fent un usuari
+ i clicar allà on vulguem fent creure al navegador que ho està fent un usuari
  qualsevol.
 \begin_inset Newline newline
 \end_inset
@@ -3614,7 +3473,7 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language=Java,caption={Test Rep
 Amb aquest codi ja tindrem uns scripts que guardaran 30 captures per segon
  a una carpeta local.
  A la vegada, podem executar una comanda FFmpeg, per convertir aquestes
- captures en una seqüència de video, i guardar-ho a un arxiu local.
+ captures en una seqüència de vídeo, i guardar-ho a un arxiu local.
  Això ho podrem aconseguir amb aquesta sèrie de comandes a la terminal.
 \begin_inset Newline newline
 \end_inset
@@ -3638,7 +3497,7 @@ Pel FFmpeg s'utilitzen els flags:
 \end_layout
 
 \begin_layout Itemize
--r 24: indica el número de frames per segon que tindra el video resultant.
+-r 24: indica el número de frames per segon que tindrà el vídeo resultant.
 \end_layout
 
 \begin_layout Itemize
@@ -3651,7 +3510,7 @@ literal "false"
 \end_inset
 
 : indiquem el patró del nom dels arxius per una lectura correcte, en aquest
- cas ens ajudavem d'un txt que contenia tots els noms dels arxius, generat
+ cas ens ajudàvem d'un txt que contenia tots els noms dels arxius, generat
  automàticament pel javascript.
 \end_layout
 
@@ -3755,10 +3614,10 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language=Java,caption={Servidor
 \end_layout
 
 \begin_layout Standard
-Les ventatges amb aquest canvi és que aconseguim molta més qualitat de imatge,
- i es captura automàticament el so.
+Les avantatges amb aquest canvi és que aconseguim molta més qualitat de
+ imatge, i es captura automàticament el so.
  Per altre banda, es segueix utilitzant Pulseaudio de manera autònoma, pel
- que seguirà havent un retard variant de video/àudio.
+ que seguirà havent un retard variant de vídeo/àudio.
 \end_layout
 
 \begin_layout Standard
@@ -3804,13 +3663,13 @@ literal "false"
  qualitat d'imatge, amb poc retard i una estructura molt estable.
  Dóna un grau important de professionalitat i compta amb un suport per part
  de NewTek i un fòrum de comunitat.
- Les desventatges són, que al ser una empresa que recolza el software privatiu
+ Les desavantatges són, que al ser una empresa que recolza el software privatiu
  i tancat, no té cap mena de suport per Linux, només per Windows i MacOS.
  Sumant això a que la compatibilitat d'Unreal Engine tampoc és extraordinària,
  és bastant inabastable aconseguir bons resultats amb Unreal en una màquina
  Linux.
- Per tant, les proves que es faràn seran desde una màquina Windows per comprovar
- la potència d'aquesta tecnologia.
+ Per tant, les proves que es faran seran des de una màquina Windows per
+ comprovar la potència d'aquesta tecnologia.
  
 \begin_inset Newline newline
 \end_inset
@@ -3819,10 +3678,10 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Per començar, crearem un streaming de NDI desde VLC, per poder comprovar
+Per començar, crearem un streaming de NDI des de VLC, per poder comprovar
  que funciona correctament tant entrada com sortida de fluxos.
- Un cop instalem les Tools de NDI, el plugin de VLC per poder treballar
- amb aquest software, s'instalarà automàticament.
+ Un cop instal·lem les Tools de NDI, el plugin de VLC per poder treballar
+ amb aquest software, s'instal·larà automàticament.
  Només cal entrar a les opcions de VLC i marcar com a motor de sortida 
 \begin_inset Quotes fld
 \end_inset
@@ -3878,7 +3737,7 @@ name "fig:NDIVLC"
 
 \begin_layout Standard
 Encara que per aquesta prova s'hagi fet la sortida amb VLC, es pot fer de
- moltes altres maneres, com pot ser FFmpeg o una eina propia de NDI dedicada
+ moltes altres maneres, com pot ser FFmpeg o una eina pròpia de NDI dedicada
  a això.
 \begin_inset Newline newline
 \end_inset
@@ -3887,9 +3746,9 @@ Encara que per aquesta prova s'hagi fet la sortida amb VLC, es pot fer de
 \end_layout
 
 \begin_layout Standard
-Un cop ja tenim un flux de video creat, l'haurem de rebre a l'Unreal, per
- fer-ho, hem d'utilitzar el plugin corresponent, i seguir els pasos de la
- seva documentació 
+Un cop ja tenim un flux de vídeo creat, l'haurem de rebre a l'Unreal, per
+ fer-ho, hem d'utilitzar el plugin corresponent, i seguir els passos de
+ la seva documentació 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NDI Unreal Documentation"
@@ -3946,7 +3805,7 @@ name "fig:NDIReceiver"
 Ara que ja està tot programat, ja comencem a veure alguns resultats d'aquest
  software.
  Per aprofitar l'Unreal i provar altres efectes també, s'ha escollit un
- video amb un chroma per comprovar com es comportava devant un streaming
+ vídeo amb un chroma per comprovar com es comportava davant un streaming
  calculant-lo a temps real.
 \end_layout
 
@@ -4022,10 +3881,10 @@ subsubsection{Unity}
 \end_layout
 
 \begin_layout Standard
-Per la prova del Unity, s'ha creat un projecte que contigui diversos elements.
- Un video de fons, un element 3D amb un video com a texture, un logo 3D
+Per la prova del Unity, s'ha creat un projecte que contingui diversos elements.
+ Un vídeo de fons, un element 3D amb un vídeo com a texture, un logo 3D
  i un PNG amb transparència.
- Per a la reproducció de videos s'ha escollit el plugin UMP (Universal Media
+ Per a la reproducció de vídeos s'ha escollit el plugin UMP (Universal Media
  Player) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4092,11 +3951,11 @@ literal "false"
 
 .
  Pel UMP, haurem de posar un element que controla la reproductor, i definir
- quines són les malles que han de renderitzar el video.
- Per aquesta prova es té un controlador que reproduirà el video del fons,
- i un altre que reproduirà el video de la càpsula, l'altre element 3D.
+ quines són les malles que han de renderitzar el vídeo.
+ Per aquesta prova es té un controlador que reproduirà el vídeo del fons,
+ i un altre que reproduirà el vídeo de la càpsula, l'altre element 3D.
  A més, tindrem una animació pel logo 3D que anirà girant, i un altre per
- la capsula que s'anirà movent per la pantalla.
+ la càpsula que s'anirà movent per la pantalla.
 \end_layout
 
 \begin_layout Standard
@@ -4144,7 +4003,7 @@ name "fig:ProvaUnity"
 \begin_layout Standard
 Els resultats amb Unity han sigut molt satisfactoris, no ha donat cap problema
  i la reproducció ha sigut la més fluida.
- El plugin UMP suporta pràcticament tot tipus de formats de videos ja que
+ El plugin UMP suporta pràcticament tot tipus de formats de vídeos ja que
  utilitza les llibreries de libVLC.
  El codi és mitjanament obert pel que es podrà editar fàcilment.
  La imatge en PNG té la transparència perfectament aplicada, pel que veiem
@@ -4162,7 +4021,193 @@ Ara que ja s'han fet proves suficients amb totes les eines, es pot decidir
 Unity
 \series default
 .
-\begin_inset Newline newline
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Taula Comparativa Eines Gràfiques}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Està clar que cada eina té les seves avantatges i desavantatges, tampoc
+ hi ha una que sigui millor que l'altre, sinó que depèn del projecte que
+ es vulgui fer les solucions seran molt diferents.
+ A continuació es resumeixen els avantatges i desavantatges esmentats anteriorme
+nt, partint del punt de vista per aquest projecte.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="2.5cm">
+<column alignment="center" valignment="middle" width="2.5cm">
+<column alignment="center" valignment="middle" width="2.5cm">
+<column alignment="center" valignment="middle" width="2.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Chrome Headless
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unreal Engine 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Pros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simplicitat, alta compatibilitat, no requereix utilitzar plugins
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+És professional, millor qualitat d'il·luminació
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Molta documentació, molts plugins open-source, optimitzat per escenes senzilles,
+ alta compatibilitat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Contres
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pot quedar limitat en quant a potència; efectes de vídeo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Relativament poca documentació, no tants plugins i comunitat com la competència,
+ poca compatibilitat amb Linux
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Menys potent que Unreal, eines externes no professionals creades per la
+ comunitat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparativa subjectiva de les possibles eines
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -4215,14 +4260,14 @@ literal "false"
 
 \end_inset
 
-, molt més potent, però amb la desventatge d'utilitzar llibreries pròpies
+, molt més potent, però amb la desavantatge d'utilitzar llibreries pròpies
  i no ser compatible amb Linux.
 \end_layout
 
 \begin_layout Standard
 Encara i apuntar tot a UMP, s'ha fet una prova comparativa dels dos plugins,
  ambdós executant-se en el mateix sistema operatiu (Windows 10) i mateixes
- condicions, un video molt pesat en resolució 8K.
+ condicions, un vídeo molt pesat en resolució 8K.
  
 \end_layout
 
@@ -4311,8 +4356,8 @@ name "fig:UMPvsAVPro"
 \end_layout
 
 \begin_layout Standard
-Les conclusions són que el AVPro és molt més potent per videos en 4K o més,
- pero en videos 1080p o menys, el rendiment és molt igualat, i si tenim
+Les conclusions són que el AVPro és molt més potent per vídeos en 4K o més,
+ però en vídeos 1080p o menys, el rendiment és molt igualat, i si tenim
  en compte que UMP accepta molts més formats, tenim un clar guanyador pels
  objectius d'aquest projecte on resolucions de 4K o més, no són la prioritat.
 \begin_inset Newline newline
@@ -4341,7 +4386,7 @@ subsubsection{Sortida del frame}
 Per altre banda, la sortida del frame és més complicada, no és comú voler
  treure per streaming el frame de Unity.
  La opció més viable sembla utilitzar FFmpeg amb configuracions de piping.
- És a dir, hauriem de generar les imatges a dins de Unity a una velocitat
+ És a dir, hauríem de generar les imatges a dins de Unity a una velocitat
  determinada per aconseguir els FPS (Frames per second) desitjats.
  I després introduir-ho a FFmpeg amb una comanda utilitzant 
 \begin_inset Quotes fld
@@ -4370,7 +4415,7 @@ literal "false"
 , desenvolupat per l'usuari Keijiro, molt conegut a la comunitat de Unity
  per crear una gran varietat de plugins molt útils i innovadors.
  El que aconsegueix és introduir FFmpeg a Unity, i utilitzar el mètode dels
- pipeline per grabar un video local.
+ pipeline per gravar un vídeo local.
  Afortunadament el codi és open-source, pel que el podem modificar per aconsegui
 r que enlloc de generar un fitxer en local, faci un streaming per rtp.
  Aconseguit això, ens trobem amb diversos problemes.
@@ -4392,11 +4437,11 @@ literal "false"
 
 .
  És una API que està agafant molta força, però és millor evitar-la ja que
- és encara molt nova, i el plugin de reproducció de video que s'utilitza
+ és encara molt nova, i el plugin de reproducció de vídeo que s'utilitza
  només suporta OpenGL.
  A part d'això i més important, l'àudio no surt de cap manera, i s'ha de
  capturar de manera externa, pel que serà molt complicat sincronitzar-ho
- amb el video.
+ amb el vídeo.
 \begin_inset Newline newline
 \end_inset
 
@@ -4406,7 +4451,7 @@ literal "false"
 \begin_layout Standard
 Un altre opció és automatitzar unes comandes de FFmpeg per capturar la finestra
  i generar un streaming de sortida.
- Com ja ha sigut comentat abans, FFmpeg és l'eina més potent de video i
+ Com ja ha sigut comentat abans, FFmpeg és l'eina més potent de vídeo i
  es controla mitjançant comandes al terminal, el que és molt útil per a
  poder automatitzar les tasques a través de scripts.
 \end_layout
@@ -4533,7 +4578,7 @@ Plataforma pública al núvol (Microsoft)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Amigable desde els seus inicis amb el model de codi obert
+Amigable des de els seus inicis amb el model de codi obert
 \end_layout
 
 \end_inset
@@ -4562,7 +4607,7 @@ Té una gran avantatge en quant a ofertes de núvol governamental
 \begin_inset Text
 
 \begin_layout Plain Layout
-Limitat en quant a ofertes per al núovl governamental
+Limitat en quant a ofertes per al núvol governamental
 \end_layout
 
 \end_inset
@@ -4602,7 +4647,7 @@ Segueix donant recolzament per suportar els models de núvols híbrids
 \begin_inset Text
 
 \begin_layout Plain Layout
-Excel·lent per models amb núvols hibrids
+Excel·lent per models amb núvols híbrids
 \end_layout
 
 \end_inset
@@ -4718,7 +4763,7 @@ Es paguen per minut
 \begin_inset Text
 
 \begin_layout Plain Layout
-S3 Arxius de rcuperació a curt termini.
+S3 Arxius de recuperació a curt termini.
  Per llargs terminis es pot utilitzar Glacier
 \end_layout
 
@@ -4780,9 +4825,9 @@ Comparativa subjectiva de les possibles eines
 \end_layout
 
 \begin_layout Standard
-AWS és la millor opció per hostear aquest projecte, a més concorda amb l'elecció
- de l'empresa on s'esta fent aquest projecte, Watchity, que tenen tot el
- seu software i servidors contractats amb aquesta plataforma.
+AWS és la millor opció per hostejar aquest projecte, a més concorda amb
+ l'elecció de l'empresa on s'està fent aquest projecte, Watchity, que tenen
+ tot el seu software i servidors contractats amb aquesta plataforma.
 \begin_inset Newline newline
 \end_inset
 
@@ -4806,9 +4851,9 @@ subsubsection{Sistema operatiu}
 \end_layout
 
 \begin_layout Standard
-Per escollir el sistema operatiu més adient haurem de veure les ventatges
+Per escollir el sistema operatiu més adient haurem de veure les avantatges
  que té cada un dels més populars, que són: Windows, MacOS i Linux.
- Tenint en compte que el projecte s'emmagatzemarà i s'executarà desde un
+ Tenint en compte que el projecte s'emmagatzemarà i s'executarà des de un
  servidor de AWS, el més adient és tenir-ho amb el sistema operatiu més
  popular al núvol, Linux.
  Windows també disposa d'opcions per ser executat en un servidor, però les
@@ -4824,11 +4869,11 @@ Per escollir el sistema operatiu més adient haurem de veure les ventatges
 Per tant, sabent que el sistema operatiu serà Linux, també caldrà escollir
  la distribució més adient.
  Les millors opcions són Ubuntu Server, CentOS, SUSE i Arch.
- Cada un d'ells tenen les seves ventatges i desventatges.
+ Cada un d'ells tenen les seves avantatges i desavantatges.
  A Watchity, treballen amb CentOS en totes les seves màquines, ja que es
  una distribució molt sòlida i de les més utilitzades per servidor.
  La diferència més gran entre aquests dos és que Ubuntu al estar basat en
- Debian, els paquets són instalats en .deb amb el gestor de paquets 
+ Debian, els paquets són instal·lats en .deb amb el gestor de paquets 
 \begin_inset Quotes fld
 \end_inset
 
@@ -4836,7 +4881,7 @@ apt-get
 \begin_inset Quotes frd
 \end_inset
 
-, mentres que a CentOS s'utilitza 
+, mentre que a CentOS s'utilitza 
 \begin_inset Quotes fld
 \end_inset
 
@@ -4931,6 +4976,16 @@ section{Part Pràctica}
 \end_layout
 
 \begin_layout Standard
+Les eleccions ja han estat preses i és el moment de començar amb el desenvolupam
+ent de l'aplicació.
+ Finalment s'ha decidit utilitzar Unity, amb l'eina UMP per a l'entrada
+ de fluxos de vídeo, FFmpeg per la sortida del frame, AWS que serà el servidor
+ que emmagatzemarà i executarà l'aplicació, i com a sistema operatiu s'ha
+ decantat per la distribució de Linux Centos 8.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -4947,11 +5002,11 @@ subsection{Arquitectura del sistema}
 \end_layout
 
 \begin_layout Standard
-L'aplicació es composarà d'un binari executable de Unity, emmagatzemat a
+L'aplicació es compondrà d'un binari executable de Unity, emmagatzemat a
  un servidor d'AWS.
- En aquest servidor es rebràn crides cURL a través d'un frontend comprensible
+ En aquest servidor es rebran crides cURL a través d'un frontend comprensible
  per l'usuari a qui va dirigit.
- Les peticions dels usuaris seràn processades i 
+ Les peticions dels usuaris seran processades i 
 \begin_inset Quotes fld
 \end_inset
 
@@ -4961,7 +5016,7 @@ traduïdes
 
  per fer els canvis a l'aplicació de Unity d'una manera que entengui.
  El servidor estarà emetent constantment la sortida del Unity amb un monitor
- virtual, que serà enviada per multicast a la web on l'usuari està interactuant
+ virtual, que serà enviada per multi cast a la web on l'usuari està interactuant
  per poder veure els canvis que ha realitzat.
 \end_layout
 
@@ -5047,9 +5102,18 @@ La resolució de l'aplicació serà per defecte 1920x1080.
  tot tipus de configuració gràfica, ja sigui resolucions, tipus de targeta,
  monitors virtuals, refresc, etc.
  Al tractar-se d'un servidor, les configuracions gràfiques s'han de realitzar
- manualment, i crear un xorg.conf que s'adequï a les necessitats de cada
+ manualment, i crear un xorg.conf que s'adeqüi a les necessitats de cada
  un.
- A continuació s'adjunta el fitxer xorg que s'ha realitzat per aquest projecte.
+ X11 és el sistema de finestres més utilitzat de Linux.
+ S'utilitza per donar interfície gràfica als sistemes Unix.
+ Encara que no és necessari per a servidors i per tant no venen instal·lats
+ de sèrie, en aquest cas si que es necessitarà, ja que l'aplicació s'ha
+ de poder executar en una finestra, encara que aquesta sigui virtual.
+ 
+\end_layout
+
+\begin_layout Standard
+A continuació s'adjunta el fitxer xorg que s'ha realitzat per aquest projecte.
 \begin_inset Newline newline
 \end_inset
 
@@ -5097,11 +5161,11 @@ Device
 \begin_inset Quotes frd
 \end_inset
 
-, tracta de la targeta gràfica que es té instalada, amb tota la informació
- necessaria, molt important posar el model (Tesla T4), targetes molt potents
+, tracta de la targeta gràfica que es té instal·lada, amb tota la informació
+ necessària, molt important posar el model (Tesla T4), targetes molt potents
  que a disposició de AWS, i el BusID, en aquest cas el PCI:0:30:0.
- Si no es posen aquestes dades, podria no funcionar la conexió gràfica amb
- l'ordinador.
+ Si no es posen aquestes dades, podria no funcionar la connexió gràfica
+ amb l'ordinador.
 \begin_inset Newline newline
 \end_inset
 
@@ -5157,7 +5221,7 @@ literal "false"
 \end_inset
 
  en els televisors més actuals, si en volguéssim fer ús i poder utilitzar
- contingut que disposi d'aquesta tecnologia hauriem de posar un 30 en el
+ contingut que disposi d'aquesta tecnologia hauríem de posar un 30 en el
  valor de DefaultDepth.
  Però ara per ara, no interessa utilitzar HDR i no és un objectiu proposat
  que l'aplicació ho permeti.
@@ -5221,7 +5285,7 @@ name "fig:XorgVSync"
 \begin_layout Standard
 Vist això, queda provat que es pot definir qualsevol resolució al sistema,
  nomes caldrà canviar l'arxiu de configuració xorg.conf i posar la que es
- desitji.
+ desitgi.
  Es podria posar una resolució de 4K o 720p, això si, lògicament com més
  alta sigui la resolució, més latència es tindrà a la sortida.
 \end_layout
@@ -5243,7 +5307,7 @@ subsubsection{Compatibilitat fluxes d'entrada}
 \end_layout
 
 \begin_layout Standard
-Per l'entrada de videos s'utilitza el plugin UMP de l'asset store de Unity,
+Per l'entrada de vídeos s'utilitza el plugin UMP de l'asset store de Unity,
  que a la vegada aquest utilitza internament les llibreries libVLC, pel
  que es permetrà qualsevol format que VLC accepti de manera nativa.
  Segons la pròpia pàgina de Videolan, creadors de libVLC els formats acceptats
@@ -5257,7 +5321,7 @@ Per l'entrada de videos s'utilitza el plugin UMP de l'asset store de Unity,
 \begin_layout Standard
 
 \series bold
-Vídeo Códecs
+Vídeo Còdecs
 \end_layout
 
 \begin_layout Itemize
@@ -5676,9 +5740,9 @@ Creative™ Voice
 \end_layout
 
 \begin_layout Standard
-En resum, tots els formats estandaritzats son perfectament compatibles amb
- l'aplicació i hauria de ser bastant complicat trobar-se amb un video incompatib
-le per la reproducció.
+En resum, tots els formats estandarditzats son perfectament compatibles
+ amb l'aplicació i hauria de ser bastant complicat trobar-se amb un vídeo
+ incompatible per la reproducció.
 \end_layout
 
 \begin_layout Standard
@@ -5717,10 +5781,10 @@ destroyBackground
 
 , etc.
  La metodologia per utilitzar cada funcionalitat serà semblant entre elles
- per aconseguir un ús fluit i senzill d'entendre.
- Els elements estaràn separats en Videos, Imatges, Textos i Background.
- Exceptuant el background, la resta seràn un conjunt d'arrays ordenats per
- números, tindrem el video número 1, número 3, i no caldrà que tinguin un
+ per aconseguir un ús fluït i senzill d'entendre.
+ Els elements estaran separats en Vídeos, Imatges, Textos i Background.
+ Exceptuant el background, la resta seran un conjunt d'arrays ordenats per
+ números, tindrem el vídeo número 1, número 3, i no caldrà que tinguin un
  ordre seqüencial, a més de crear arrays dinàmics per permetre una longitud
  infinita.
 \end_layout
@@ -5862,12 +5926,12 @@ normalfont
 \begin_layout Standard
 Seguint d'esquerra a dreta l'exemple que s'ha posat tenim a la banda esquerra
  de l'igual, la funció que haurà de fer, en aquest cas addVideo, és a dir,
- afegir un nou video a l'escena actual.
+ afegir un nou vídeo a l'escena actual.
  Després de l'igual tenim tots els atributs i configuració, en aquest cas
- posem el video a la posició 1 (no posició espaial, sinó de l'array), utilitzem
+ posem el vídeo a la posició 1 (no posició espacial, sinó de l'array), utilitzem
  el separador % per introduir l'atribut principal que pràcticament totes
- les funcionalitats tindran, per aquest exemple serà la ruta on es trova
- el video que es vol reproduir.
+ les funcionalitats tindran, per aquest exemple serà la ruta on es troba
+ el vídeo que es vol reproduir.
 \end_layout
 
 \begin_layout Standard
@@ -5888,11 +5952,11 @@ subsubsection{Compatibilitat audio}
 
 \begin_layout Standard
 Per altre banda tenim el sistema d'àudio, en el que un usuari pot posar
- una cancó, veu en off, o el que vulgui de fons.
+ una cançó, veu en off, o el que vulgui de fons.
  Aquí no s'utilitza libVLC, sinó la llibreria interna d'àudio de la que
- disposa Unity, pel que serà compatible únicament amb audio WAV i MPEG,
+ disposa Unity, pel que serà compatible únicament amb àudio WAV i MPEG,
  que ha de ser més que suficient tenint en compte que no és un objectiu
- principal ni molt demandat, i es compleix un suport dels estandards d'àudio.
+ principal ni molt demandat, i es compleix un suport dels estàndards d'àudio.
  Això sí, s'accepten fitxers tant locals com al núvol, descarregant la informaci
 ó d'aquests, i emmagatzemant-la en un array d'AudioClips.
 \begin_inset Newline newline
@@ -5929,12 +5993,12 @@ subsubsection{Transicions}
 \end_layout
 
 \begin_layout Standard
-Es permeten 3 tipus de transicions en videos, per tall, crossfade i fade.
- En la de tall, passem d'un video a un altre d'una manera brusca.
- El crossfade significa canviar d'un video a un altre fent que un va desapareixe
-nt mentres el segon apareix, pel que no passem per un pla en negre i pot
+Es permeten 3 tipus de transicions en vídeos, per tall, crossfade i fade.
+ En la de tall, passem d'un vídeo a un altre d'una manera brusca.
+ El crossfade significa canviar d'un vídeo a un altre fent que un va desapareixe
+nt mentre el segon apareix, pel que no passem per un pla en negre i pot
  quedar més dinàmic segons el moment.
- En el fade en canvi, el primer video es va difuminant fins a passar a un
+ En el fade en canvi, el primer vídeo es va difuminant fins a passar a un
  pla en negre, i un cop s'ha arribat al negre, el segon apareix de manera
  gradual.
 \begin_inset Newline newline
@@ -6015,11 +6079,11 @@ normalfont
 \end_layout
 
 \begin_layout Standard
-Aquesta crida servirà per fer un canvi d'un video a un altre, amb un efecte
+Aquesta crida servirà per fer un canvi d'un vídeo a un altre, amb un efecte
  de fade.
  El atribut transitionTime que va després del símbol ~ és opcional, i per
  defecte el valor serà 0.
- Aquest valor indica els segons que trigarà en desaparèixer un video, és
+ Aquest valor indica els segons que trigarà en desaparèixer un vídeo, és
  a dir que la transició completa serà el doble del valor que s'introdueixi.
 \end_layout
 
@@ -6118,7 +6182,7 @@ El tercer tipus de transició que s'havia comentat era el de tall, com és
 
 \begin_layout Standard
 Addicionalment, totes les transicions incorporen un script per tal de que
- l'audio baixi de manera gradual conforme desapareixin els videos i no talli
+ l'àudio baixi de manera gradual conforme desapareguin els vídeos i no talli
  de manera brusca.
 \end_layout
 
@@ -6139,14 +6203,14 @@ subsubsection{Animacions}
 \end_layout
 
 \begin_layout Standard
-A la majoria de commandes visuals de l'applicació (videos, imatges, textos...)
+A la majoria de comandes visuals de l'aplicació (vídeos, imatges, textos...)
  es permet un paràmetre opcional que definirà el que trigarà en arribar
  a l'objectiu demanat.
- Per exemple si volem moure i escalar un video, podem posar al final de
+ Per exemple si volem moure i escalar un vídeo, podem posar al final de
  la comanda el símbol ~ i indicar un valor en segons de quant trigarà en
  fer l'animació.
  Aquests efectes tenen una animació anomenada EaseOutExpo, el que significa
- que segueixen una curva exponencial en el transcurs de l'animació.
+ que segueixen una corba exponencial en el transcurs de l'animació.
  Per defecte seria lineal, però quedaria molt poc dinàmic i poc professional.
  Pel que s'ha optat per aquesta alternativa ja que es considera la més adequada
  pel tipus de clients i és molt atractiu.
@@ -6225,8 +6289,8 @@ tweening engine
 \begin_inset Quotes frd
 \end_inset
 
- que permet fer càlculs intermitjos per passar d'un valor a un altre, amb
- curves d'animació totalment customitzables.
+ que permet fer càlculs intermedis per passar d'un valor a un altre, amb
+ corbes d'animació totalment customitzables.
  Un exemple d'ús que es mostra a la seva documentació.
 \end_layout
 
@@ -6321,7 +6385,7 @@ Posicions i escala
 \end_layout
 
 \begin_layout Standard
-És molt probable que el modificador les posicions i escales dels videos
+És molt probable que el modificador les posicions i escales dels vídeos
  serà de les funcionalitats més utilitzades i és un requisit indispensable.
  Aquest bloc es divideix en 3 comandes diferents:
 \begin_inset Newline newline
@@ -6382,8 +6446,8 @@ Scale
 \begin_layout Standard
 Es defineix un sol valor en el rang de 0 a 1 que indicarà l'escala (mida)
  desitjada.
- Només té un valor ja que no es contempla tenir videos deformats o de resolucion
-s extranyes que no siguin amb un aspect ratio de 16:9.
+ Només té un valor ja que no es contempla tenir vídeos deformats o de resolucion
+s estranyes que no siguin amb un aspect ratio de 16:9.
 \end_layout
 
 \begin_layout Standard
@@ -6427,7 +6491,7 @@ Poscale
 \begin_layout Standard
 Poscale és una comanda que fusiona les dues anteriors per poder fer les
  dues coses de cop, posicionar i escalar, el que permet poder sincronitzar
- més facilment l'animació de totes dues, a més d'un ús més còmode.
+ més fàcilment l'animació de totes dues, a més d'un ús més còmode.
 \end_layout
 
 \begin_layout Standard
@@ -6453,7 +6517,7 @@ Colors i transparències
 \end_layout
 
 \begin_layout Standard
-També es permet modificar la transparència del video, per a fer-ho s'ha
+També es permet modificar la transparència del vídeo, per a fer-ho s'ha
  de modificar l'alpha del material del Unity.
  Aprofitant que es programa això, també es permetrà canviar el color del
  material en cas de desitjar-ho.
@@ -6470,7 +6534,7 @@ Colors
 \end_layout
 
 \begin_layout Standard
-Aquesta funció tenyirà d'un color el video, per exemple si li indiquem un
+Aquesta funció tenyirà d'un color el vídeo, per exemple si li indiquem un
  color vermell pur, es dibuixarà tot en escala de vermells.
  Es té en compte que potser no serà una funcionalitat molt utilitzada, però
  per algun cas específic pot ser bastant útil.
@@ -6494,10 +6558,10 @@ Transparències
 \end_layout
 
 \begin_layout Standard
-Es permet canviar l'alpha dels videos per poder tenir-ne d'alguns superposats
+Es permet canviar l'alpha dels vídeos per poder tenir-ne d'alguns superposats
  sobre altres.
  Això és molt útil i era un rels requisits indispensables, sobretot en imatges,
- del que es parlarà més endevant.
+ del que es parlarà més endavant.
  Per aquesta funció també es permet crear una animació, que dóna un aspecte
  molt dinàmic i professional.
 \end_layout
@@ -6561,7 +6625,7 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Docume
 
 \begin_layout Standard
 Encara que aquest efecte es pot aconseguir simplement modificant el valor
- alpha del material principal, pels objectes de video, s'utilitza un shader
+ alpha del material principal, pels objectes de vídeo, s'utilitza un shader
  propi anomenat com a Smart Material, que controlarà tot tipus d'efectes
  que se li demanin.
  És per això que només calen un parell de línies per aplicar-lo.
@@ -6602,10 +6666,10 @@ subsubsection{Layer Sorting}
 Layer Sorting o si traduïm literalment, ordenació de capes, és la funcionalitat
  que ens permet controlar les posicions en el eix de la Z, és a dir, el
  vector normal del pla de la càmera.
- Per aconseguir-ho, no s'ha fet només utilitzant la posició espaial, sinó
+ Per aconseguir-ho, no s'ha fet només utilitzant la posició espacial, sinó
  que també s'ha fet ús de la tècnica de modificar el Z Buffer.
  En gràfics per ordinador, el z-buffering és el que s'encarrega de gestionar
- quins son els objectes que es renderitzen devant de la resta.
+ quins son els objectes que es renderitzen davant de la resta.
  La targeta gràfica fa un càlcul segons les posicions dels objectes i genera
  la imatge generada.
 \end_layout
@@ -6719,7 +6783,7 @@ literal "false"
 \end_inset
 
 , podrem modificar al nostre gust el Z-Buffer i renderitzar un objecte que
- estigui molt lluny de la càmara abans que un que estigui més a prop, per
+ estigui molt lluny de la càmera abans que un que estigui més a prop, per
  exemple.
 \end_layout
 
@@ -6741,7 +6805,7 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language={bash},caption={Docume
 \end_layout
 
 \begin_layout Standard
-Només caldrà indicar quin es el video que es vol canviar de posició, i la
+Només caldrà indicar quin es el vídeo que es vol canviar de posició, i la
  capa destí.
  
 \begin_inset Newline newline
@@ -6751,7 +6815,7 @@ Només caldrà indicar quin es el video que es vol canviar de posició, i la
 \end_layout
 
 \begin_layout Standard
-La programació al unity és molt intuïtiva, només caldrà agafar el material
+La programació al Unity és molt intuïtiva, només caldrà agafar el material
  del render, i a la propietat renderQueue, assignar-li un valor.
 \end_layout
 
@@ -6835,14 +6899,14 @@ subsubsection{Cropping}
 \end_layout
 
 \begin_layout Standard
-El efecte de cropping vol dir retallar un video.
+El efecte de cropping vol dir retallar un vídeo.
  La forma més simple al retallar seria en forma rectangular.
- En aquesta aplicació, a més de poder retallar rectangularment, utilitzant
+ En aquesta aplicació, a més de poder retallar amb forma rectangular, utilitzant
  la potència i possibilitats de Unity podem retallar amb qualsevol tipus
  de forma gràcies als shaders.
- La manera d'utilitzar-ho serà aplicant una màscara que es composarà de
+ La manera d'utilitzar-ho serà aplicant una màscara que es compondrà de
  colors blancs (visible) i negres (no visible).
- Un color gris voldria dir que es veu lleugerament, pel que també ho podriem
+ Un color gris voldria dir que es veu lleugerament, pel que també ho podríem
  utilitzar per fer degradats d'opacitat.
 \end_layout
 
@@ -6896,7 +6960,7 @@ En aquesta figura tenim un exemple de màscara de cropping, aplicarem aquesta
 \end_layout
 
 \begin_layout Standard
-Doncs si posem un video qualsevol a sobre d'un altre, i li apliquem aquest
+Doncs si posem un vídeo qualsevol a sobre d'un altre, i li apliquem aquest
  efecte amb la mateixa màscara mostrada abans, aconseguirem aquest resultat.
 \end_layout
 
@@ -6953,7 +7017,7 @@ literal "false"
 \end_inset
 
 , que permet crear-ne sense necessitat de programar, el que ho fa bastant
- més senzill i intuitiu.
+ més senzill i intuïtiu.
  Utilitza un sistema de nodes, bastant inspirat en els blueprints de Unreal,
  però aquí resulta molt més útil, ja que la programació de shaders és baix
  nivell i no és gaire fàcil d'aprendre.
@@ -7002,7 +7066,7 @@ name "fig:CropShaderGraph"
 \end_layout
 
 \begin_layout Standard
-Així queden els nodes per aconseguir el resultat de un material d'un video
+Així queden els nodes per aconseguir el resultat de un material d'un vídeo
  amb una màscara.
  Al centre tenim el node de 
 \begin_inset Quotes fld
@@ -7024,10 +7088,10 @@ UV
 , la sortida del node de posició, que indica respecte a què ho haurem de
  moure, en aquest cas, respecte la posició global.
  Entra també el resultat de Tiling, al que se li ha de fer un processament
- previ, ja que el valor real segueix una corva logarítmica, haurem de dividir
+ previ, ja que el valor real segueix una corba logarítmica, haurem de dividir
  1 entre el valor real.
  I per últim també un Vector2 que serà el Offset.
- Tot això ho introduim al valor de 
+ Tot això ho introduïm al valor de 
 \begin_inset Quotes fld
 \end_inset
 
@@ -7093,8 +7157,8 @@ Outline and Shadows
 \end_inset
 
 .
- Permet posar un marc d'un color sòlid a un video, o una ombra.
- En la creació d'aquest efecte, s'ha fet un altre shader desde 0.
+ Permet posar un marc d'un color sòlid a un vídeo, o una ombra.
+ En la creació d'aquest efecte, s'ha fet un altre shader des de 0.
  S'ha seguit la tècnica per fer l'efecte de outline en un sprite d'un videojoc,
  ja que el crop podrà tenir diferents formes.
  L'usuari 
@@ -7139,7 +7203,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Sombrejat en un video amb Crop
+Ombrejat en un vídeo amb Crop
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:ShadowCrop"
@@ -7239,9 +7303,9 @@ subsubsection{Chroma Key}
 \end_layout
 
 \begin_layout Standard
-Él chroma és el efecte millor efecte del que disposa l'aplicació, ja que
- no és gaire fàcil de fer a temps real depèn les eines que s'utilitzin,
- és per això que la competència no disposa d'aquest efecte.
+El chroma és el millor efecte del que disposa l'aplicació, ja que no és
+ gaire fàcil de fer a temps real depèn les eines que s'utilitzin, és per
+ això que la competència no disposa d'aquest efecte.
  Era un repte molt important aconseguir-ho ja que marcarà la diferència.
  Per la seva realització, s'ha integrat dins el mateix shader del Smart
  Material creat anteriorment, això sí, utilitzant Sub-Shaders.
@@ -7255,7 +7319,7 @@ Chroma
 \end_inset
 
  amb moltes entrades, que com a sortida té el color resultant del frame
- del video, i la màscara d'alpha, que es pot combinar amb un Crop sense
+ del vídeo, i la màscara d'alpha, que es pot combinar amb un Crop sense
  cap problema.
 \end_layout
 
@@ -7303,7 +7367,7 @@ name "fig:ChromaShaderGraph"
 
 \begin_layout Standard
 Aquest node conté 5 Sub-Graph, és a dir, 5 petits shaders que fan processaments
- intermitjos per aconseguir el resultat final.
+ intermedis per aconseguir el resultat final.
  Processos com poden ser toleràncies, conversions de rgb a un altre format,
  càlcul de difuminat de contorns, eliminació de restes de color verd (Despill),
  etc.
@@ -7361,7 +7425,7 @@ Key Color: Especifica el color a eliminar (per defecte verd pur rgb(0,1,0)).
 
 \begin_layout Itemize
 Threshold: El rang de color a eliminar partint del Key Color, per si hi
- ha ombres al color o la iluminació no està del tot bé.
+ ha ombres al color o la il·luminació no està del tot bé.
 \end_layout
 
 \begin_layout Itemize
@@ -7457,10 +7521,10 @@ subsubsection{Textos}
 Pels textos s'ha utilitzat el plugin de Unity TextMeshPro, que està inclòs
  per defecte a les últimes versions, ja que és molt superior al sistema
  de Textos que tenia anteriorment.
- Per defecte aparèixen amb una animació de opacitat de 0 a 1, de 0.2 segons.
+ Per defecte apareixen amb una animació de opacitat de 0 a 1, de 0.2 segons.
  Els paràmetres que es poden modificar són: canviar el text, canviar el
  pivot (permet ajustar millor Títols amb Subtítols entre altres), canviar
- la posició, opacitat, i destruïr-los.
+ la posició, opacitat, i destruir-los.
  Tot el que té a veure amb el format del text, es farà amb el propi sistema
  de TextMeshPro, que permet aplicar atributs d'una manera molt semblant
  a com es faria amb HTML, per exemple, la font, mida, color...
@@ -7577,7 +7641,7 @@ b, i
 \begin_inset Text
 
 \begin_layout Plain Layout
-Estils de negrita i cursiva
+Estils de negreta i cursiva
 \end_layout
 
 \end_inset
@@ -7777,7 +7841,7 @@ noparse
 \begin_inset Text
 
 \begin_layout Plain Layout
-Evita parsejar els simbols antilambda
+Evita parsejar els símbols antilambda
 \end_layout
 
 \end_inset
@@ -8028,8 +8092,8 @@ Atributs de TextMeshPro
 \end_layout
 
 \begin_layout Standard
-La documentació per instertar textos a l'aplicació segueix bastant la nomenclatu
-ra dels anteriors.
+La documentació per inserir textos a l'aplicació segueix bastant la nomenclatura
+ dels anteriors.
 \begin_inset Newline newline
 \end_inset
 
@@ -8066,7 +8130,7 @@ subsubsection{Imatges}
 \begin_layout Standard
 El sistema d'imatges funciona amb el component RawImage de Unity UI.
  No té gaire complicació, els requisits eren poder aplicar imatges de qualsevol
- format i posibilitat de transparència.
+ format i possibilitat de transparència.
  Per descarregar la imatge, es comprova si es local o remota, i es descarrega
  utilitzant la llibreria UnityWebRequest, com ja es feia amb els àudios
  anteriorment (veure addAudio.cs 
@@ -8153,7 +8217,7 @@ SceneManager
 \begin_inset Quotes frd
 \end_inset
 
- es composa de 2 blocs, el bloc de save, i el de load.
+ es compon de 2 blocs, el bloc de save, i el de load.
 \begin_inset Newline newline
 \end_inset
 
@@ -8182,7 +8246,7 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Sa
 \end_layout
 
 \begin_layout Standard
-Guarda en llistes tots els videos, imatges, textos i background.
+Guarda en llistes tots els vídeos, imatges, textos i background.
  Després formata tota l'estructura en un fitxer binari i el guarda al path
  per defecte de Unity.
 \begin_inset Newline newline
@@ -8206,7 +8270,7 @@ lstparams "breaklines=true,captionpos=b,frame=tb,language={[Sharp]C},caption={Sa
 El bloc de càrrega, fa una mica el procés contrari, carrega el fitxer binari
  en una nova estructura SaveData.
  Passant per tots els elements de l'estructura, va executant totes les funcions
- pertintents per acabar obtenint el mateix resultat.
+ pertinents per acabar obtenint el mateix resultat.
 \begin_inset Newline newline
 \end_inset
 
@@ -8377,7 +8441,7 @@ subsubsection{Debugging}
 Aquesta secció està pensada pel desenvolupament de l'aplicació.
  Ja que quan s'utilitza l'aplicació compilada al servidor no es té una consola
  que mostri tot el log, s'ha integrat una consola que es mostra a sobre
- dels videos, per poder debuggar més fàcilment.
+ dels vídeos, per poder debugar més fàcilment.
  Només cal executar la crida debug=true per activar aquesta consola de desenvolu
 pament.
 \end_layout
@@ -8446,10 +8510,10 @@ normalfont
 \end_layout
 
 \begin_layout Standard
-Un cop la tenim activada, tots els errors que pasin al Unity aniràn sortint
+Un cop la tenim activada, tots els errors que passin al Unity aniran sortint
  per allà.
  A més també es disposa d'algunes comandes de control per rebre informació.
- Com pot ser retornar una llista amb totes els videos, imatges, textos i
+ Com pot ser retornar una llista amb totes els vídeos, imatges, textos i
  escenes disponibles.
 \end_layout
 
@@ -8560,7 +8624,7 @@ name "fig:DebugConsole"
 
 \begin_layout Standard
 A més, aquestes funcions de debug també es pot fer que retornin la resposta
- a través de terminal on fem les crides, si no volem que els videos quedin
+ a través de terminal on fem les crides, si no volem que els vídeos quedin
  tapats per el debug.
  Això ho fem indicant la comanda 
 \begin_inset Quotes fld
@@ -8865,12 +8929,12 @@ normalfont
 Aquesta comanda executarà l'arxiu WCT.x86_64 en el monitor virtual :0, que
  és el creat anteriorment amb Xorg :0.
  A més, generarà un arxiu de log, per poder tenir un seguiment dels problemes
- que poguin sorgir.
+ que puguin sorgir.
 \end_layout
 
 \begin_layout Standard
 Per últim, s'haurà d'exportar el contingut del monitor a un flux RTMP o
- el que es desitji.
+ el que es desitgi.
  Hi ha moltes maneres de fer-ho, després de moltes proves, una de les més
  òptimes és la següent:
 \end_layout
@@ -8960,7 +9024,13 @@ subsection{Rendiments Màxims i Tests}
 \begin_layout Standard
 L'aplicació s'executa a una màquina s3 de AWS.
  Té 4 cores de CPU i una GPU Nvidia Tesla T4.
- 
+ És de les màquines més senzilles amb GPU, i ja ha donat uns resultats bastant
+ sorprenents, pel que en el cas de necessitar més potència, no hi hauria
+ cap problema en seleccionar una de més potent.
+ Pel que s'ha aconseguit un dels resultats clau del projecte, escalabilitat.
+ Això permet també oferir una amplia selecció de serveis amb diferents preus,
+ per tal que un usuari que no necessiti tanta potència tingui un preu més
+ baix i aconseguir uns preus atractius si es desitgés.
 \end_layout
 
 \begin_layout Standard
@@ -9009,6 +9079,10 @@ name "fig:ResultatFrame"
 El processador acostuma estar en una càrrega de 60-80%, depenent del contingut
  que s'estigui reproduint.
  Tenint en compte que s'està ocupant del Unity i FFmpeg a la vegada.
+ Es podria investigar per tenir la sortida de FFmpeg carregada a la GPU
+ enlloc de tenir-la al processador.
+ Però de moment els resultats ja han sigut òptims, pel que no és un canvi
+ totalment necessari.
 \end_layout
 
 \begin_layout Standard
@@ -9055,7 +9129,12 @@ name "fig:ResultatHtop"
 
 \begin_layout Standard
 La GPU té una càrrega bastant variable, però de VRAM utilitza molt poca,
- sempre va sobrat de rendiment.
+ potser es podria aprofitar tota aquesta VRAM per utilitzar-la en algun
+ altre procés.
+ S'hauria d'investigar i seria un treball d'optimització per si es vol aconsegui
+r una càrrega més equilibrada del servidor.
+ En tot cas com ja s'ha comentat, s'aconsegueixen uns rendiments òptims
+ i es considera més important que no faltin recursos.
 \end_layout
 
 \begin_layout Standard
@@ -9124,11 +9203,18 @@ section{Conclusions}
 \end_layout
 
 \begin_layout Standard
-Amb aquest projecte s'ha descobert un món de possibilitats tant per mí,
+Amb aquest projecte s'ha descobert un món de possibilitats tant per mi,
  com per Watchity i el món audiovisual.
- S'han descobert molts aspectes del Unity que semblaven inviables de juntar
- amb l'arquitectura del mixer anterior, i que finalment amb molt esforç
+ S'han descobert molts aspectes del Unity que semblaven inviables d'ajuntar
+ amb l'arquitectura del Mixer anterior, i que finalment amb molt esforç
  i estudi, s'ha aconseguit de manera òptima.
+\end_layout
+
+\begin_layout Standard
+S'ha aconseguit els objectius que es van definir, inclús s'han afegit algunes
+ funcionalitats extres que han anat sorgint en el transcurs del desenvolupament.
+ A més de la satisfacció extra de saber que el projecte tindrà una utilitat
+ real a una empresa.
 \end_layout
 
 \begin_layout Standard
@@ -9138,14 +9224,26 @@ Veient el potencial que té, s'espera que aquestes tecnologies evolucionin
 \end_layout
 
 \begin_layout Standard
-Evidentment alguns objectius s'han assolit amb més èxit que d'altres, pero
- a trets generals, podem dir sense dubte que el projecte ha sigut un èxit,
- i que tindrà una utilitat real a una empresa.
+L'aplicació té molts punts forts, gràcies a les animacions aconseguides
+ amb Unity, l'aspecte de les transicions i moviments són molt professionals.
+ Té moltes possibilitats de textos, imatges, compatibilitat de vídeo, que
+ fan que sigui molt diferencial a les altres opcions existents.
+ L'ús és senzill, sobretot gràcies a l'API que s'ha desenvolupat al voltant
+ del projecte, que permetrà calcular totes les posicions i moviments de
+ forma automàtica, per a que si un usuari vol una escena no gaire complicada
+ ho pugui fer amb uns pocs passos.
+ I el que es considera el punt més fort i innovador, s'executa tot al núvol
+ i no es requereix de molts recursos.
+ Permetent que en un futur es pugui utilitzar inclús en dispositius mòbils
+ o tablets.
+ Un altre punt fort és que sigui remot, i la seva escalabilitat, permetent
+ un servei personalitzat per a cada usuari, depenent de la complexitat de
+ les escenes que es desitgi.
 \end_layout
 
 \begin_layout Standard
-Els aspectes més dèbils del projecte, són els problemes que s'ha tingut
- de compatibilitat entre Unity / Linux / Nvidia Drivers.
+Un aspecte dèbil del projecte, són els problemes que s'ha tingut de compatibilit
+at entre Unity / Linux / Nvidia Drivers.
  Unity sí que té un software molt pel sistema operatiu utilitzat, encara
  que també s'ha d'entendre que no és el seu target principal.
  Per altre banda, Nvidia proporciona uns drivers que no són open-source,
@@ -9153,14 +9251,19 @@ Els aspectes més dèbils del projecte, són els problemes que s'ha tingut
  solucionar si la companyia ho permet.
  Un exemple d'incompatibilitat és que els drivers propietaris de Nvidia
  no permeten l'ús de VA-API, una de les tecnologies més potents per acceleració
- de video.
+ de vídeo.
+ Com es comenta no és del tot un impediment, sinó que és un obstacle molest,
+ fàcil de solucionar, però que no depèn dels usuaris, sinó d'una empresa
+ externa com és Nvidia.
+ Pel que pot quedar com una línia de futur si decideixen fer algun canvi
+ en aquest aspecte.
 \end_layout
 
 \begin_layout Standard
-Si en un futur decidicin alliberar el codi del seus drivers, o com a mínim,
+Si en un futur es decidís alliberar el codi del seus drivers, o com a mínim,
  donar més suport als usuaris de Linux, es podrien aconseguir uns resultats
- molt superiors a Windows, a més de totes les ventatges que Linux dona per
- a servidors.
+ molt superiors a Windows, a més de totes les avantatges que Linux dona
+ per a servidors.
  
 \end_layout
 
@@ -9191,7 +9294,7 @@ section{Línies de futur}
 A mida que s'anava desenvolupat el projecte, amb el descobriment del potencial
  que tenen aquestes tecnologies, , han anat sorgint noves idees per millorar
  i sobretot, innovar més en el món audiovisual.
- Alguns d'aquests punts que es realitzaràn, o tenen la possibilitat de realitzar
+ Alguns d'aquests punts que es realitzaran, o tenen la possibilitat de realitzar
 -se en un futur són:
 \end_layout
 
@@ -9204,11 +9307,11 @@ Labels de textos i banners.
 \end_layout
 
 \begin_layout Itemize
-Playlists de videos.
+Playlists de vídeos.
 \end_layout
 
 \begin_layout Itemize
-Macro: possibilitat de emmagatzemar una seqüència de commandes, per reproduir-la
+Macro: possibilitat de emmagatzemar una seqüència de comandes, per reproduir-la
  més tard automàticament.
 \end_layout
 
