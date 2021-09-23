@@ -31,6 +31,8 @@
 \urlstyle{same}
 
 \sloppy
+
+\renewcommand{\contentsname}{Índex}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -242,6 +244,225 @@ Gabriel Fernández Ubiergo
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size huge
+Resum
+\series default
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sector audiovisual és un dels àmbits que evolucionen dia a dia a causa
+ dels avenços de les noves tecnologies, gràcies a això, la possibilitat
+ de crear produccions audiovisuals de gran qualitat a temps real ja és una
+ realitat.
+ Però per a això és necessari l'ús de maquinari amb la potència suficient
+ per dur a terme aquesta possibilitat i d'un personal amb coneixements elevats
+ sobre el tema.
+ En aquest projecte volem crear una aplicació innovadora amb la qual qualsevol
+ usuari pugui crear composicions extraordinàries.
+ Per a això, farem servir sobretot el nostre enginy, ja que no existeix
+ cap aplicació que avui en dia hagi aconseguit semblant gesta anteriorment.
+ Entrarem en l'ús de tècniques innovadores per al món audiovisual i que
+ com a primera impressió poden no semblar relacionades per al cas.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'objectiu principal és crear una aplicació de live video mixing en el núvol,
+ això vol dir que no fan falta recursos de la màquina local, de manera que
+ es podrà treballar amb qualsevol ordinador per molt antic i senzill que
+ sigui, per crear unes composicions de qualitat amb vídeos d'alta resolució
+ treballant de manera totalment 
+\begin_inset Quotes fld
+\end_inset
+
+live
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Tot això, en temps real amb un retard mínim del vídeo a la sortida.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Paraules clau: 
+\series default
+Audiovisual, núvol, remot, escalable, vídeo, còdecs, Linux, servidor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size huge
+Resumen
+\series default
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sector audiovisual es uno de los ámbitos que evolucionan dia a dia debido
+ a los avances de las nuevas tecnologías, gracias a esto, la posibilidad
+ de crear producciones audiovisuales de gran calidad a tiempo real ya es
+ una realidad.
+ Pero para ello es necesario el uso de hardware con la potencia suficiente
+ para llevar a cabo esta posibilidad y de un personal con conocimientos
+ eleveados sobre el tema.
+ En este proyecto queremos crear una aplicación innovadora con la que cualquier
+ usuario pueda crear composiciones extraordinarias.
+ Para ello, usaremos sobretodo nuestro ingenio, ya que no existe ninguna
+ aplicación que hoy en dia haya conseguido semejante hazaña anteriormente.
+ Entraremos en el uso de técnicas innovadoras para el mundo audiovisual
+ y que como primera impresión pueden no parecer relacionadas para el caso.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El objetivo principal es crear una aplicación de live video mixing en la
+ nube, eso significa que no se usarán recursos de la máquina local, por
+ lo que se podrá trabajar con cualquier ordenador por muy antiguo y sencillo
+ que sea, para crear unas composiciones de calidad con vídeos de alta resolución
+ trabajando de manera totalmente 
+\begin_inset Quotes fld
+\end_inset
+
+live
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Todo esto, en tiempo real con un retardo mínimo del video en la salida.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Palabras clave: 
+\series default
+Audiovisual, nube, remoto, escalable, video, códecs, Linux, servidor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size huge
+Abstract
+\series default
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The audiovisual sector is one of the areas that evolve day by day due to
+ the advances of new technologies, thanks to this, the possibility of creating
+ high quality audiovisual productions in real time is now a reality.
+ But this requires the use of hardware with sufficient power to carry out
+ this possibility and a staff with elevated knowledge on the subject.
+ In this project we want to create an innovative application with which
+ any user can create extraordinary compositions.
+ To do this, we will use our ingenuity, since there is no application today
+ that has achieved such a feat before.
+ We will enter into the use of innovative techniques for the audiovisual
+ world and that as a first impression may not seem related to the case.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main objective is to create a live video mixing application in the cloud,
+ that means that no local machine resources will be used, so you can work
+ with any computer, no matter how old and simple it is, to create quality
+ compositions with high resolution videos in a completely live way.
+ All of this, in real time with a minimum delay of the video at the output.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Keywords: 
+\series default
+Audiovisual, cloud, remote, scalable, video, codecs, Linux, server.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
 
 \end_layout
 
@@ -269,13 +490,29 @@ status open
 
 
 \backslash
-tableofcontents 
+tableofcontents
 \end_layout
 
 \end_inset
 
 
 \begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
 \end_inset
 
 
@@ -360,8 +597,8 @@ Aquest projecte ha estat realitzat a l'empresa Watchity S.L., on he estat
  La quantitat de vídeos amb la que es pot treballar és limitat, estàs lligat
  a un programari que no controles i els efectes que es poden aplicar sobre
  els vídeos són massa senzills.
- S'analitzarà l'aplicació actual, es compararà i es decidiran uns requisits
- indispensables pel seu successor.
+ Durant el projecte s'analitzarà l'aplicació actual, es compararà i es decidiran
+ uns requisits indispensables pel seu successor.
  Aquesta és una de les raons per la qual es van plantejar contractar un
  becari que refés el sistema des de un altre punt de vista totalment diferent.
  
@@ -1151,7 +1388,7 @@ name "fig:PupeteerLogo"
 \end_layout
 
 \begin_layout Standard
-És open-source i està sota la llicència d'Apache 2.0 
+El Puppeteer és open-source i està sota la llicència d'Apache 2.0 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ApacheLicense"
@@ -1164,9 +1401,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-És molt fàcil d'instal·lar, ja que només cal instal·lar un paquet npm i
- per utilitzar-lo es fa tot amb javascript mitjançant les comandes que disposen
- a la seva documentació.
+A més, és molt fàcil d'instal·lar, ja que només cal instal·lar un paquet
+ npm i per utilitzar-lo es fa tot amb javascript mitjançant les comandes
+ que disposen a la seva documentació.
  A més de tot això, la major avantatge que té és que està pensat per ser
  utilitzat amb Headless Chrome, dóna moltes facilitats per realitzar totes
  les tasques sense estar veient cap tipus de UI, i a la vegada poder debugar
@@ -1294,8 +1531,8 @@ name "fig:WebGLExample"
 Per una banda aquesta solució és molt atractiva ja que es faria tot el sistema
  des de 0 sense utilitzar cap tipus de dependència, però a la vegada també
  depens de les polítiques o limitacions de potència del navegador.
- Mai serà capaç d'utilitzar el 100% de la màquina i no és comparable amb
- una aplicació standalone.
+ Mai serà capaç d'utilitzar tot el rendiment de la màquina, pel que no és
+ comparable amb una aplicació standalone.
 \end_layout
 
 \begin_layout Standard
@@ -3647,9 +3884,9 @@ subsubsection{Unreal Engine 4}
 \end_layout
 
 \begin_layout Standard
-Per la prova amb Unreal Engine, s'ha utilitzat una tecnologia molt utilitzada
- de manera professional a la televisió, i que recentment ha estat integrada
- a Unreal com a plugin extern.
+Per la prova amb Unreal Engine, s'ha utilitzat una tecnologia molt popular
+ a la televisió, i que recentment ha estat integrada a Unreal com a plugin
+ extern.
  Es tracta del software NDI (Network Device Interface) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4743,7 +4980,7 @@ Les màquines estan agrupades en un sol servei al núvol i responen al mateix
 \begin_inset Text
 
 \begin_layout Plain Layout
-Elastic Compute Cloud (EC2) Es paga per hora utilitzada
+Es paga per hora utilitzada
 \end_layout
 
 \end_inset
@@ -9022,8 +9259,54 @@ subsection{Rendiments Màxims i Tests}
 \end_layout
 
 \begin_layout Standard
-L'aplicació s'executa a una màquina s3 de AWS.
- Té 4 cores de CPU i una GPU Nvidia Tesla T4.
+L'aplicació s'executa a una màquina ec2 de AWS, concretament, la G4dn.xlarge.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/G4Machines.png
+	lyxscale 20
+	height 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Màquines G4
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:G4Machines"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Té 4 cores de CPU i una GPU Nvidia Tesla T4.
  És de les màquines més senzilles amb GPU, i ja ha donat uns resultats bastant
  sorprenents, pel que en el cas de necessitar més potència, no hi hauria
  cap problema en seleccionar una de més potent.
@@ -9208,6 +9491,10 @@ Amb aquest projecte s'ha descobert un món de possibilitats tant per mi,
  S'han descobert molts aspectes del Unity que semblaven inviables d'ajuntar
  amb l'arquitectura del Mixer anterior, i que finalment amb molt esforç
  i estudi, s'ha aconseguit de manera òptima.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9215,12 +9502,20 @@ S'ha aconseguit els objectius que es van definir, inclús s'han afegit algunes
  funcionalitats extres que han anat sorgint en el transcurs del desenvolupament.
  A més de la satisfacció extra de saber que el projecte tindrà una utilitat
  real a una empresa.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Veient el potencial que té, s'espera que aquestes tecnologies evolucionin
  fins a un punt on la televisió o el cine, utilitzi moltes tècniques dels
  videojocs.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9239,13 +9534,17 @@ L'aplicació té molts punts forts, gràcies a les animacions aconseguides
  Un altre punt fort és que sigui remot, i la seva escalabilitat, permetent
  un servei personalitzat per a cada usuari, depenent de la complexitat de
  les escenes que es desitgi.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Un aspecte dèbil del projecte, són els problemes que s'ha tingut de compatibilit
 at entre Unity / Linux / Nvidia Drivers.
- Unity sí que té un software molt pel sistema operatiu utilitzat, encara
- que també s'ha d'entendre que no és el seu target principal.
+ Unity sí que té un software molt adaptat pel sistema operatiu utilitzat,
+ encara que també s'ha d'entendre que no és el seu target principal.
  Per altre banda, Nvidia proporciona uns drivers que no són open-source,
  pel que ja trobarem moltes incompatibilitats i errors que només es podran
  solucionar si la companyia ho permet.
@@ -9257,17 +9556,26 @@ at entre Unity / Linux / Nvidia Drivers.
  externa com és Nvidia.
  Pel que pot quedar com una línia de futur si decideixen fer algun canvi
  en aquest aspecte.
+ Si en un futur Nvidia decidís alliberar el codi dels seus drivers, o com
+ a mínim, donar més suport als usuaris de Linux, es podrien aconseguir uns
+ resultats molt superiors a Windows, a més de totes les avantatges que Linux
+ dona per a servidors.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Si en un futur es decidís alliberar el codi del seus drivers, o com a mínim,
- donar més suport als usuaris de Linux, es podrien aconseguir uns resultats
- molt superiors a Windows, a més de totes les avantatges que Linux dona
- per a servidors.
- 
-\end_layout
-
-\begin_layout Standard
+Per concloure, cal destacar que aquest projecte té molt potencial i els
+ objectius s'han aconseguit amb èxit.
+ Per aquest motiu, s'ha decidit que el projecte segueix en desenvolupament
+ per arribar a tenir una aplicació encara més sòlida i que es pugui posar
+ a disposició dels usuaris de Watchity.
+ El motor gràfic Unity està en constant evolució, pel que es preveu que
+ cada cop es recolzi més la tecnologia audiovisual, el que permetrà que
+ el projecte segueixi en constant evolució, sorprenent als usuaris en cada
+ actualització.
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -10483,6 +10791,39 @@ noprefix "false"
  Vicente A.
  (2021, February 17)Status Response.
  Own elaboration.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:G4Machines"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Amazon Web Services.
+ (2021, January 1).
+ G4 Machines [Table].
+ Table G4 Machines.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://aws.amazon.com/es/ec2/instance-types/g4/
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
