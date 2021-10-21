@@ -6,6 +6,7 @@ Created with Lyx
 
 Resum del projecte
 
+```
 L’evolució de les tecnologies en el sector multimèdia és imparable, cada cop
 tenim a la nostra disposició més serveis de streaming, «video on demand» i
 eines de producció molt professionals a l’abast de qualsevol tipus d’usuari. I
@@ -54,3 +55,4 @@ creant una eina potent al núvol totalment remota i a la vegada, potent.
 Alguns exemples de les empreses/entitats que ja han treballat anterior-
 ment amb Watchity són: el Correo Gallego, l’Oréal, Generalitat de Catalunya,
 Honda...
+```
