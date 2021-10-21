@@ -2,7 +2,7 @@ TFG_Enginyeria_Multimedia
 
 Created with Lyx
 
-[PDF Complet](https://raw.githubusercontent.com/avicarpio/TFG_Enginyeria_Multimedia/main/TFGAlexVicenteRevisat.pdf?token=AI5BYUWV3HUMVFVIXQZVJGDBJBFWY) 
+[PDF Complet](https://github.com/avicarpio/TFG_Enginyeria_Multimedia/releases/download/untagged-9fbf34dd08339d078dd2/TFGAlexVicente.pdf) 
 
 Resum del projecte
 
